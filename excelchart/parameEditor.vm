@@ -1,0 +1,657 @@
+<div class='chart-pEditor-cont animated ' style="display:none">
+    <div class="pEditor-dialog-header amz-dialog-header" style="width: 604px;  ">图表设置
+        <a id="close_AMZ_999" href="javascript:void(0)" class="amz-button button-x" style="margin-left: 205px;"><span>×</span></a>
+    </div>
+    <table class='editor-tab'>
+        <tr>
+            <td class='tab active' tab='pEditor-tab-chart'>图表</td>
+            <td class='tab' tab='pEditor-tab-axis'>坐标轴</td>
+            <td class='tab' tab='pEditor-tab-series'>系列</td>
+            <td class='tab' tab='pEditor-tab-legend'>图例</td>
+            <td style='' class='tab' tab='pEditor-tab-data'>数据</td>
+        </tr>
+    </table>
+    <div _id="pEditor-tab-data" class='pEditor-tab-cont'>
+        <div class='pEditor-item '>
+            <i class="auicon down-3 toggle-3"></i><span>水平（分类)轴标签</span>
+            <div class='pEditor-item-body'>
+                <span style="width:100px;border-radius:5px;">标签区域:</span>
+                <div class='right'>
+                    <div style="margin-top:-9px;">
+                        <input type="text" id="pEditor-ds-tag-l" style="margin-right: -35px;width:200px;" />
+                        <span class="rangeSelectOut pEditor-ds-cr-selecter" style=" display: inline-block; top: 14px;right: -13px;"> </span>
+                        <div style='margin-left: -13px;'>
+                            <span>= </span>
+                            <input id="pEditor-ds-tag-v" type='text' style='width:200px;' />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class='pEditor-item '>
+            <i class="auicon down-3 toggle-3"></i><span>图列项(系列）</span>
+            <div style='overflow-y:auto;height:100%'>
+                <div class='pEditor-item-body'>
+                    <div class='s-item'>
+                        <div>
+                            <span>系列名: </span>
+                            <div style="display:inline-block">
+                                <input type="text" id="pEditor-ds-tag-l" style="margin-right: -35px;width:100px;" />
+                                <span class="rangeSelectOut pEditor-ds-cr-selecter" style=" display: inline-block; top: 14px;right: -13px;"> </span>
+                                <span>= </span>
+                                <input id="pEditor-ds-tag-v" type='text' style='width:90px;' />
+                            </div>
+                        </div>
+                        <div class='' style="display:inline-block">
+                            <span>系列值: </span>
+                            <div style="display:inline-block;margin-top: -126px;">
+                                <input type="text" id="pEditor-ds-tag-l" style="margin-right: -35px;width:100px;" />
+                                <span class="rangeSelectOut pEditor-ds-cr-selecter" style=" display: inline-block; top: 14px;right: -13px;"> </span>
+                                <span>= </span>
+                                <input id="pEditor-ds-tag-v" type='text' style='width:90px;' />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div _id="pEditor-tab-legend" class='pEditor-tab-cont'>
+        <div class='pEditor-item ' style='display:none'>
+            <div>
+                <span><label for="pEditor-cb-legendshow">是否显示图例：</label></span>
+                <input type="checkbox" class='right' id="pEditor-cb-legendshow" plink='pEditor-series-ul' pathstr='legend' value='true' nocheckv='false' />
+            </div>
+        </div>
+        <div class='pEditor-item ' id='div-legend-item'>
+            <i class="auicon down-3 toggle-3"></i><span>图例位置</span>
+            <div class='pEditor-item-body'>
+                <span style="width:100px;border-radius:5px;">
+                    <input type="checkbox" id="pEditor-cb-orient"  pathstr='legend.orient'   value='radio:chart_radio_legend_orient' nocheckv=''  />
+                    水平放置还是垂直放置：</span>
+                <span class='right'>
+                <label for="pEditor-legend-orient-0">水平: </label> 
+                    <input type="radio" class="chart_peditor_radio" name="chart_radio_legend_orient" pathstr='legend.orient' value='horizontal'  id="pEditor-legend-orient-0"  >
+                    <label for="pEditor-legend-orient-1" style="margin-left:10px;">垂直: </label> 
+                    <input type="radio" class="chart_peditor_radio" name="chart_radio_legend_orient" pathstr='legend.orient' value='vertical' id="pEditor-legend-orient-1" >
+             </span>
+            </div>
+            <div class='pEditor-item-body'>
+                <span style="width:100px;border-radius:5px;">
+                <input type="checkbox" id="pEditor-cb-x"  pathstr='legend.x'   value='radio:chart_radio_legend_x' nocheckv=''  />
+                水平位置：</span>
+                <span class='right'>
+                <label for="pEditor-legend-x-0">左: </label> 
+                    <input type="radio" class="chart_peditor_radio" name="chart_radio_legend_x" pathstr='legend.x' value='left'  id="pEditor-legend-x-0"  >
+                    <label for="pEditor-legend-x-1" style="margin-left:10px;">中: </label> 
+                    <input type="radio" class="chart_peditor_radio" name="chart_radio_legend_x" pathstr='legend.x' value='center' id="pEditor-legend-x-1" >
+                    <label for="pEditor-legend-x-2" style="margin-left:10px;">右: </label> 
+                    <input type="radio" class="chart_peditor_radio" name="chart_radio_legend_x" pathstr='legend.x' value='right' id="pEditor-legend-x-2" >
+             </span>
+            </div>
+            <div class='pEditor-item-body'>
+                <span style="width:100px;border-radius:5px;">
+                <input type="checkbox" id="pEditor-cb-y"  pathstr='legend.y'   value='radio:chart_radio_legend_y' nocheckv=''  />
+                垂直位置：</span>
+                <span class='right'>
+                <label for="pEditor-legend-y-0">上: </label> 
+                    <input type="radio" class="chart_peditor_radio" name="chart_radio_legend_y" pathstr='legend.y' value='top'  id="pEditor-legend-y-0" >
+                    <label for="pEditor-legend-y-1" style="margin-left:10px;">中: </label> 
+                    <input type="radio" class="chart_peditor_radio" name="chart_radio_legend_y" pathstr='legend.y' value='center' id="pEditor-legend-y-1" >
+                    <label for="pEditor-legend-y-2" style="margin-left:10px;">下: </label> 
+                    <input type="radio" class="chart_peditor_radio" name="chart_radio_legend_y" pathstr='legend.y' value='bottom' id="pEditor-legend-y-2" >
+             </span>
+            </div>
+        </div>
+    </div>
+    <div _id="pEditor-tab-series" class='pEditor-tab-cont'>
+        <div class='pEditor-item no-pie-item'>
+            <div id="pEditor-series-tab">
+                <ul id="pEditor-series-ul" class="tabs-nav">
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div _id="pEditor-tab-series" class='pEditor-tab-cont div-height-66'>
+        <div class='pEditor-item no-pie-item '>
+            <span>系列 <span id='series-name-i' style="color:red;margin-left: 10px;"></span> </span>
+            <div class='pEditor-item-body line-bar-item no-barH-item'>
+                <span><label for="pEditor-on-axis">绘制在： </label></span>
+                <span class='right'>
+                    <label for="pEditor-axis-0">主坐标轴: </label> 
+                    <input type="radio" class="chart_peditor_radio" name="chart_radio_axis" plink='pEditor-series-ul' pathstr='yAxisIndex' value='0'  id="pEditor-axis-0"  checked="checked">
+                    <label for="pEditor-axis-1" style="margin-left:2px;">次坐标轴: </label> 
+                    <input type="radio" class="chart_peditor_radio" name="chart_radio_axis" plink='pEditor-series-ul' pathstr='yAxisIndex' value='1' id="pEditor-axis-1" >
+                    
+                </span>
+            </div>
+        </div>
+        <div class='pEditor-item no-pie-item line-bar-item'>
+            <i class="auicon down-3 toggle-3"></i><span>系列类型</span>
+            <div class='pEditor-item-body'>
+                <span>请选择类型:</span>
+                <span class='right'>
+                    
+                    <label for="pEditor-series-bar">柱形图: </label> 
+                    <input type="radio" class="chart_peditor_radio" name="chart_radio_type"  plink='pEditor-series-ul' pathstr='type'  id="pEditor-series-bar" value="bar" checked="checked">
+                    <label for="pEditor-series-line" style="margin-left:28px;">  折线图: </label> 
+                    <input type="radio" class="chart_peditor_radio" name="chart_radio_type" plink='pEditor-series-ul' pathstr='type' id="pEditor-series-line" value="line">
+                    <label style='display:none' for="pEditor-series-line" style="margin-left:10px;"> 圆形符号 : </label> 
+                    <input style='display:none' type="radio" class="chart_peditor_radio" name="chart_radio_type" plink='pEditor-series-ul' pathstr='symbol' pathstr2='type=scatter' id="pEditor-series-line" value="circle">
+                    
+                </span>
+            </div>
+        </div>
+        <div class='pEditor-item pie-item'>
+            <i class="auicon down-3 toggle-3"></i><span>半径</span>
+            <div class='pEditor-item-body'>
+                <span style="width:100px;border-radius:5px;">饼图半径：</span>
+                <span class='right'><input type="range" class=' range'  id="pEditor-radius"  afterV='%' plink='pEditor-series-ul' pathstr='radius' min="30" max="100" />
+             <input type="text" class=' range-text' afterV='%' plink='pEditor-series-ul' pathstr='radius'/><span class='px'>%</span>
+                </span>
+            </div>
+        </div>
+        <div class='pEditor-item no-pie-item'>
+            <i class="auicon down-3 toggle-3"></i><span>系列颜色</span>
+            <div class='pEditor-item-body'>
+                <span style="width:100px;border-radius:5px;">颜色值：</span>
+                <div class='right'>
+                    <input type="text" id="pEditor-color-oper" class="color-oper" beforeV='#' plink='pEditor-series-ul' pathstr='itemStyle.normal.color'  sector='true' style='width:115px;' />
+                </div>
+            </div>
+        </div>
+        <div class='pEditor-item no-pie-item'>
+            <i class="auicon down-3 toggle-3"></i><span>显示标注</span>
+            <div class='pEditor-item-body'>
+                <span title='最大值最小值标注是否显示'><label for="pEditor-cb-comment">最值标注是否显示：</label></span>
+                <input type="checkbox" class='right' id="pEditor-cb-comment" plink='pEditor-series-ul' pathstr='markPoint' value='json-{"data":[{"type":"max","name":"最大值"},{"type":"min","name":"最小值"}]}' />
+            </div>
+        </div>
+        <div class='pEditor-item'>
+            <i class="auicon down-3 toggle-3"></i><span>显示数值标签</span>
+            <div class='pEditor-item-body'>
+                <div>
+                    <span><label for="pEditor-cb-dataflag">数值标签是否显示：</label></span>
+                    <input type="checkbox" class='right' id="pEditor-cb-dataflag" plink='pEditor-series-ul' pathstr='itemStyle.normal.label.show' pathstr2='itemStyle.normal.labelLine.show' value='true' nocheckv='false' />
+                </div>
+                <div class='pie-item'>
+                    <span><label for="pEditor-cb-dataflag-line">数值线是否显示：</label></span>
+                    <input type="checkbox" class='right' id="pEditor-cb-dataflag-line" plink='pEditor-series-ul' pathstr='itemStyle.normal.labelLine.show' value='true' nocheckv='false' />
+                </div>
+                <div>
+                    <span><input style='display:none' type="checkbox" id="pEditor-cb-dataflag-color" plink='pEditor-series-ul' pathstr='itemStyle.normal.label.textStyle.color'  value='id:pEditor-dataflag-color' nocheckv='' placeholder='如:#f0f0f0 或者 red'  />颜色值：</span>
+                    <div class='right'>
+                        <input type="text" class='' id="pEditor-dataflag-color" beforeV='#' plink='pEditor-series-ul' pathstr='itemStyle.normal.label.textStyle.color' value='black' style='width:115px;' />
+                    </div>
+                </div>
+                <div>
+                    <span>标签显示位置：</span>
+                    <select class='right' plink='pEditor-series-ul' pathstr='itemStyle.normal.label.position' id="pEditor-cb-position">
+                        <option value=''></option>
+                        <option value='outter'>外部</option>
+                        <option value='inner'>内部</option>
+                        <option value='left'>居左</option>
+                        <option value='right'>居右</option>
+                        <option value='insideLeft'>内偏左</option>
+                        <option value='insideRight'>内偏右</option>
+                        <option value='insideTop'>内偏上</option>
+                        <option value='insideBottom'>内偏下</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div _id="pEditor-tab-axis" class='pEditor-tab-cont '>
+        <div class='pEditor-item'>
+            <div id="pEditor-axis-tab" style='height:26px;'>
+                <ul id="pEditor-axis-ul" class="tabs-nav">
+                    <li index='0' plinkV='yAxis[0]' tab="y1" class="active"><a>值(Y1)</a></li>
+                    <li index='1' plinkV='yAxis[1]' tab="y2"><a>值(Y2)</a></li>
+                    <li index='2' plinkV='xAxis[0]' tab="x"><a>类别(X)</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div _id="pEditor-tab-axis" class='pEditor-tab-cont div-height-66'>
+        <div class='pEditor-item '>
+            <i class="auicon down-3 toggle-3"></i><span>边界</span>
+            <div class='pEditor-item-body'>
+                <div>
+                    <span>最小值:</span>
+                    <span class='right'><input type="text" plink='pEditor-axis-ul' pathstr='min' id="pEditor-minAxis"/></span>
+                </div>
+                <div>
+                    <span>最大值:</span>
+                    <span class='right'><input type="text" plink='pEditor-axis-ul' pathstr='max' id="pEditor-maxAxis"/></span>
+                </div>
+            </div>
+        </div>
+        <div class='pEditor-item x-item' style='display:none'>
+            <span>行轴逆序:</span>
+            <div class='pEditor-item-body'>
+                <div>
+                    <span><label for="pEditor-cb-xreverse">逆序:</label></span>
+                    <span>
+                       <input  type="checkbox"  id="pEditor-cb-xreverse" style='margin-left:3px;'/>
+            </span>
+                </div>
+            </div>
+        </div>
+        <div class='pEditor-item'>
+            <i class="auicon down-3 toggle-3"></i> <span>坐标轴值</span>
+            <div class='pEditor-item-body'>
+                <div>
+                    <span>值:</span>
+                    <span class='right'>
+                    <label for="pEditor-formattershow-0">显示: </label> 
+                    <input type="radio" class="chart_peditor_radio" name="chart_radio_formattershow" plink='pEditor-axis-ul' pathstr='axisLabel.formatter' value='id:pEditor-unitAxis'  id="pEditor-formattershow-0"  checked="checked">
+                    <label for="pEditor-formattershow-1" style="margin-left:10px;">不显示: </label> 
+                    <input type="radio" class="chart_peditor_radio" name="chart_radio_formattershow" plink='pEditor-axis-ul' pathstr='axisLabel.formatter' value=' ' id="pEditor-formattershow-1" >
+                </span>
+                </div>
+                <div>
+                    <span>单位:</span>
+                    <span class='right'><input type="text" plink='pEditor-axis-ul' pathstr='axisLabel.formatter' beforeV='{value}' id="pEditor-unitAxis"/></span>
+                </div>
+            </div>
+        </div>
+        <div class='pEditor-item'>
+            <span>标签角度</span>
+            <div class='pEditor-item-body'>
+                <div>
+                    <span>角度:</span>
+                    <span class='right'><input type="text"  plink='pEditor-axis-ul' pathstr='axisLabel.rotate'  id="pEditor-angleAxis"/></span>
+                </div>
+            </div>
+        </div>
+        <div class='pEditor-item'>
+            <i class="auicon down-3 toggle-3"></i><span>轴线设置</span>
+            <div class='pEditor-item-body'>
+                <div>
+                    <span>轴线:</span>
+                    <span class='right'>
+                    <label for="pEditor-axisLine-0">显示: </label> 
+                    <input type="radio" class="chart_peditor_radio" name="chart_radio_axisLine" plink='pEditor-axis-ul' pathstr='axisLine.show' value='true'  id="pEditor-axisLine-0"  checked="checked">
+                    <label for="pEditor-axisLine-1" style="margin-left:10px;">不显示: </label> 
+                    <input type="radio" class="chart_peditor_radio" name="chart_radio_axisLine" plink='pEditor-axis-ul' pathstr='axisLine.show' value='false' id="pEditor-axisLine-1" >
+                </span>
+                </div>
+                <div>
+                    <span>宽度:</span>
+                    <span class='right'>
+                         <input style=''  type="range" class='range' plink='pEditor-axis-ul' pathstr='axisLine.lineStyle.width' id="pEditor-lineStyle-width" name="points" min="0" max="300" />
+                         <input type="text" class='range-text'  plink='pEditor-axis-ul' pathstr='axisLine.lineStyle.width' id="pEditor-lineStyle-width-v"/><span class='px'>px</span></span>
+                    </span>
+                </div>
+                <div>
+                    <span>名称:</span>
+                    <span class='right'><input type="text" plink='pEditor-axis-ul' pathstr='name'  id="pEditor-axisName"/></span>
+                </div>
+                <div>
+                    <span>颜色:</span>
+                    <span class='right'><input type="text" plink='pEditor-axis-ul' pathstr='axisLine.lineStyle.color' id="pEditor-lineStyle-color" placeholder='颜色值'/></span>
+                </div>
+            </div>
+        </div>
+        <div class='pEditor-item'>
+            <i class="auicon down-3 toggle-3"></i><span>网格线设置</span>
+            <div class='pEditor-item-body'>
+                <div>
+                    <span>网格线:</span>
+                    <span class='right'>
+                    <label for="pEditor-splitLine-0">显示: </label> 
+                    <input type="radio" class="chart_peditor_radio" name="chart_radio_splitLine" plink='pEditor-axis-ul' pathstr='splitLine.show' value='true'  id="pEditor-splitLine-0"  checked="checked">
+                    <label for="pEditor-splitLine-1" style="margin-left:10px;">不显示: </label> 
+                    <input type="radio" class="chart_peditor_radio" name="chart_radio_splitLine" plink='pEditor-axis-ul' pathstr='splitLine.show' value='false' id="pEditor-splitLine-1" >
+                </span>
+                </div>
+            </div>
+        </div>
+        <div class='pEditor-item'>
+            <i class="auicon down-3 toggle-3"></i><span>刻度设置</span>
+            <div class='pEditor-item-body'>
+                <div>
+                    <span>刻度:</span>
+                    <span class='right'>
+                    <label for="pEditor-axisTick-0">显示: </label> 
+                    <input type="radio" class="chart_peditor_radio" name="chart_radio_axisTick" plink='pEditor-axis-ul' pathstr='axisTick.show' value='true'  id="pEditor-axisTick-0"  checked="checked">
+                    <label for="pEditor-axisTick-1" style="margin-left:10px;">不显示: </label> 
+                    <input type="radio" class="chart_peditor_radio" name="chart_radio_axisTick" plink='pEditor-axis-ul' pathstr='axisTick.show' value='false' id="pEditor-axisTick-1" >
+                </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div _id="pEditor-tab-chart" class='pEditor-tab-cont active' style='height:68%'>
+        <div class='pEditor-item'>
+            <i class="auicon down-3 toggle-3"></i><span>数据源</span>
+            <div class='pEditor-item-body'>
+                <div>
+                    <span>数据源:</span>
+                    <span class='right'>
+                        <div style="position: relative;display:inline-block;top: -9px;">
+                                <input type="text" id="pEditor-ds-cr" style="margin-right: -35px;">
+                                    <span class="rangeSelectOut pEditor-ds-cr-selecter" style=" display: inline-block; top: 14px;right: -13px;"> </span>
+                </div>
+                </span>
+            </div>
+            <div class='no-pie-item line-bar-item no-barH-item' style=''>
+                <span><label for="pEditor-cb-xychange">切换行/列:</label> <input  type="checkbox"  id="pEditor-cb-xychange" style='margin-left:4px;'/></span>
+            </div>
+            <div class='' style='display:none'>
+                <span><label for="pEditor-cb-multititle">启用多列头:</label> <input  type="checkbox"  id="pEditor-cb-multititle" style='margin-left:4px;'/></span>
+            </div>
+        </div>
+    </div>
+    <div class='pEditor-item'>
+        <i class="auicon down-3 toggle-3"></i><span>标题</span>
+        <div class='pEditor-item-body'>
+            <div>
+                <span>主标题:</span>
+                <span class='right'><input type="text" pathstr='title.text'  id="pEditor-mTitle"/></span>
+            </div>
+            <div>
+                <span>副标题:</span>
+                <span class='right'><input type="text" pathstr='title.subtext' id="pEditor-subTitle"/></span>
+            </div>
+        </div>
+    </div>
+    <div class='pEditor-item'>
+        <i class="auicon down-3 toggle-3"></i><span>标题链接</span>
+        <div class='pEditor-item-body'>
+            <div>
+                <span>主标题超链接:</span>
+                <span class='right'><input type="text" pathstr='title.link'  id="pEditor-link" placeholder='http://' /></span>
+            </div>
+            <div>
+                <span>副标题超链接:</span>
+                <span class='right'><input type="text" pathstr='title.sublink' id="pEditor-sublink"  placeholder='http://'/></span>
+            </div>
+        </div>
+    </div>
+    <div class='pEditor-item no-pie-item'>
+        <i class="auicon down-3 toggle-3"></i><span>绘图区</span>
+        <div class='pEditor-item-body'>
+            <table>
+                <tr>
+                    <td style='width:46%'>左边距(L):</td>
+                    <td>
+                        <input type="range" class='range' pathstr='grid.x' id="pEditor-x1" name="points" min="1" max="300" />
+                        <input type="text" class='range-text' pathstr='grid.x' id="pEditor-x1-v" /><span class='px'>px</span>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>上边距(T):</td>
+                    <td>
+                        <input type="range" class='range' pathstr='grid.y' id="pEditor-y1" name="points" min="1" max="300" />
+                        <input type="text" class='range-text' pathstr='grid.y' id="pEditor-y1-v" /><span class='px'>px</span>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>右边距(R):</td>
+                    <td>
+                        <input type="range" class='range' pathstr='grid.x2' id="pEditor-x2" name="points" min="1" max="300" />
+                        <input type="text" class='range-text' pathstr='grid.x2' id="pEditor-x2-v" /><span class='px'>px</span>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>下边距(B):</td>
+                    <td>
+                        <input type="range" class='range' pathstr='grid.y2' id="pEditor-y2" name="points" min="1" max="300" />
+                        <input type="text" class='range-text' pathstr='grid.y2' id="pEditor-y2-v" /><span class='px'>px</span>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>边框:</td>
+                    <td>
+                        <input type="range" class='range' pathstr='grid.borderWidth' id="pEditor-borderWidth" name="points" min="0" max="50" />
+                        <input type="text" class='range-text' pathstr='grid.borderWidth' id="pEditor-borderWidth-v" /><span class='px'>px</span>
+                        </span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<div style='display:none' class='pEditor-template'>
+    <div class='s-item'>
+        <div>
+            <span>系列名: </span>
+            <div style="display:inline-block">
+                <input type="text" id="pEditor-ds-tag-l" style="margin-right: -35px;width:100px;" />
+                <span class="rangeSelectOut pEditor-ds-cr-selecter" style=" display: inline-block; top: 14px;right: -13px;"> </span>
+                <span>= </span>
+                <input id="pEditor-ds-tag-v" type='text' style='width:90px;' />
+            </div>
+        </div>
+        <div class='' style="display:inline-block">
+            <span>系列值: </span>
+            <div style="display:inline-block;margin-top: -126px;">
+                <input type="text" id="pEditor-ds-tag-l" style="margin-right: -35px;width:100px;" />
+                <span class="rangeSelectOut pEditor-ds-cr-selecter" style=" display: inline-block; top: 14px;right: -13px;"> </span>
+                <span>= </span>
+                <input id="pEditor-ds-tag-v" type='text' style='width:90px;' />
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<style type="text/css">
+.pEditor-item-body {
+    clear: both;
+    height: auto;
+    width: 100%;
+    overflow: auto;
+}
+
+.chart-pEditor-cont {
+    border-left: 1px solid #CECECE;
+    z-index: 999999999;
+    width: 300px;
+    border-radius: 8px;
+    position: fixed;
+    background-color: #EDEDED;
+    right: 0;
+    box-shadow: 5px 17px 6px 10px #ccc;
+    height: 100%;
+    margin-top: -4px;
+}
+
+.chart-pEditor-cont .pEditor-dialog-header {
+    width: 100%;
+    min-height: 22px;
+    border-bottom: 1px solid #ccc;
+}
+
+.chart-pEditor-cont table.editor-tab {
+    width: 100%;
+    border: 0px;
+}
+
+.chart-pEditor-cont table.editor-tab td {
+    cursor: pointer;
+    border-right: 1px solid #ccc;
+    line-height: 29px;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+}
+
+.chart-pEditor-cont table.editor-tab td.active {
+    background-color: #2793EE;
+    color: white;
+}
+
+.pEditor-tab-cont {
+    display: none;
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.pEditor-tab-cont.active {
+    display: inline-block;
+}
+
+.pEditor-item {
+    line-height: 2;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.pEditor-item .right {
+    float: right;
+}
+
+.pEditor-item > span:first-child {
+    font-weight: bolder;
+    font-size: 13px;
+}
+
+.pEditor-item input[type='checkbox'] {
+    margin-right: 3px;
+}
+
+.pEditor-item .right-3:before {
+    content: "\e60f";
+}
+
+.pEditor-item .down-3:before {
+    content: "\e622";
+}
+
+.pEditor-item .range {
+    width: 93px;
+}
+
+.pEditor-item .range-text {
+    width: 23px;
+}
+
+.chart-pEditor-cont .tabs-nav {
+    border: none;
+    text-align: center;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    background: transparent;
+}
+
+.chart-pEditor-cont .tabs-nav li {
+    line-height: 14px;
+    text-align: center;
+    margin: 0 -5px 0 0;
+    height: 21px;
+    float: inherit;
+    display: inline-block;
+    border: 1px solid #dcdcdc!important;
+    background: #F3F3F3;
+}
+
+.chart-pEditor-cont .tabs-nav li:hover a {
+    color: #333;
+}
+
+.chart-pEditor-cont .tabs-nav li:first-child {
+    border-radius: 0;
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
+}
+
+.chart-pEditor-cont .tabs-nav li:last-child {
+    border-radius: 0;
+    border-bottom-right-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+.chart-pEditor-cont .tabs-nav li a {
+    text-decoration: blink;
+    float: left;
+    text-align: center;
+    color: black;
+    cursor: pointer;
+    padding: .3em 1em!important;
+    font-family: SimSun;
+    font-size: 12px;
+    font-weight: bolder;
+}
+
+.chart-pEditor-cont .tabs-nav li.active {
+    border: 1px solid #B2B2B2!important;
+    padding-bottom: 0;
+    background: #CFCFCF;
+    box-shadow: 0 2px 2px 0 #B2B2B2 inset!important;
+    height: 21px;
+}
+
+.chart-pEditor-cont .tabs-nav li.active a {
+    box-shadow: none;
+}
+
+.chart-pEditor-cont .div-fixed {
+    position: absolute;
+    width: 100%;
+    background-color: #EDEDED;
+}
+
+.chart-pEditor-cont .div-height-66 {
+    height: 61%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.jPicker.Container {
+    z-index: 9999999!important;
+    top: 143px;
+}
+
+.div-sel-datasource-cr-container .rangeSelectOut,
+.chart-pEditor-cont .rangeSelectOut {
+    top: 10px;
+    right: 17px;
+    background: url(http://g.tbcdn.cn/sjzn/system/v2/images/excel/chart-icon-2/range_selec_out.png) no-repeat;
+    cursor: pointer;
+    height: 16px;
+    padding-top: 2px;
+    padding: 11px 8px 0;
+    position: relative;
+    top: 10px;
+    width: 16px;
+}
+
+.chart-pEditor-cont .close-editorjson {
+    float: left;
+    margin-left: 6px;
+    display: inline-block;
+    margin-top: 5px;
+}
+
+.chart-pEditor-cont .close-editorjson:hover {
+    color: red;
+}
+
+.chart-pEditor-cont .dtm-edtitm-mask {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+    display: none;
+}
+
+.chart-pEditor-cont .pEditor-item-body-disable {
+    color: #ccc;
+}
+
+.chart-pEditor-cont .pEditor-item span.px {
+    margin-left: 5px;
+}
+
+.chart-pEditor-cont .toggle-3 {
+    cursor: pointer;
+}
+</style>

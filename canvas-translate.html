@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <style>
+      canvas {
+        border:1px solid #2C2C2B; /* 1px border around canvas */
+      }
+    </style>
+  </head>
+<body>
+    <canvas id="Canvas" width="800" height="600"></canvas>
+   <script> 
+ var canvas = document.getElementById('Canvas');
+      var context = canvas.getContext('2d');
+  
+context.fillStyle='#FF3399';
+     
+context.fillRect(200,20,100,100);
+     
+     // origin translated to (200, 100)
+   context.translate(200,100);
+     
+     // position of same rectangle after translation
+ context.fillRect(200,20,100,100);
+
+context.translate(200,110);
+
+ context.fillRect(200,120,100,100);
+  </script>
+    
+  </body>
+</html>                                                                                                        
+	

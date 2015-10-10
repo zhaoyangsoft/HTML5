@@ -8,54 +8,8 @@
             <td class='tab' tab='pEditor-tab-axis'>坐标轴</td>
             <td class='tab' tab='pEditor-tab-series'>系列</td>
             <td class='tab' tab='pEditor-tab-legend'>图例</td>
-            <td style='' class='tab' tab='pEditor-tab-data'>数据</td>
         </tr>
     </table>
-    <div _id="pEditor-tab-data" class='pEditor-tab-cont'>
-        <div class='pEditor-item '>
-            <i class="auicon down-3 toggle-3"></i><span>水平（分类)轴标签</span>
-            <div class='pEditor-item-body'>
-                <span style="width:100px;border-radius:5px;">标签区域:</span>
-                <div class='right'>
-                    <div style="margin-top:-9px;">
-                        <input type="text" id="pEditor-ds-tag-l" style="margin-right: -35px;width:200px;" />
-                        <span class="rangeSelectOut pEditor-ds-cr-selecter" style=" display: inline-block; top: 14px;right: -13px;"> </span>
-                        <div style='margin-left: -13px;'>
-                            <span>= </span>
-                            <input id="pEditor-ds-tag-v" type='text' style='width:200px;' />
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class='pEditor-item '>
-            <i class="auicon down-3 toggle-3"></i><span>图列项(系列）</span>
-            <div style='overflow-y:auto;height:100%'>
-                <div class='pEditor-item-body'>
-                    <div class='s-item'>
-                        <div>
-                            <span>系列名: </span>
-                            <div style="display:inline-block">
-                                <input type="text" id="pEditor-ds-tag-l" style="margin-right: -35px;width:100px;" />
-                                <span class="rangeSelectOut pEditor-ds-cr-selecter" style=" display: inline-block; top: 14px;right: -13px;"> </span>
-                                <span>= </span>
-                                <input id="pEditor-ds-tag-v" type='text' style='width:90px;' />
-                            </div>
-                        </div>
-                        <div class='' style="display:inline-block">
-                            <span>系列值: </span>
-                            <div style="display:inline-block;margin-top: -126px;">
-                                <input type="text" id="pEditor-ds-tag-l" style="margin-right: -35px;width:100px;" />
-                                <span class="rangeSelectOut pEditor-ds-cr-selecter" style=" display: inline-block; top: 14px;right: -13px;"> </span>
-                                <span>= </span>
-                                <input id="pEditor-ds-tag-v" type='text' style='width:90px;' />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     <div _id="pEditor-tab-legend" class='pEditor-tab-cont'>
         <div class='pEditor-item ' style='display:none'>
             <div>
@@ -76,6 +30,7 @@
                     <input type="radio" class="chart_peditor_radio" name="chart_radio_legend_orient" pathstr='legend.orient' value='vertical' id="pEditor-legend-orient-1" >
              </span>
             </div>
+        
             <div class='pEditor-item-body'>
                 <span style="width:100px;border-radius:5px;">
                 <input type="checkbox" id="pEditor-cb-x"  pathstr='legend.x'   value='radio:chart_radio_legend_x' nocheckv=''  />
@@ -89,6 +44,7 @@
                     <input type="radio" class="chart_peditor_radio" name="chart_radio_legend_x" pathstr='legend.x' value='right' id="pEditor-legend-x-2" >
              </span>
             </div>
+       
             <div class='pEditor-item-body'>
                 <span style="width:100px;border-radius:5px;">
                 <input type="checkbox" id="pEditor-cb-y"  pathstr='legend.y'   value='radio:chart_radio_legend_y' nocheckv=''  />
@@ -115,7 +71,7 @@
     <div _id="pEditor-tab-series" class='pEditor-tab-cont div-height-66'>
         <div class='pEditor-item no-pie-item '>
             <span>系列 <span id='series-name-i' style="color:red;margin-left: 10px;"></span> </span>
-            <div class='pEditor-item-body line-bar-item no-barH-item'>
+            <div class='pEditor-item-body line-bar-item no-barH-item' >
                 <span><label for="pEditor-on-axis">绘制在： </label></span>
                 <span class='right'>
                     <label for="pEditor-axis-0">主坐标轴: </label> 
@@ -148,7 +104,7 @@
                 <span style="width:100px;border-radius:5px;">饼图半径：</span>
                 <span class='right'><input type="range" class=' range'  id="pEditor-radius"  afterV='%' plink='pEditor-series-ul' pathstr='radius' min="30" max="100" />
              <input type="text" class=' range-text' afterV='%' plink='pEditor-series-ul' pathstr='radius'/><span class='px'>%</span>
-                </span>
+             </span>
             </div>
         </div>
         <div class='pEditor-item no-pie-item'>
@@ -156,7 +112,7 @@
             <div class='pEditor-item-body'>
                 <span style="width:100px;border-radius:5px;">颜色值：</span>
                 <div class='right'>
-                    <input type="text" id="pEditor-color-oper" class="color-oper" beforeV='#' plink='pEditor-series-ul' pathstr='itemStyle.normal.color'  sector='true' style='width:115px;' />
+                    <input type="text" id="pEditor-color-oper" class="color-oper" beforeV='#' plink='pEditor-series-ul' pathstr='itemStyle.normal.color'  sector='true' style='width:115px;'/>
                 </div>
             </div>
         </div>
@@ -181,7 +137,7 @@
                 <div>
                     <span><input style='display:none' type="checkbox" id="pEditor-cb-dataflag-color" plink='pEditor-series-ul' pathstr='itemStyle.normal.label.textStyle.color'  value='id:pEditor-dataflag-color' nocheckv='' placeholder='如:#f0f0f0 或者 red'  />颜色值：</span>
                     <div class='right'>
-                        <input type="text" class='' id="pEditor-dataflag-color" beforeV='#' plink='pEditor-series-ul' pathstr='itemStyle.normal.label.textStyle.color' value='black' style='width:115px;' />
+                        <input type="text" class='' id="pEditor-dataflag-color" beforeV='#'  plink='pEditor-series-ul' pathstr='itemStyle.normal.label.textStyle.color' value='black' style='width:115px;' />
                     </div>
                 </div>
                 <div>
@@ -417,37 +373,8 @@
         </div>
     </div>
 </div>
-<div style='display:none' class='pEditor-template'>
-    <div class='s-item'>
-        <div>
-            <span>系列名: </span>
-            <div style="display:inline-block">
-                <input type="text" id="pEditor-ds-tag-l" style="margin-right: -35px;width:100px;" />
-                <span class="rangeSelectOut pEditor-ds-cr-selecter" style=" display: inline-block; top: 14px;right: -13px;"> </span>
-                <span>= </span>
-                <input id="pEditor-ds-tag-v" type='text' style='width:90px;' />
-            </div>
-        </div>
-        <div class='' style="display:inline-block">
-            <span>系列值: </span>
-            <div style="display:inline-block;margin-top: -126px;">
-                <input type="text" id="pEditor-ds-tag-l" style="margin-right: -35px;width:100px;" />
-                <span class="rangeSelectOut pEditor-ds-cr-selecter" style=" display: inline-block; top: 14px;right: -13px;"> </span>
-                <span>= </span>
-                <input id="pEditor-ds-tag-v" type='text' style='width:90px;' />
-            </div>
-        </div>
-    </div>
-</div>
 </div>
 <style type="text/css">
-.pEditor-item-body {
-    clear: both;
-    height: auto;
-    width: 100%;
-    overflow: auto;
-}
-
 .chart-pEditor-cont {
     border-left: 1px solid #CECECE;
     z-index: 999999999;
@@ -612,7 +539,7 @@
 .chart-pEditor-cont .rangeSelectOut {
     top: 10px;
     right: 17px;
-    background: url(http://g.tbcdn.cn/sjzn/system/v2/images/excel/chart-icon-2/range_selec_out.png) no-repeat;
+    background: url(http://g.tbcdn.cn/sjzn/cloudbi/images/excel/chart-icon-2/range_selec_out.png) no-repeat;
     cursor: pointer;
     height: 16px;
     padding-top: 2px;
@@ -634,24 +561,23 @@
 }
 
 .chart-pEditor-cont .dtm-edtitm-mask {
-    position: absolute;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 100;
-    display: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  display: none;
+}
+.chart-pEditor-cont .pEditor-item-body-disable{
+    color:#ccc;
 }
 
-.chart-pEditor-cont .pEditor-item-body-disable {
-    color: #ccc;
+.chart-pEditor-cont .pEditor-item span.px{
+    margin-left:5px;
 }
 
-.chart-pEditor-cont .pEditor-item span.px {
-    margin-left: 5px;
-}
-
-.chart-pEditor-cont .toggle-3 {
+.chart-pEditor-cont .toggle-3{
     cursor: pointer;
 }
 </style>

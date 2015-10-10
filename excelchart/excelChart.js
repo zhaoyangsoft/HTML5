@@ -337,32 +337,40 @@ define('v2/excel/excelChart', [
                 var c;
 
                 if (chartOption == undefined) {
-                    c = localStorage['tempCharts'];
-                    if (c == undefined) {
-                        return;
-                    }
-                    c = JSON.parse(c);
+                    // c = localStorage['tempCharts'];
+                    // if (c == undefined) {
+                    //     return;
+                    // }
+                    // c = JSON.parse(c);
+                    c = _self.get('oldChartOption');
+
                 } else {
                     c = chartOption;
                     _self.set('oldChartOption', chartOption)
-                    localStorage['tempCharts'] = JSON.stringify(c);
+                        // localStorage['tempCharts'] = JSON.stringify(c);
                 }
 
-                for (var i = 0; i < c.length; i++) {
-                    var s = c[i];
+                if (!c) {
+                    //如果 没有(回显的时候 数据库没有) 则，从当前 当前已有的 刷新.
+                    c = _self.doSaveChart();
+                }
 
-                    var sheet = spread.getSheetFromName(s.name);
-                    var fobjs = s.fobjs;
-                    for (var j = 0; j < fobjs.length; j++) {
-                        var fobj = fobjs[j];
-                        //判断是否 已经渲染过. 
+                if (c)
+                    for (var i = 0; i < c.length; i++) {
+                        var s = c[i];
 
-                        var c_ = _self._getChartByKey(fobj.divName);
-                        if (c_ == null) {
-                            _self.doRenderChart(fobj.type, fobj);
-                        }
+                        var sheet = spread.getSheetFromName(s.name);
+                        var fobjs = s.fobjs;
+                        for (var j = 0; j < fobjs.length; j++) {
+                            var fobj = fobjs[j];
+                            //判断是否 已经渲染过. 
+
+                            var c_ = _self._getChartByKey(fobj.divName);
+                            if (c_ == null) {
+                                _self.doRenderChart(fobj.type, fobj);
+                            }
+                        };
                     };
-                };
 
                 // 2.  
             },
@@ -383,6 +391,9 @@ define('v2/excel/excelChart', [
                     var so = { //sheet object
                         name: s.getName(),
                         fobjs: [] //float objects 
+                    };
+                    if (sheetOpened[s.getName()] != 1) {
+                        continue;
                     };
                     var objs = s.getFloatingObjects();
                     var o, fobjs = [];
@@ -437,7 +448,7 @@ define('v2/excel/excelChart', [
                     };
 
                 //2. sheet 上获取ObjectFloat  
-                localStorage['tempCharts'] = JSON.stringify(result);
+                // localStorage['tempCharts'] = JSON.stringify(result);
 
                 return result;
             },
@@ -487,13 +498,49 @@ define('v2/excel/excelChart', [
                     }
                 })
             },
+            //
+            _addHideLgend: function() {
+                var _self = this;
+                var legendSpan = $('#div-legend-item span:first');
+                if (legendSpan.text() == '图例位置' || legendSpan.text() == '图例') {
+                    legendSpan.text('图例');
+                    var tempHtml = ['<span class="right" id="legend-show-span">',
+                        '<label for="pEditor-legend-show-0">显示: </label> ',
+                        '<input type="radio" class="chart_peditor_radio" name="chart_radio_legend_show" pathstr="legend.data" value="" id="pEditor-legend-show-0" checked="checked">',
+                        '<label for="pEditor-legend-show-1" style="margin-left:10px;">不显示: </label>',
+                        '<input type="radio" class="chart_peditor_radio" name="chart_radio_legend_show" pathstr="legend.data" value="[]" id="pEditor-legend-show-1">',
+                        '</span>'
+                    ].join('');
+                    if ($('#legend-show-span').length > 0) {
+                        return;
+                    };
+                    legendSpan.append(tempHtml);
 
+                };
+            },
             //编辑图表参数 相关事件
             initEditerJsonsRelatedEvent: function() {
                 var _self = this;
                 // _self._initChartEditorChangeEvent();
                 _self.initCRSelecterEvent();
 
+                _self._addHideLgend();
+
+                $('#pEditor-cb-bgOpacity').unbind('click').bind('click', function(e) {
+
+                    var activeChartId = _self.get('activeChartId');
+                    var charts = _self.get('charts');
+                    var c = charts[activeChartId];
+                    var cb = $(this);
+
+                    if (cb.attr('checked') != 'checked') {
+                        $('#' + activeChartId).css("cssText", "background-color:white!important").attr('isTransparent', '0')
+                        c.settings.isTransparent = 0;
+                    } else {
+                        $('#' + activeChartId).css("cssText", "background-color:rgba(0, 0, 0, 0)!important").attr('isTransparent', '1')
+                        c.settings.isTransparent = 1;
+                    }
+                });
 
                 $('#div-legend-item .pEditor-item-body').unbind('click').bind('click', function(e) {
                     if (e.target.type != 'checkbox') {
@@ -631,6 +678,9 @@ define('v2/excel/excelChart', [
             //初始化 图表 变更编辑器. 
             _initChartEditorChangeEvent: function() {
                 var _self = this;
+
+
+                _self._addHideLgend();
 
                 //TODO 有一种 写法可以 合起来写.   忘了具体的写法
                 $('.chart-pEditor-cont input[type="text"]').unbind('change').bind('change', function() {
@@ -926,6 +976,11 @@ define('v2/excel/excelChart', [
                     $('#pEditor-borderWidth-v').val(borderWidth);
                 };
 
+                _self.doTransparentedChart(activeChartId);
+
+
+
+
                 // 坐标轴 tab 
                 var option = c.chart.getOption() || {};
                 if (!option.series) {
@@ -1210,6 +1265,13 @@ define('v2/excel/excelChart', [
                         $('#pEditor-cb-y').removeAttr('checked').parents('div').eq(0).addClass('pEditor-item-body-disable');
                     }
 
+                    if (legend.data) {
+                        if (legend.data.length == 0) {
+                            $('.chart_peditor_radio[name="chart_radio_legend_show"][value="[]"]').attr('checked', 'checked');
+                        }
+                    } else {
+                        $('.chart_peditor_radio[name="chart_radio_legend_show"][value=""]').attr('checked', 'checked');
+                    }
                 };
 
                 if ($('.chart-pEditor-cont .editor-tab .tab.active').length == 0) {
@@ -1220,7 +1282,7 @@ define('v2/excel/excelChart', [
                 var keyType = _self.getValueByPathStr('json.key', c.settings);
                 var subIndex = _self.getValueByPathStr('json.subIndex', c.settings);
                 //是否是条形图
-                var isBar_h = (keyType == 'bar' && (subIndex == 3 || subIndex == 4));
+                var isBar_h = (keyType == 'bar' && (subIndex == 2 || subIndex == 3));
                 var isScatter_bubble = (keyType == 'scatter' || keyType == 'bubble');
                 var y1 = $('#pEditor-axis-ul li[tab="y1"]');
                 var x = $('#pEditor-axis-ul li[tab="x"]');
@@ -1774,18 +1836,29 @@ define('v2/excel/excelChart', [
                 }
 
                 function delChartClick(e) {
+
                     var activeChartId = _self.get('activeChartId');
+                    var activeChartEle = _self.get('activeChartEle');
+
                     var spread = _self.get('spread')
                     var sheet = spread.getActiveSheet();  
-                    //1. 删除 floatObject 
-                    sheet.removeFloatingObject('f2_' + activeChartId); 
-                    //2. 删除  内存记录 (_self.get('charts')) 
-                    var charts = _self.get('charts');
-                    delete charts[activeChartId];
-                    //3. 删除 div
-                    $('#' + activeChartId).parents('.floatingobject-container').remove();
 
-                    _self._pEditorDivToggle(false);
+
+                    if (activeChartEle && activeChartEle.parents('.floatingobject-container:first').attr('id').indexOf('FloatingObject') != -1) { //特殊处理  自动出来 FloatObject 的情况 (白螺的 天猫国际日报 发现的. 自定义id 相同的2个 floatObjeDiv)
+                        var tempId = activeChartEle.parents('.floatingobject-container').attr('id');
+                        sheet.removeFloatingObject(tempId); 
+                        activeChartEle.parents('.floatingobject-container:first').remove();
+                    } else {
+                        //1. 删除 floatObject 
+                        sheet.removeFloatingObject('f2_' + activeChartId); 
+                        //2. 删除  内存记录 (_self.get('charts')) 
+                        var charts = _self.get('charts');
+                        delete charts[activeChartId];
+                        //3. 删除 div
+                        $('#' + activeChartId).parents('.floatingobject-container').remove();
+
+                        _self._pEditorDivToggle(false);
+                    }
                 }
                 subMenu.on('itemclick', function() {
                     // //console.info(subMenu.getSelectedText());
@@ -1824,7 +1897,8 @@ define('v2/excel/excelChart', [
                 var menu = _self.get('chartMenu');
                 $('.chart-oper').unbind('click').bind('click', function(e) {
                     var curChartDivId = $(this).parents('div:first').find('.div-chart-auto').attr('id');
-                    _self.showChartMenu(e, curChartDivId);
+
+                    _self.showChartMenu(e, curChartDivId, $(this));
                     // var tempId = $(this).parents('.floatingobject-background-cover').eq(0).find('.div-chart-auto').attr('id');
                     // _self.set('activeChartId', tempId);
                     // menu.set('xy', [e.pageX, e.pageY]);
@@ -1832,18 +1906,22 @@ define('v2/excel/excelChart', [
                 });
             },
 
-            showChartMenu: function(e, curChartDivId) {
+            showChartMenu: function(e, curChartDivId, curEle) {
                 var _self = this;
                 //TODO 冻结表格的时候 这个length 会>1 要解决一下.
 
                 if (curChartDivId != undefined) {
                     var curObj = $('#' + curChartDivId);
+                    if (curEle != undefined) {
+                        curObj = curEle.parents('.floatingobject-container:first').find('.div-chart-auto');
+                    };
                     var tempId = curChartDivId;
                     var objOffset = curObj.offset();
                     if ((curObj.width() + objOffset.left) < e.pageX || (curObj.height() + objOffset.top) < e.pageY || e.pageX < objOffset.left || e.pageY < objOffset.top) {
                         return false;
                     };
                     _self.set('activeChartId', tempId);
+                    _self.set('activeChartEle', curObj);
                     var menu = _self.get('chartMenu');
 
                     menu.set('xy', [e.pageX, e.pageY]);
@@ -2266,6 +2344,11 @@ define('v2/excel/excelChart', [
                 //console.info(time1)
                 // 1  获取到选择的值  
                 var baseData = _self.getSelectedBaseData(chartType, sheet, fobj && fobj.cr); //TODO 优化 性能. 
+                if (baseData == null) {
+                    return null;
+                };
+
+
                 time1 = new Date();
                 //console.info(time1)
 
@@ -2372,6 +2455,11 @@ define('v2/excel/excelChart', [
                     baseOption = _self.doRenderChart_mergeOption(chartType, fobj, sheet, textName, divId_, others);
                 }
 
+                if (baseOption == null) {
+                    console.warn('图表引用的数据为空, 不能正常展现，请清理空白数据的表格【下期将支持自动清理功能】 ~..');
+                    return null;
+                };
+
                 var option = baseOption.option,
                     divId = baseOption.divId,
                     baseData = baseOption.baseData,
@@ -2456,7 +2544,7 @@ define('v2/excel/excelChart', [
                 setTimeout(function() {
                     _self.reLoadChartByDivID(divId);
                 }, 50)
-                _self.doAfterRenderChart();
+                _self.doAfterRenderChart(divId);
             },
 
             /**
@@ -2539,7 +2627,12 @@ define('v2/excel/excelChart', [
                         }
                     } else {
                         //一下子 改变了2个
-                        tempObj[keys[lastIndex_]] = value;
+                        //处理 赋值 为 空数组的情况  如， legend.data =[];
+                        if (value == '[]') {
+                            tempObj[keys[lastIndex_]] = [];
+                        } else {
+                            tempObj[keys[lastIndex_]] = value;
+                        }
                     };
 
                     return baseJson;
@@ -2662,10 +2755,32 @@ define('v2/excel/excelChart', [
 
             },
 
-            doAfterRenderChart: function() {
+            doAfterRenderChart: function(divId) {
                 var _self = this;
                 _self.initChartMenuEvent();
                 _self.initChartClickEvent();
+                if (divId) {
+                    _self.doTransparentedChart(divId);
+                };
+
+            },
+            //加载万比之后.透明化设置. 
+            doTransparentedChart: function(divId) {
+                var _self = this;
+                var charts = _self.get('charts');
+                var c = charts[divId];
+                if (c == null) {
+                    return;
+                };
+                var isTransparent = c.settings.isTransparent;
+                if (isTransparent != 1) {
+                    $('#' + divId).css("cssText", "background-color:white!important").attr('isTransparent', '0')
+                    $('#pEditor-cb-bgOpacity').removeAttr('checked');
+                } else {
+                    $('#' + divId).css("cssText", "background-color:rgba(0, 0, 0, 0)!important").attr('isTransparent', '1')
+                    $('#pEditor-cb-bgOpacity').attr('checked', 'checked')
+                }
+
             },
             //初始化 chart click 事件
             initChartClickEvent: function() {
@@ -2747,7 +2862,7 @@ define('v2/excel/excelChart', [
                     _self.reLoadChartByDivID(c.divId, null, null, c.isXYChange);
                 }
 
-                _self.doAfterRenderChart();
+                _self.doAfterRenderChart(c.divId);
             },
 
             //刷新  当前 sheet 报表.  
@@ -2770,7 +2885,15 @@ define('v2/excel/excelChart', [
                     isRowZoomIn = false;
                     objName = objs[i]._name
                     divId = objName.replace('f2_', '');
-                    c = charts[divId];
+                    //判断是否是 图表  （其他的 CustomerFloatObject 不做处理.）
+                    if (divId.indexOf('div_chart_') == -1) {
+                        continue;
+                    };
+                    if (charts && charts[divId]) {
+                        c = charts[divId];
+                    } else {
+                        continue;
+                    }
                     if (c == undefined) {
                         continue;
                     };
@@ -2973,11 +3096,24 @@ define('v2/excel/excelChart', [
                     var aa = _self.clone(option);
                     option = $.extend(true, aa, editorJson);
                     // console.info("copy后:" + JSON.stringify(option));
+                    _self._copyOthers(option, editorJson);
+
                     return option;
                 } catch (e) {
                     return option;
                 }
 
+            },
+            //copy 索引类型的， 如数组. (TODO)
+            _copyOthers: function(option, editorJson) {
+                var _self = this;
+                try {
+                    if (editorJson && editorJson.legend && editorJson.legend.data) {
+                        option.legend.data = editorJson.legend.data;
+                    };
+                } catch (e) {
+                    return option;
+                }
             },
             //清理 editorJson 中 null 的占位 (如: series 不要有 null)
             _cleanNull4EditorJson: function(editorJson) {
@@ -2989,6 +3125,8 @@ define('v2/excel/excelChart', [
                         };
                     };
                     return editorJson;
+
+
                 } catch (e) {
                     return editorJson;
                 }
@@ -3049,6 +3187,22 @@ define('v2/excel/excelChart', [
                     return target
                 }
             },
+            //检测是否是 条形图
+            _checkIsBar_h: function(c) {
+                try {
+                    var _self = this;
+                    var chartType = _self.getValueByPathStr('settings.json.key', c);
+                    var subIndex = _self.getValueByPathStr('settings.json.subIndex', c);
+                    if (chartType == 'bar' && (subIndex == '2' || subIndex == '3')) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                } catch (e) {
+                    console.error(e);
+                    return false;
+                }
+            },
 
             /**
                 * @function strongOptionBySetting()
@@ -3075,11 +3229,14 @@ define('v2/excel/excelChart', [
 
                 settings = settings || {};
 
+                //是否是条形图
+                var isBar = _self._checkIsBar_h(c);
                 // option = _self.yAxisUnitFormatAspect(option, settings);
+                if (isBar) {
+                    option = _self.reverseXAspect(option, settings);
+                };
+                //TODO 当是条形图的时候 在这儿 x逆序
 
-
-
-                option = _self.reverseXAspect(option, settings);
                 option = _self.multiLegendAspect(option, settings);
                 option = _self.strongOptionByJsonAspect(option, settings, c);
 
@@ -3089,6 +3246,12 @@ define('v2/excel/excelChart', [
                 option = _self.strongOptionByEditorJson(option, settings, c);
 
                 option = _self.strongOptionByMultiTitle(option, settings, c, others);
+
+                //TODO 当不是条形图的时候 在这儿 x逆序
+                //不能放在前几个前边 否则 在 堆积图的时候 会逆转失败. 
+                if (!isBar) {
+                    option = _self.reverseXAspect(option, settings);
+                };
 
                 option = _self._cleanOptionByType(option, settings, c);
 
@@ -3153,6 +3316,8 @@ define('v2/excel/excelChart', [
                     if (jsonKey == 'bar' && (jsonSubIndex == 1 || jsonSubIndex == 3)) {
                         isReplaceDataInfo = false;
                     };
+
+
 
                     if (c && isReplaceDataInfo) {
                         // if (c.settings && (c.settings.editorJson.useMT != undefined) && c.settings.editorJson.useMT == '1') {
@@ -3558,8 +3723,9 @@ define('v2/excel/excelChart', [
             getOldSettingByDivID: function(divId) {
                 var _self = this;
                 try {
-                    var c = localStorage['tempCharts'];
-                    c = JSON.parse(c);
+                    // var c = localStorage['tempCharts'];
+                    // c = JSON.parse(c);
+                    var c = _self.get('oldChartOption');
                     for (var i = 0; i < c.length; i++) {
                         var s = c[i];
                         var fobjs = s.fobjs;
@@ -4051,7 +4217,10 @@ define('v2/excel/excelChart', [
                     var tempOption = tempOption;
 
                     if (tempOption == undefined) {
-                        var baseData = _self.getBaseData(c.baseData.cr, chartTypeConstant.line, c.baseData.sheet);
+
+                        var s = _self.get('spread');
+                        var curSheet = s.getActiveSheet(); 
+                        var baseData = _self.getBaseData(c.baseData.cr, chartTypeConstant.line, curSheet);
                         baseData = _self.doStrongData4Chart(baseData, chartTypeConstant.line);
                         tempOption = chartOptions.getOption(chartTypeConstant.line, baseData);
                     };
@@ -4756,6 +4925,10 @@ define('v2/excel/excelChart', [
 
                 if (_c != null) {
 
+                    var s = _self.get('spread');
+                    var curSheet = s.getActiveSheet(); 
+                    _c.baseData = this.getBaseData(_c.baseData.cr, null, curSheet);
+
                     // var oldOption = _c.chart.getOption();
                     var oldOption = _c.option;
                     var oldisXYChange = _c.isXYChange;
@@ -4821,7 +4994,7 @@ define('v2/excel/excelChart', [
 
                     charts[divId] = _c;
                 }
-                _self.doAfterRenderChart();
+                _self.doAfterRenderChart(divId);
             },
 
             //根据baseData 强化成 echart 使用的数据
@@ -5114,7 +5287,8 @@ define('v2/excel/excelChart', [
                  */
             getBaseData: function(cr, chartType, sheet) {
                 var _self = this;
-                var numTest = new RegExp('^(-)?[0-9]+(\\.[0-9]{0,})?(%)?$');
+                //包含可以带逗号的 伪数字 如: 234234,23.2313
+                var numTest = new RegExp('^(-)?([0-9](\\,)?)+(\\.[0-9]{0,})?(%)?$');
                 //定义一个二维数组 来保存 行列的值. 
                 var tempData = [];
                 var tempData_f = []; //公式
@@ -5123,13 +5297,14 @@ define('v2/excel/excelChart', [
                     var rowData_f = [];
                     for (var j = cr.col, j_ = 0; j < cr.col + cr.colCount; j++, j_++) {
                         //TODO 获取值. 
-                        //获取底层显示的值.  (使用场景)
+                        //获取底层显示的值.  (使用场景)  , 如有逗号的. 
                         // var tempV = sheet.getValue(i, j, 3);
 
                         //和显示的值保持一致 用 get Text  (使用场景： 底层value 小数点 非常多，显示值 格式化成为 2个小数点， 图表的数字应该也这样. )
                         var tempV = sheet.getText(i, j, 3);
                         if (numTest.test(tempV)) {
                             tempV = (tempV + '').replace('%', '');
+                            tempV = (tempV + '').replace(/,/g, '');
                         }
                         if (amz.isDate(tempV)) {
                             tempV = _self._formatDate(tempV, 'yyyy-MM-dd');
@@ -5148,6 +5323,10 @@ define('v2/excel/excelChart', [
                     }
                     tempData[tempData.length] = rowData;
                     tempData_f[tempData_f.length] = rowData_f;
+                };
+
+                if (tempData.length == 0) {
+                    return null;
                 };
 
                 // 判断 事实(数字) 的开始坐标. 
@@ -5172,8 +5351,8 @@ define('v2/excel/excelChart', [
                     __cr: __cr, // 数字在选择区块的数据区内的索引
                     cIndex: cIndex,
                     rIndex: rIndex,
-                    leftTopData: leftTopData,
-                    sheet: sheet
+                    leftTopData: leftTopData
+                        //, sheet: sheet
                 }
             },
 
@@ -5468,6 +5647,7 @@ define('v2/excel/excelChart', [
 ------------------------------------------------
 
 ------- editorJson 相关  约定大于配置.  ---------------------------
+_self.set('activeChartId', chartdivId);
 -- 1. html 属性相关 -----
 pathstr:  是用来标记 该值放在 option 的路径 位置 
 plink : 如果 该标签 是有 级联的(对应上一层的数组 如: yAxis[0] 、 series[1] 等)，则指向 tab-ul 的id 
@@ -5485,6 +5665,7 @@ line-bar-item  :  class 名字标记 line bar  相关的 item 选项
 4. backSetEditorJson 
 5. setValueByPathStr 
 6. proCopy 
+7. initEditerJsonsRelatedEvent editorJson 相关的事件
 
 
 

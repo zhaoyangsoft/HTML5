@@ -1,0 +1,64 @@
+{
+    "title": "Custom Header Cell Type",
+    "segments": [
+        [
+            {"description": "1. SpreadJS supports a custom cell type for row and column headers to assist with processing row and column data."}
+        ],
+        [
+            {"description": "2. To create a custom header cell type, create a custom header cell type based on the <b>RowHeaderCellType</b> or <b>ColumnHeaderCellType</b>, or another built-in CellType. For example:"},
+            {"code": [
+                "function TopItemsCellType(count) {",
+                "   GcSpread.Sheets.ButtonCellType.apply(this);",
+                "   // ... ",
+                "   this.text(\"Top \" + count);",
+                "}",
+                "TopItemsCellType.prototype = new GcSpread.Sheets.ButtonCellType();"
+            ]}
+        ],
+        [
+            {"description": "3. For your custom header cell type, provide the following methods to process mouse events."},
+            {"list": [
+                "getHitInfo: Gets an object that contains hit information that will be provided to processMouse methods.",
+                "processMouseDown: Provides the action to perform for mouse button down.",
+                "processMouseMove: Provides the action to perform for mouse move.",
+                "processMouseUp: Provides the action to perform for mouse button up.",
+                "processMouseEnter: Provides the action to perform for mouse enter.",
+                "processMouseLeave: Provides the action to perform for mouse leave."
+            ]}
+        ],
+        [
+            {"description": "Here's a sample of getHitInfo method."},
+            {"code": [
+                "TopItemsCellType.prototype.getHitInfo = function (x, y, cellStyle, cellRect, context) {",
+                "   var self = this;",
+                "   var leftX = cellRect.x + self.marginLeft(),",
+                "       rightX = cellRect.x + cellRect.width - self.marginRight(),",
+                "       topY = cellRect.y + self.marginTop(),",
+                "       bottomY = cellRect.y + cellRect.height - self.marginBottom();",
+                "",
+                "   var info = { x: x, y: y, row: context.row, col: context.col, cellRect: cellRect, sheetArea: context.sheetArea, sheet: context.sheet };",
+                "   if (leftX <= x && x <= rightX && topY <= y && y <= bottomY) {",
+                "       info.isReservedLocation = true;",
+                "   }",
+                "   return info;",
+                "};"
+            ]}
+        ],
+        [
+            {"description": "4. The <b>ButtonClicked</b> event is available for the the CheckBoxCellType, ButtonCellType, and HyperLinkCellType on row and column header cells after overrides getHitInfo method."},
+			{"description": ""},
+			{"description": "You can process the <b>ButtonClicked</b> event by binding to Spread or Sheet. For example:"},
+            {"code": [
+                "spread.bind(GcSpread.Sheets.Events.ButtonClicked, function (e, args) {",
+                "   var sheet = args.sheet, sheetArea = args.sheetArea,",
+                "   row = args.row, col = args.col,",
+                "   cellType = sheet.getCellType(row, col, sheetArea);",
+                "",
+                "   if (cellType instanceof TopItemsCellType) {",
+                "       // ...",
+                "   }",
+                "});"
+            ]}
+        ]
+    ]
+}

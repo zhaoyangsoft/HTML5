@@ -1,0 +1,33 @@
+{
+    "title": "Spread Events",
+    "segments": [
+        [
+            {"description": "1. SpreadJS provides events that allow you to respond during the event."}
+        ],
+        [
+            {"description": "2. You can bind both spread and sheet events. You can bind an event with <b>bind</b> and <b>unbind</b> an event with unbind. You can use <b>unbindAll</b> to unbind all the events. As with jquery's bind and unbind, you can handle the spread's bind and unbind. For example:"},
+            {"code": [
+                "var spread = $('#ss').data('spread');",
+				"var sheet = spread.getSheet(0);",
+                "var activeSheetChanged = GcSpread.Sheets.Events.ActiveSheetChanged;",
+                "spread.bind(activeSheetChanged, function(e,args) { // spread event",
+                "   //do some thing...",
+                "});",
+                "var selectionChanged = GcSpread.Sheets.Events.SelectionChanged",
+                "sheet.bind(selectionChanged, function(e,args) { // sheet event",
+                "   //do some thing...",
+                "});"
+            ]}
+        ],
+        [
+            {"description": "3. If you do not want the spread and sheet to trigger the events, use <b>suspendEvent</b>. Use <b>resumeEvent</b> to resume triggering events. For example:"},
+            {"code": [
+                "var spread = $('#ss').data('spread');",
+                "spread.suspendEvent();",
+                "//do some operation...",
+                "spread.resumeEvent();"
+            ]}
+        ]
+
+    ]
+}

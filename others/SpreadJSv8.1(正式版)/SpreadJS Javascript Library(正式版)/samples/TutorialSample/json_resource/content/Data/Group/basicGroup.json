@@ -1,0 +1,29 @@
+{
+    "title": "Basic Group",
+    "segments": [
+        [
+            {"description": "1. If you have a list of data that you want to group and summarize, you can create an outline of rows or columns. The rows group panel is on the left side of the row header; the columns group panel is above the column headers."}
+        ],
+        [
+            {"description": "2. To add a group in SpreadJS, use code similar to the following example:"},
+            {"code": [
+                "var spread = $('#ss').data('spread');",
+                "var sheet = spread.getActiveSheet();",
+                "sheet.rowRangeGroup.group(1, 10);",
+                "sheet.colRangeGroup.group(1, 5);"
+            ]}
+        ],
+        [
+            {"description": "3. You can add a group to another group. You can create an outline of up to several levels, one for each group. Each inner level, represented by a higher number in the outline symbols, displays detailed data for the preceding outer level, represented by a lower number in the outline symbols. Use an outline to quickly display summary rows or columns, or to reveal the detail data for each group."}
+        ],
+        [
+            {"description": "4. If you no longer need the group, use the <b>ungroup</b> or <b>ungroupRange</b> method to remove the group. For example:"},
+            {"code": [
+                "var spread = $('#ss').data('spread');",
+                "var sheet = spread.getActiveSheet();",
+                "sheet.rowRangeGroup.ungroupRange(1, 10);",
+                "sheet.colRangeGroup.ungroupRange(1, 5);"
+            ]}
+        ]
+    ]
+}

@@ -1,0 +1,39 @@
+{
+    "title": "Change Value By Actions",
+    "segments": [
+        [
+            {"description": "1. SpreadJS supports some default actions, such as cut/copy/paste, drag drop, and drag fill. These actions can change value."}
+        ],
+        [
+            {"description": "2. You can copy or cut a range, and paste it in the current sheet or another sheet. In this case, the copied cells' values and styles are both copied. However, if you paste content from the Spread component into another application, such as Notepad or Excel, only the value is pasted. You can also copy or cut from another application and then paste in the Spread component."}
+        ],
+        [
+            {"description": "3. If you cut or copy some cells, the control will display an indicator to tell you which range you have copied. You can use the <b>cutCopyIndicatorVisible</b> method to control whether to display the indicator, and use the <b>cutCopyIndicatorBorderColor</b> method to set the indicator's border color, as shown in the following code:"},
+            {"code": [
+                "   var spread = $('#ss').data('spread');",
+                "   spread.cutCopyIndicatorVisible(false);",
+                "   spread.cutCopyIndicatorBorderColor('blue');"
+            ]}
+        ],
+        [
+            {"description": "4. You can drag a range and drop it in another cell. If you press the Ctrl key when you drop it, you will copy the dragged cells. If you don't press the Ctrl key, you will cut the dragged cells."},
+            {"description": "5. SpreadJS provides the <b>canUserDragDrop</b> method to control whether users can drag and drop cell range data to another range. In addition, you can use the <b>showDragDropTip</b> method to control whether to display the tip when dragging. The tip shows the location to which you are dragging."},
+            {"code": [
+                "   var spread = $('#ss').data('spread');",
+                "   var sheet = spread.getActiveSheet();",
+                "   spread.canUserDragDrop(false);",
+                "   spread.showDragDropTip(true);",
+                "   sheet.canUserDragDrop(true);"
+            ]}
+        ],
+        [
+            {"description": "6. Sometimes you don't want the value of the cells on this sheet to be edited. If so, you can use the <b>setIsProtected</b> and <b>getIsProtected</b> methods to get and set whether the sheet is protected."},
+            {"code": [
+                "   var spread = $('#ss').data('spread');",
+                "   var sheet = spread.getActiveSheet();",
+                "   sheet.setIsProtected(true);",
+                "   sheet.getIsProtected(); // true"
+            ]}
+        ]
+    ]
+}

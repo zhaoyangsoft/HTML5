@@ -1,0 +1,33 @@
+{
+    "title": "Sheet Events",
+    "segments": [
+        [
+            {"description": "1. SpreadJS provides events for the sheet. You can have the application perform actions when the event occurs."}
+        ],
+        [
+            {"description": "2. You can bind sheet events using the <b>bind</b> and <b>unbind</b> methods for the sheet. You can also use the <b>unbindAll</b> method to unbind all the events. As with jquery's bind and unbind, you can handle the sheet's bind and unbind, as shown in the following code:"},
+            {"code": [
+                "var spread = $('#ss').data('spread');",
+                "var sheet = spread.getActiveSheet();",
+                "var selectionChanged = GcSpread.Sheets.Events.SelectionChanged;",
+                "sheet.bind(selectionChanged, function(e,args) { // sheet event",
+                "   // do some thing...",
+                "});",
+				"// remove the binding of an event on the sheet.",
+                "sheet.unbind(selectionChanged); ",
+                "// removes the binding of all events on the sheet.",
+                "sheet.unbindAll(); "
+            ]}
+        ],
+        [
+            {"description": "3. When you want to perform tasks that might trigger several events, and you don't want the sheet to trigger these events, use the <b>suspendEvent</b> method to keep the events from occurring. After the tasks are complete, you can use the <b>resumeEvent</b> method to resume triggering events, as shown in the following example:"},
+            {"code": [
+                "var spread = $('#ss').data('spread');",
+                "var sheet = spread.getActiveSheet();",
+                "sheet.suspendEvent();",
+                "//do some operation...",
+                "sheet.resumeEvent();"
+            ]}
+        ]
+    ]
+}

@@ -1,0 +1,51 @@
+{
+    "title": "Sheet-Level Binding",
+    "segments": [
+        [
+            {"description": "1. SpreadJS supports binding data sources to the sheet. Binding can be sheet-level binding and cell-level binding."}
+        ],
+        [
+            {"description": "2. You can use the <b>setDataSource</b> and <b>getDataSource</b> methods to set and get the data source. Before you use the setDataSource, use the <b>autoGenerateColumns</b> method to control whether to generate columns automatically while binding data. For example:"},
+            {"code": [
+                "var customers = [",
+                "   { ID:0, Name:'A', Info1:'Info0' },",
+                "   { ID:1, Name:'B', Info1:'Info1' },",
+                "   { ID:2, Name:'C', Info1:'Info2' },",
+                "];",
+                "sheet.autoGenerateColumns = true;",
+                "sheet.setDataSource(customers);"
+            ]},
+            {"description": "Also you can use the <b>getDataItem</b> method to get the data item of the specified row."}
+        ],
+        [
+            {"description": "3. You can bind the columns using the specified data fields, as shown in the following example:"},
+            {"code": [
+                "var datasource = [",
+                "   { name: 'Alice', age: 27, birthday: '1985/08/31', position: 'PM' }",
+                "];",
+				"// bindColumn one by one ",
+                "var nameColInfo = { name: 'name', displayName: 'Display Name', size: 70 };",
+                "var ageColInfo = { name: 'age', displayName: 'Age', size: 40, resizable: false };",
+                "var birthdayColInfo = { name: 'birthday', displayName: 'Birthday', formatter: 'd/M/yy', size: 120 };",
+                "var positionColInfo = { name: 'position', displayName: 'Position', size: 50, visible: false };",
+                "sheet.autoGenerateColumns = false;",
+                "sheet.setDataSource(datasource);",
+                "sheet.bindColumn(0, nameColInfo);",
+                "sheet.bindColumn(1, birthdayColInfo);",
+                "sheet.bindColumn(2, ageColInfo);",
+                "sheet.bindColumn(3, positionColInfo);",
+				"",
+				"// or use bindColumns to bind all custom columns",
+                "var colInfos = [",
+                "   { name: 'position', displayName: 'Position', size: 50, visible: false },",
+                "   { name: 'name', displayName: 'Display Name', size: 70 },",
+                "   { name: 'birthday', displayName: 'Birthday', formatter: 'd/M/yy', size: 120 },",
+                "   { name: 'age', displayName: 'Age', size: 40, resizable: false },",
+                "];",
+                "sheet.autoGenerateColumns = false;",
+                "sheet.setDataSource(datasource);",
+                "sheet.bindColumns(colInfos);"
+            ]}
+        ]
+    ]
+}

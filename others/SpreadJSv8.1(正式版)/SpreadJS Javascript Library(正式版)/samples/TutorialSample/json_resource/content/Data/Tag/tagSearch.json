@@ -1,0 +1,22 @@
+{
+    "title": "Search Tag",
+    "segments": [
+        [
+            {"description": "Cell tags that are the string type can be searched. The search order can be set to ZOrder (column first) or NOrder (row first)."},
+            {"description": "1. Prepare a <b>SearchCondition</b>, and then set <b>searchTarget</b> to <b>SearchFoundFlags.CellTag</b> for the search tag."},
+            {"description": "2. Perform the search using sheet.<b>search</b>(searchCondition)."},
+            {"description": "The search result's <b>findRowIndex</b> and <b>findColumnIndex</b> tell the first matched cell position; both are -1 if not found." },
+            {"code": [
+				"var spreadNS = GcSpread.Sheets;",
+                "var condition = new spreadNS.SearchCondition();",
+                "condition.searchTarget = spreadNS.SearchFoundFlags.CellTag;",
+                "condition.searchString = 'demo';",
+                "condition.searchOrder = spreadNS.SearchOrder.ZOrder;",
+                "// ... ",
+                "var result = sheet.search(condition);",
+                "if (result.foundRowIndex < 0 && result.foundColumnIndex < 0) {",
+                "// ..."
+            ]}
+        ]
+    ]
+}

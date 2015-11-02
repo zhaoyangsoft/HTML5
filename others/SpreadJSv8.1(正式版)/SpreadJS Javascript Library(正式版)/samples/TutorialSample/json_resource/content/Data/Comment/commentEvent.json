@@ -1,0 +1,16 @@
+{
+    "title": "Comment Events",
+    "segments": [
+        [
+            {"description": "1. SpreadJS provides events for comments on the sheet to let you react to events that have happened."}
+        ],
+        [
+            {"description": "2. The event <b>CommentChanged</b> occurs when the comment has changed (such as some properties change)."},
+            {"code": [
+                "sheet.bind(GcSpread.Sheets.Events.CommentChanged, function(e, args) {",
+                "   // do something",
+                "});"
+            ]}
+        ]
+    ]
+}

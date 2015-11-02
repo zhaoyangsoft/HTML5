@@ -1,0 +1,31 @@
+{
+    "title": "Sheet Paint",
+    "segments": [
+        [
+            {"description": "1. After the user changes the sheet, the Spread component needs to deal with these changes and paint a new sheet."}
+        ],
+        [
+            {"description": "2. You also can use the <b>repaint</b> method to repaint the sheet."},
+            {"code": [
+                "var spread = $('#ss').data('spread');",
+                "var sheet = spread.getActiveSheet();",
+                "sheet.repaint();"
+            ]}
+        ],
+        [
+            {"description": "3. Most of the time, after you change the sheet, the component will auto refresh to respond to the changes. If you make a lot of changes at one time, but don't want the sheet to repaint many times, then you can use the <b>isPaintSuspend</b> method to stop the automatic repaint until the changes are complete. Then call the repaint method to redraw the sheet, as shown in the following example:"},
+            {"code": [
+                "var spread = $('#ss').data('spread');",
+                "var sheet = spread.getActiveSheet();",
+                "sheet.isPaintSuspended(true);",
+                "sheet.setValue(2, 2, 'Click me and input a char by keyboard!'); ",
+                "sheet.addSpan(2, 2, 1, 5); ",
+                "sheet.setValue(4, 2, 'Double click the black empty cell!'); ",
+                "sheet.addSpan(4, 2, 1, 5); ",
+                "//...",
+                "sheet.isPaintSuspended(false);"
+            ]}
+        ]
+
+    ]
+}

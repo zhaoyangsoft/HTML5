@@ -1,0 +1,24 @@
+{
+    "title": "Spread Sparkline",
+    "segments": [
+        [
+            {"description": "You can create a spread sparkline by using the SpreadSparkline function in a formula: <b>=SPREADSPARKLINE(points, showAverage?, scaleStart?, scaleEnd?, style?, colorScheme?, vertical?)</b>."},
+			{"description": "The function has the following parameters:"},
+            {"description": "<b>points</b>: Reference that represents the range of cells containing all the values to be described, such as \"A1:A10\". "},
+            {"description": "<b>showAverage</b>: (optional) Boolean that represents whether to display the average or not; default value is false."},
+            {"description": "<b>scaleStart</b>: (optional) Number or reference that represents the minimum boundary of the sparkline; default value is the minimum of all values."},
+            {"description": "<b>scaleEnd</b>: (optional) Number or reference that represents the maximum boundary of the sparkline; default value is the maximum of all values."},
+            {"description": "<b>style</b>: (optional) Number reference for the style of the spread sparkline. One of the following:"},
+            {"list": [
+                 "1: Stacked - line from center to two sides", 
+                 "2: Spread - dot from center to two sides", 
+                 "3: Jitter - dot whose location is random",
+                 "4: (default) Poles - line from one side to another side", 
+                 "5: StackedDots - dot from one side to another side", 
+                 "6: Stripe - line whose length is equal"
+            ]},
+            {"description": "<b>colorScheme</b>: (optional) String that represents the color of the sparkline's box; default value is \"#646464\"."},
+            {"description": "<b>vertical</b>: (optional) Boolean that represents whether to display the sparkline vertically or not; default value is false."}
+        ]
+    ]
+}

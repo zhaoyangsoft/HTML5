@@ -1,0 +1,34 @@
+{
+    "title": "Picture",
+    "segments": [
+        [
+            {"description": "1. You can customize the picture, including the picture layout, the picture's border, and so on."}
+        ],
+        [
+            {"description": "2. If you want to set an image to the picture or change the picture's image, use the <b>src</b> method to change the image. The picture's src can be a base64 image."},
+            {"code": [
+                "picture.src('images/logo.png');",
+                "var originalWidth = picture.getOriginalWidth();",
+                "var originalHeight = picture.getOriginalHeight();",
+                "picture.width(originalWidth);",
+                "picture.height(originalHeight);"
+            ]},
+            {"description": "You can change the picture's layout by using the <b>pictureStretch</b> method. Stretch for the picture is defined by the <b>ImageLayout</b> enum. Sometimes you can get the image's original size using <b>getOriginalWidth</b> and <b>getOriginalHeight</b> methods."}
+        ],
+        [
+            {"description": "3. You can add a border to the picture; the border is set as the DOM's border setting. For example:"},
+            {"code": [
+                "picture.borderStyle('solid');",
+                "picture.borderWidth(2);",
+                "picture.borderColor('red');",
+                "picture.borderRadius(4);"
+            ]}
+        ],
+        [
+            {"description": "4. Sometimes part of the picture is transparent, in which case you want to set a backColor for the background area. Use the <b>backColor</b> method to get and set the background color of the picture. For example:"},
+            {"code": [
+                "picture.backColor('green');"
+            ]}
+        ]
+    ]
+}

@@ -1,0 +1,38 @@
+{
+    "title": "Initialize Spread",
+    "segments": [
+        [
+            {"description": "1. SpreadJS requires the following files:"},
+            {"list": ["gcspread.sheets.8.40.20151.0.css", "jquery-1.8.2.min.js", "gcspread.sheets.all.8.40.20151.0.min.js"]}
+        ],
+        [
+            {"description": "2. Include <b>gcspread.sheets.8.40.20151.0.css</b>, <b>jquery-1.8.2.min.js</b>, and <b>gcspread.sheets.all.8.40.20151.0.min.js</b> files into the document's head section while specifying relative paths to them. SpreadJS needs the external library <b>jQuery</b>. For example:"},
+            {"code": [
+                "<!DOCTYPE html>",
+                "<html>",
+                "   <head>",
+                "      <link href='gcspread.sheets.8.40.20151.0.css' rel='stylesheet' type='text/css'/>",
+                "      <script src='jquery-1.8.2.min.js' type='text/javascript'></script>",
+                "      <script src='gcspread.sheets.all.8.40.20151.0.min.js' type='text/javascript'></script>",
+                "      <script type='text/javascript' charset='utf-8'>",
+                "      ...",
+                "      </script>",
+                "   </head>",
+                "   <body>",
+                "        <div id='ss' style='width:100%; height:400px;'></div>",
+                "   </body>",
+                "</html>"
+            ]}
+        ],
+        [
+            {"description": "3. The Spread component is initialized with <b>new GcSpread.Sheets.Spread(document.getElementById('ss'), { sheetCount: 1 })</b>, and the spread (refer to SpreadJS component as 'spread') is added to the 'div' with id 'ss'. You can get the spread object this way: <b>var spread = $('#ss').data('spread')</b>. Then you can customize the spread. For example:"},
+            {"code": [
+                "$(document).ready(function () {",
+                "   var spread = new GcSpread.Sheets.Spread(document.getElementById('ss'), { sheetCount: 1 });",
+				"   // get spread object",
+                "   // var spread = $('#ss').data('spread');",
+                "});"
+            ]}
+        ]
+    ]
+}

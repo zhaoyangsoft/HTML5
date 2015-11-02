@@ -1,0 +1,14 @@
+{
+    "title": "Expense Budget",
+    "segments": [
+        [
+            {"description": "The expense budget is an important attribute affecting the enterprise sales volume and profit."}
+        ],
+        [
+            {"description": "You can use SpreadJS to show related data in a table and use conditional formats to visualize data."}
+		],
+		[
+            {"description": "For example, use the <b>IconSetRule</b> to show different status, use the <b>DataBarRule</b> to show all the budgets, and so on."}
+        ]
+    ]
+}

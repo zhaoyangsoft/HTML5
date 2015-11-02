@@ -1,0 +1,27 @@
+{
+    "title": "Basic Fill",
+    "segments": [
+        [
+            {"description": "1. Instead of entering data manually on the sheet, you can use the auto fill feature to fill cells with data that follows a pattern or that is based on data in other cells."}
+        ],
+        [
+            {"description": "2. To quickly fill in several types of data series, you can select cells and drag the fill handle. To use the fill handle, you select the cells that you want to use as a basis for filling additional cells, and then drag the fill handle across or down the cells that you want to fill."}
+        ],
+        [
+            {"description": "3. You can suppress series auto fill by holding down the Ctrl key as you drag the fill handle of a selection of two or more cells. After you drag fill, there will be an auto fill options button. You can click the button and change how the selection is filled. For example, you can choose to fill just cell formats by clicking Fill Formatting Only. The auto fill options provided are:"},
+            {"list": [
+                "CopyCells: Fills cells with all data objects, including values, formatting, and formulas.",
+                "FillSeries: Fills cells with series.",
+                "FillFormattingOnly: Fills cells only with formatting.",
+                "FillWithoutFormatting: Fills cells with values and not formatting."
+            ]},
+            {"description": "Also you can clear the filled values by using drag fill back to the start range."}
+        ],
+        [
+            {"description": "4. When you are dragging the fill handle, by default SpreadJS displays a tip to show the new dragged edge of the area to be filled. You can turn the tip display off as shown in this example:"},
+            {"code": [
+                "spread.showDragFillTip(false);"
+            ]}
+        ]
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "title": "Function Wildcards",
+    "segments": [
+        [
+            {"description": "Wildcard characters (?, *, ~) can be used as comparison criteria for functions when searching."}
+        ],
+        [
+            {"description": "<table border=1 style='border-collapse: collapse;width:90%;'><tr><th style='width: 40%;'>Wildcard character</th><th>Match</th></tr><tr><td>?</td><td>Any single character</td></tr><tr><td>*</td><td>Any number of characters</td></tr><tr><td>~ followed by ?, *, or ~</td><td>?, *, or ~ character</td></tr></table>"}
+        ],
+        [
+            {"description": "<b>Note:</b> The wildcard can only be used in comparison strings that use equals (=); it cannot be used in comparisons that use the other operators (>,<,!=,<=,>=)."}
+        ],
+        [
+            {"description": "Wildcard characters work in all the functions that have a criteria argument, as follows:"},
+            {"list": [
+                 "AVERAGEIF", "AVERAGEIFS", "COUNTIF", "COUNTIFS", "SUMIF", "SUMIFS", 
+                 "MATCH", "SEARCH", "VLOOKUP", "HLOOKUP", "DAVERAGE", 
+                 "DGET", "DMAX", "DMIN", "DPRODUCT", "DSTDEV", "DSTDEVP", "DSUM", "DVAR", "DVARP"
+            ]}
+        ]
+    ]
+}

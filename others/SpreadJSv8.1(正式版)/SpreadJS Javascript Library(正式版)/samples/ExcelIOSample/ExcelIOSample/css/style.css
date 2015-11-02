@@ -1,0 +1,225 @@
+/* Basics */
+* {
+    margin: 0;
+    padding: 0;
+    border-radius:0px !important
+}
+
+html {
+    font-size: 125%;
+    background: #733b84 no-repeat top center;
+}
+
+body {
+    font-size: 14px;
+    min-width: 1024px;
+    font-family: 'Gotham SSm A', 'Gotham SSm B';
+    font-style: normal;
+    font-weight:300;
+}
+
+/* Page */
+#wrapper {
+    margin: 0 auto;
+    width: 982px;
+    position: relative;
+    left: 50%;
+    margin-left: -491px;
+}
+
+/* Title*/
+.vspace {
+    height: 1.2em;
+}
+
+.main-menu h1
+{
+    font-family: "Museo900" , Georgia, "Times New Roman" , Times, serif;
+    color: #d1c6d6;
+    text-shadow: -1px -1px 0 #201f21;
+    text-align: center;
+    font-size: 3em;
+}
+
+/* Example */
+.example {
+    background-color: white;
+    padding: 1.25em 1.45em 1.25em 1.55em;
+    margin: 0.5em 0 3em 0;
+    -moz-border-radius: 1em;
+    -webkit-border-radius: 1em;
+    border-radius: 1em;
+    opacity: 0.9;
+    -moz-box-shadow: 0 0 1.1em #666;
+    -webkit-box-shadow: 0 0 1.1em #666;
+    box-shadow: 0 0 1.1em #666;
+    min-height: 76em;
+}
+
+.example h1 {
+    color: #A71500;
+    margin: 0.25em 0 0.25em 0;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.content {
+    font-size: 1.1em;
+    line-height: 1.6em;
+    margin: 10px 0;
+}
+
+.content p {
+    margin-bottom: 1.6em
+}
+
+.content h1 {
+    font-size: 1.6em;
+    line-height: 1;
+    margin: 1em 0 .5em
+}
+
+.content h2 {
+    font-size: 1.5em;
+    line-height: 1;
+    margin: 1.07em 0 .535em
+}
+
+.liveExample {
+    padding: 1em;
+    background-color: #EEEEDD;
+    border: 1px solid #CCC;
+    max-width: 981px;
+}
+.liveExample input[type="text"], .liveExample input[type="password"], .liveExample select, .liveExample input[type="search"] {
+    -moz-transition: all 0.1s ease-out 0s;
+    background: none repeat scroll 0 0 #F3F7F8;
+    border: 1px solid #CFCFCF;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.05) inset;
+    color: #333333;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1em;
+    font-weight: normal;
+    padding: 0.4em;
+}
+.liveExample input[type="text"]:hover, .liveExample input[type="password"]:hover, .liveExample select:hover, .liveExample input[type="search"]:hover {
+    -moz-transition: all 0.1s ease-in 0s;
+    border-color: #A09F9F;
+}
+.liveExample input[type="button"], .liveExample input[type="file"], #accordion h3{
+    background: #00a4db; /* Old browsers */
+    background: -moz-linear-gradient(top, #00a4db 0%, #0190bf 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #00a4db), color-stop(100%, #0190bf)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #00a4db 0%, #0190bf 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #00a4db 0%, #0190bf 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #00a4db 0%, #0190bf 100%); /* IE10+ */
+    background: linear-gradient(to bottom, #00a4db 0%, #0190bf 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00a4db', endColorstr='#0190bf', GradientType=0); /* IE6-9 */
+    border-color: #00749B;
+    border-radius: 4px 4px 4px 4px;
+    border-style: solid;
+    border-width: 1px 1px 3px;
+    color: #E8EAED;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: 1em;
+    font-style: italic;
+}
+.liveExample input[type="button"], .liveExample input[type="file"]{
+    cursor: pointer;
+    display: inline-block;
+    padding: 0.4em 1em;
+    margin: 0.4em 0.4em 0.4em 0;
+    text-align: center;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+}
+.liveExample input[type="button"]:hover, #accordion h3:hover {
+    background: #0294c5; /* Old browsers */
+    background: -moz-linear-gradient(top, #0294c5 0%, #0180a9 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #0294c5), color-stop(100%, #0180a9)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #0294c5 0%, #0180a9 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #0294c5 0%, #0180a9 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #0294c5 0%, #0180a9 100%); /* IE10+ */
+    background: linear-gradient(to bottom, #0294c5 0%, #0180a9 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0294c5', endColorstr='#0180a9', GradientType=0); /* IE6-9 */
+}
+
+.liveExample .setting {
+    padding: 5px;
+    padding-left: 0px;
+}
+
+.liveExample #saveFlags div, #openFlags div {
+    padding: 5px;
+}
+
+.liveExample input[type="text"] {
+    width: 250px;
+}
+
+.liveExample input[type="password"] {
+    width: 130px;
+}
+.header {
+    background-color: #182525;
+    margin-bottom: 14px;
+    padding: 12px 0px;
+    color: #e0efe5;
+}
+#loading {
+    margin-bottom: 20px;
+}
+.collapse-content {
+    border:1px solid #dcdcdc;
+}
+label {
+    font-weight:normal;
+}
+.footer {
+    margin: 20px 0px 0px 0px;
+    background-color:#182525;
+    color:#e0efe5;
+    width:100%;
+    height:50px;
+    vertical-align:middle;
+    text-align:center;
+    padding:15px;
+}
+.group-title {
+    margin: 10px 0px 0px 0px;
+}
+.input-text {
+    display:inline-block;
+    width:120px;
+    margin-top: 10px;
+}
+
+.checkbox-text {
+    display:inline-block;
+    width:150px;
+    margin-top: 10px;
+}
+
+td {
+    border-collapse: collapse;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Forza SSm A', 'Forza SSm B';
+  font-weight: 800;
+  font-style: normal;
+  margin-bottom: 0.4em;
+  color: #e0efe5;
+}
+
+.spreadDiv {
+    width: 100%; 
+    height: 400px; 
+    border: 1px solid #dcdcdc;
+}
+#serviceUrl {
+    width: 300px;
+}

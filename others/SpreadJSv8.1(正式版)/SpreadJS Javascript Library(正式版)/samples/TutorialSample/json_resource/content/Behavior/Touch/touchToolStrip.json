@@ -1,0 +1,45 @@
+{
+    "title": "Touch Tool Strip",
+    "segments": [
+        [
+            {"description": "1. When you select a selection and tap the selection, a touch tool strip will pop up."}
+        ],
+        [
+            {"description": "2. You can use the built-in tool strip items: Paste, Cut, Copy, and AutoFill."}
+        ],
+        [
+            {"description": "3. You can also customize a touch tool strip item and add it to the touch tool strip."},
+            {"code": [
+                "var text = 'clear'",
+                "var image = 'image/clear.jpg';",
+                "var item = new GcSpread.Sheets.TouchToolStripItem(name, text, image, function () {",
+                "   spread.touchToolStrip.close();",
+                "   alert('Runing clearing...');",
+                "});",
+                "spread.touchToolStrip.add(item);"
+            ]},
+            {"description": "You can use the <b>text</b> method to get and set the text of the item, use the <b>font</b> method to get and set the font of the item text, and use the <b>foreColor</b> method to get and set the color of the item text."}
+        ],
+        [
+            {"description": "4. After you add the touch tool strip item, you can use <b>getItem</b> and <b>getItems</b> to get the items. Also, you can remove one or clear all the items."},
+            {"code": [
+                "var text = 'clear'",
+                "var image = 'image/clear.jpg';",
+                "var item = new GcSpread.Sheets.TouchToolStripItem(name, text, image, function () {",
+                "   spread.touchToolStrip.close();",
+                "   alert('Runing clearing...');",
+                "});",
+                "spread.touchToolStrip.add(item);"
+            ]},
+            {"description": "5. You can customize the tool strip using the provided APIs. For example:"},
+            {"code": [
+                "var toolStrip = spread.touchToolStrip;",
+                "toolStrip.imageAreaHeight(50); //Sets the image area height.",
+                "toolStrip.itemHeight(80); //Sets the toolbar item height.",
+                "toolStrip.itemWidth(120); //Sets the toolbar item width.",
+                "toolStrip.separatorHeight(80); //Sets the toolbar separator height.",
+                "spread.touchToolStrip.add(item);"
+            ]}
+        ]
+    ]
+}

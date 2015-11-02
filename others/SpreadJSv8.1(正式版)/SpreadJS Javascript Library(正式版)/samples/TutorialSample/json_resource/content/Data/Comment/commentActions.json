@@ -1,0 +1,22 @@
+{
+    "title": "Comment Actions",
+    "segments": [
+        [
+            {"description": "1. Comments support actions such as drag drop, resize, move, and so on."}
+        ],
+        [
+            {"description": "2. The following keys provide actions for working with the comments:"},
+            {"list": [
+                "Esc: If you are in the editing state in a comment, press Esc and the comment will enter the active state. If you press Esc again, the comment will be deselected.",
+                "Delete: If you select a comment and the state is active, press Delete and the selected comment will be deleted.",
+                "Up: If you select a comment and the state is active, press the Up arrow to move the comment up.",
+                "Down: If you select a comment and the state is active, press the Down arrow to move the comment down.",
+                "Left: If you select a comment and the state is active, press the Left arrow to move the comment to the left.",
+                "Right: If you select a comment and the state is active, press the Right arrow to move the comment to the right."
+            ]}
+        ],
+        [
+            {"description": "3. You can also interact with the comment using mouse actions. When you select a comment, a position indicator and eight resize indicators are displayed. You can drag the resize indicator to resize the comment. Also you can drag the comment and drop it in another position."}
+        ]
+    ]
+}

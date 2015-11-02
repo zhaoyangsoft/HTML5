@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>LineChart</title>
+
+
+</head>
+
+<body>
+<div id="lineChart" style="width: 900px;height: 600px;border: #c9302c"></div>
+<script src="http://code.jquery.com/jquery.js"></script>
+
+<script type="text/javascript">
+    (function($) {
+
+    var canvas,context;
+    var stepXArr=[],stepYArr=[],xStepWidth=0;
+    var xAxisHeight = 0 ,yAxisWidth = 0;
+    var heightVal = 0;//高度值对应数据比例
+
+    /**
+     * 画X轴
+     * */
+    var drawXAxis = function (xAxisData) {
+        context.beginPath();
+        //画X轴横线
+        context.moveTo(yAxisWidth - 6, canvas.height - xAxisHeight);
+        context.lineTo(canvas.width-yAxisWidth,canvas.height - xAxisHeight);
+        //画刻度、加标签
+        var len = xAxisData.length;
+        xStepWidth = (canvas.width-2*yAxisWidth)/len;
+        for(var i = 0;i < len;i++){
+            //画刻度，默认刻度高度为6个像素
+            context.moveTo(yAxisWidth + (i+1)*xStepWidth, canvas.height - xAxisHeight);
+            context.lineTo(yAxisWidth + (i+1)*xStepWidth,canvas.height - xAxisHeight + 6);
+            //画标签，默认字体为14个像素
+            context.font = "normal normal bold 14px 微软雅黑";
+           //字体居中在刻度中间
+            context.fillText(xAxisData[i],
+                yAxisWidth + (i+0.5)*xStepWidth - xAxisData[i].length*14/2,
+                canvas.height - xAxisHeight + 24);
+            //缓存刻度位置，用于画网格
+            stepXArr.push(yAxisWidth + (i+1)*xStepWidth);
+        }
+
+        context.stroke();
+    }
+
+    /**
+     * 画Y轴
+     * */
+    var drawYAxis = function(yMax,step) {
+        context.beginPath();
+        //画X轴横线
+        context.moveTo(yAxisWidth, xAxisHeight);
+        context.lineTo(yAxisWidth,canvas.height - xAxisHeight + 6);
+        //画刻度、加标签
+        var tickWidth = (canvas.height - 2*xAxisHeight )/step;
+        heightVal = (canvas.height - 2*xAxisHeight )/yMax;
+        for(var i = 0;i <= step;i++){
+            //画刻度，默认刻度高度为6个像素
+            context.moveTo(yAxisWidth, canvas.height - xAxisHeight - tickWidth * i);
+            context.lineTo(yAxisWidth - 6,canvas.height - xAxisHeight - tickWidth * i);
+            //画标签，默认字体为14个像素
+            context.font = "normal normal 14px 微软雅黑";
+            //字体居中在刻度中间
+            context.fillText(yMax/step * i,
+                yAxisWidth -  50,
+                canvas.height - xAxisHeight - tickWidth * i + 7);
+            //缓存刻度位置，用于画网格
+            stepYArr.push(canvas.height - xAxisHeight - tickWidth * i);
+        }
+        context.stroke();
+    }
+
+    /**
+     * 画网格
+     * */
+    var drawGrid = function() {
+        context.save();
+
+        context.strokeStyle = "#6e6e6e";
+        context.fillStyle = "#ffffff";
+        context.lineWidth = 0.5;
+
+        //画横线
+        var j = 0,stepX = (canvas.width - 2*yAxisWidth)/10,stepY = (canvas.height - 2*xAxisHeight)/10;
+        //10个像素位为单位,6个像素画线，4个像素空出来，成为虚线
+        for (var i = 0,len = stepYArr.length; i < len; i ++) {
+            context.beginPath();
+            for(j = 0;j < stepX;j++){
+                context.moveTo(yAxisWidth + j*10, stepYArr[i]);
+                context.lineTo(yAxisWidth + j*10 + 6,  stepYArr[i]);
+            }
+            context.stroke();
+        }
+
+        //画竖线
+        for (var i = 0,len = stepXArr.length; i < len; i ++) {
+            context.beginPath();
+            for(j = 0;j < stepY;j++){
+                context.moveTo(stepXArr[i],xAxisHeight + j*10 );
+                context.lineTo(stepXArr[i],xAxisHeight + j*10+6);
+            }
+            context.stroke();
+        }
+        context.restore();
+    }
+
+    /**
+     * 画线条
+     * */
+    var drawLine = function(lineData){
+        //循环数据源画线条
+        context.beginPath();
+        context.fillStyle = "#000000";
+        context.lineWidth = 2;
+        context.moveTo(stepXArr[0] - xStepWidth/2 ,canvas.height - xAxisHeight - lineData[0]*heightVal);
+        for (var i = 1,len = lineData.length; i < len; i ++) {
+            context.lineTo(stepXArr[i] - xStepWidth/2 ,canvas.height - xAxisHeight - lineData[i]*heightVal);
+        }
+        context.stroke();
+        //画圆点
+        for (var i = 0,len = lineData.length; i < len; i ++) {
+            context.beginPath();
+            context.fillStyle = "rgba(" + (Math.random()*255).toFixed(0) + ", " +
+                (Math.random()*255).toFixed(0) + ", " +
+                (Math.random()*255).toFixed(0) + ", 1.0)";
+            context.arc(stepXArr[i] - xStepWidth/2 ,canvas.height - xAxisHeight - lineData[i]*heightVal,
+                7, 0, Math.PI*2, true);
+            context.fill();
+        }
+    }
+    /**
+     * 画柱子
+     * */
+    var drawBar = function(barData,colorArr){
+        var barWidth = xStepWidth/2;//定义柱子宽度
+        //循环数据源画矩形
+        for (var i = 0,len = barData.length; i < len; i ++) {
+            context.beginPath();
+            context.fillStyle = colorArr[i];
+            context.fillRect(stepXArr[i] - xStepWidth/2 - barWidth/2,canvas.height - xAxisHeight - barData[i]*heightVal,
+                barWidth,barData[i]*heightVal);
+            context.fill();
+        }
+    }
+
+    var methods = {
+        init: function(options) {
+
+            // 在每个元素上执行方法
+            return this.each(function() {
+                var $this = $(this);
+
+                // 尝试去获取settings，如果不存在，则返回“undefined”
+                var settings = $this.data("lineChart");
+
+                // 如果获取settings失败，则根据options和default创建它
+                if (typeof settings === "undefined") {
+
+                    var defaults = {
+                        width:850,
+                        height:450,
+                        xAxis:["苹果","香蕉","梨","番茄","龙眼"],
+                        lineData:[350,200,300,245,150],
+                        barData:[350,134,120,51,90],
+                        colorArr:["#ae303e","#913730","#D49797","0x538FD3","#A34e5d"],
+                        onSomeEvent: function() {
+                        }
+                    };
+
+                    settings = $.extend({}, defaults, options);
+
+                    // 保存我们新创建的settings
+                    $this.data("lineChart", settings);
+                } else {
+                    //如果我们获取了settings，则将它和options进行合并（这不是必须的，你可以选择不这样做）
+                    settings = $.extend({}, settings, options);
+
+                    // 如果你想每次都保存options，可以添加下面代码：
+                    // $this.data("lineChart", settings);
+                }
+                canvas = document.createElement("canvas");
+                canvas.width = settings.width;
+                canvas.height = settings.height;
+                canvas.style.cssText = "margin:0 auto;";
+                $this.append(canvas);
+                context = canvas.getContext("2d");
+                xAxisHeight = settings.height/8 ,yAxisWidth = settings.width/8;
+                drawXAxis(settings.xAxis);
+                drawYAxis(400,10);
+                drawGrid();
+                drawBar(settings.barData,settings.colorArr);
+                drawLine(settings.lineData);
+            });
+        },
+        destroy: function(options) {
+            // 在每个元素中执行代码
+            return $(this).each(function() {
+                var $this = $(this);
+
+                // 执行代码
+
+                // 删除元素对应的数据
+                $this.removeData("lineChart");
+            });
+        },
+        val: function(options) {
+            // 这里的代码通过.eq(0)来获取选择器中的第一个元素的，我们或获取它的HTML内容作为我们的返回值
+            var someValue = this.eq(0).html();
+
+            // 返回值
+            return someValue;
+        }
+    };
+
+    $.fn.lineChart = function() {
+        var method = arguments[0];
+        if (methods[method]) {
+            method = methods[method];
+            arguments = Array.prototype.slice.call(arguments, 1);
+        } else if (typeof method === "object"  ) { //!method
+            method = methods.init;
+        } else {
+            $.error("Method" + method + "does not exist on jQuery.pluginName");
+            return this;
+        }
+        return method.apply(this, arguments);
+    };
+})(jQuery);
+</script>
+<script type="text/javascript">
+$("#lineChart").lineChart("init");
+</script>
+</body>
+</html>
+ 

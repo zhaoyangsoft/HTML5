@@ -1,0 +1,44 @@
+{
+    "title": "Custom Floating Object",
+    "segments": [
+        [
+            {"description": "1. You can customize the floating object, including changing its position, resizing it, and so on."}
+        ],
+        [
+            {"description": "2. You can change the position and size of the floating object. The position and size can be set two different ways. For example:"},
+            {"code": [
+                "floatingObject.startRow(1);",
+                "floatingObject.startColumn(1);",
+                "floatingObject.startRowOffset(0);",
+                "floatingObject.startColumnOffset(0);",
+                "floatingObject.endRow(4);",
+                "floatingObject.endColumn(4);",
+                "floatingObject.endRowOffset(0);",
+                "floatingObject.endColumnOffset(0);",
+                "// or",
+                "var point = new GcSpread.Sheets.Point(62, 20);",
+                "floatingObject.position(point);",
+                "floatingObject.width(186);",
+                "floatingObject.height(60);"
+            ]}
+        ],
+        [
+            {"description": "3. Sometimes you will resize the row's height or the column's width, and you don't want the position or size of the floating object to change. In that case, use the <b>dynamicMove</b> and <b>dynamicSize</b> methods. For example:"},
+            {"code": [
+                "floatingObject.dynamicMove(false);",
+                "floatingObject.dynamicSize(false);"
+            ]},
+            {"description": "Note that if the dynamicMove method is false and the dynamicSize method is true, neither has an effect."}
+        ],
+        [
+            {"description": "4. If you do not want the floating object to change based on UI interaction, use the <b>isLocked</b> method to lock it. If you want to lock it, first lock the sheet."}
+        ],
+        [
+            {"description": "5. When one floating object overlaps another, you can change the order from top to bottom by using the <b>setFloatingObjectZIndex</b> method. For example:"},
+            {"code": [
+                "var zIndex = floatingObject.getFloatingObjectZIndex('f1');",
+                "floatingObject.setFloatingObjectZIndex('f1', zIndex + 1);"
+            ]}
+        ]
+    ]
+}

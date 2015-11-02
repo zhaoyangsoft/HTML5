@@ -1,0 +1,36 @@
+{
+    "title": "Theme",
+    "segments": [
+        [
+            {"description": "1. You can use the default SpreadJS theme. This requires that a style link is added to the head section of the page. For example:"},
+			{"code": [
+				"<link rel=\"stylesheet\" href=\"css/gcspread.sheets.8.40.20151.0.css\" />"
+			]}
+        ],
+        [
+            {"description": "2. You can use a bootstrap theme with SpreadJS. This requires that a style link is added to the head section of the page after the SpreadJS style link. For example, if you have bootstrap.css and bootstrap-theme.css in your project in the css folder, you can add the following style links."},
+			{"code": [
+			    "<link rel=\"stylesheet\" href=\"css/gcspread.sheets.8.40.20151.0.css\" />",
+				"",
+				"<link rel=\"stylesheet\" href=\"css/bootstrap.css\" />",
+				"<link rel=\"stylesheet\" href=\"css/bootstrap-theme.css\" />"
+			]}
+        ],
+        [
+			{"description": "3. SpreadJS supports the jQuery UI theme. This requires that a jQuery UI style link is added to the head section of the page after the SpreadJS style link. For example, you can add the following style link to use jQuery UI sunny theme."},
+            {"code": [
+				"<link rel=\"stylesheet\" href=\"css/gcspread.sheets.8.40.20151.0.css\" />",
+				"",
+                 "<link href=\"css/sunny/jquery-ui.css\" rel=\"stylesheet\" type=\"text/css\" />"
+             ]}
+        ],
+		[
+			{"description": "4. SpreadJS supports the Wijmo theme. This requires that a Wijmo style link is added to the head section of the page after the SpreadJS style link. For example, if you have jquery-wijmo.css in your project in the css/rocket folder, you can add the following style link."},
+			{"code": [
+				"<link rel=\"stylesheet\" href=\"css/gcspread.sheets.8.40.20151.0.css\" />",
+				"",
+				"<link href=\"css/rocket/jquery-wijmo.css\" rel=\"stylesheet\" type=\"text/css\" />"
+			]}
+		]
+    ]
+}

@@ -1,0 +1,37 @@
+{
+    "title": "Formula",
+    "segments": [
+        [
+            {"description": "SpreadJS supports setting a formula in a specified cell, and you can also add a custom name for this formula."}
+        ],
+        [
+            {"description": "1. Use code similar to the following to set a formula for a cell or a range of cells."},
+            {"code":[
+                "sheet.setFormula(1, 1, '=SUM(A1,C3)');",
+                "sheet.setArrayFormula(1, 1, 7, 7, '=SUM(A1,C3)');"
+            ]}
+        ],
+        [
+            {"description": "2. You can get whether there is a formula in the specified cell by using the following code:"},
+            {"code":[
+                "sheet.hasFormula(7, 7);"
+            ]}
+        ],
+        [
+            {"description":"3. If a formula is lengthy or it is used frequently, you can add a custom name for it to make using it more convenient."},
+            {"code":[
+                "sheet.addCustomName('customName1','=SUM(A1,C3)', 1, 1);"
+            ]},
+
+            {"description":"A custom name can be removed from the custom name collection like this:"},
+            {"code":[
+                "sheet.addCustomName('customName1');"
+            ]},
+            
+            {"description":"and you can remove all custom names by using the following method:"},
+            {"code":[
+                "sheet.addCustomName();"
+            ]}
+        ]
+    ]
+}

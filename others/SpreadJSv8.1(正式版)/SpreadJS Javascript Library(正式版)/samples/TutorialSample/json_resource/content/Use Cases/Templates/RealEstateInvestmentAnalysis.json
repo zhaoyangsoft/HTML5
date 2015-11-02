@@ -1,0 +1,17 @@
+{
+    "title": "Real Estate Investment Analysis",
+    "segments": [
+        [
+            {"description": "This workbook has been designed to illustrate the process of forecasting the income and value of an investment property. "}
+        ],
+        [
+            {"description": "SpreadJS loads data from saved file with <b>fromJSON</b>."},
+            {"code": [
+                "var sd = JSON.parse(data);",
+                "spread.isPaintSuspended(true);",
+                "spread.fromJSON(sd[0]);",
+                "spread.isPaintSuspended(false);"
+            ]}
+        ]
+    ]
+}

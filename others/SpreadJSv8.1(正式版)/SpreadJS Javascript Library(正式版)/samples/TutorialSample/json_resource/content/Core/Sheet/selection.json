@@ -1,0 +1,60 @@
+{
+    "title": "Selection",
+    "segments": [
+        [
+            {"description": "1. Click one cell and drag the mouse to select a range. Then you will see the range selection."}
+        ],
+        [
+            {"description": "2. You can change the selection border color and background color by using the <b>selectionBorderColor</b> and <b>selectionBackColor</b> methods, as shown in the following code:"},
+            {"code": [
+                "   var spread = $('#ss').data('spread');",
+                "   var sheet = spread.getActiveSheet();",
+                "   sheet.selectionBorderColor('red');",
+                "   sheet.selectionBackColor('transparent');"
+            ]}
+        ],
+        [
+            {"description": "3. You can set what items a user can select by using the <b>selectionPolicy</b> and <b>selectionUnit</b> methods. The enum <b>SelectionPolicy</b> provides three types:"},
+            {"list": [
+                "Single: Allows you to only select single items.",
+                "Range: Allows you to select single items and ranges of items, but not multiple ranges.",
+                "MuliRange: Allows you to select single items and ranges of items, including multiple ranges."
+            ]},
+            {"description": "The enum <b>SelectionUnit</b> contains three types:"},
+            {"list": [
+                "Cell: Indicates that the smallest unit that can be selected is a cell.",
+                "Row: Indicates that the smallest unit that can be selected is a row.",
+                "Column: Indicates that the smallest unit that can be selected is a column."
+            ]},
+            {"description": "You can use these two methods to control the select mode."}
+        ],
+        [
+            {"description": "4. Press the Shift key and select some ranges; you will select multiple ranges. Also you can use the <b>addSelection</b> method to add more selections, and then use the <b>getSelections</b> method to get all the selected ranges. Use the <b>clearSelection</b> method to clear the selections. These methods are used in the following code:"},
+            {"code": [
+                "sheet.addSelection(0, 0, 3, 3);",
+                "sheet.addSelection(4, 3, 2, 2);",
+                "sheet.clearSelection();",
+                "var selections = sheet.getSelections(); ",
+                "// after clearSelection the selections.length is 0."
+            ]}
+        ],
+        [
+            {"description": "5. Besides using the mouse to select, you can use the <b>setSelection</b> method to select some cells and use the <b>setActiveCell</b> method to select one cell. The active cell is the first cell in the selection. Use the <b>getActiveRowIndex</b> and <b>getActiveColumnIndex</b> methods to get the active cell row and column indexes, as shown in the following code:"},
+            {"code": [
+                "sheet.setSelection(0, 0, 3, 3);",
+                "sheet.setActiveCell(20, 3, 2, 2);",
+                "var activeRowIndex = sheet.getActiveRowIndex();",
+                "var activeColumnIndex = sheet.getActiveColumnIndex();"
+            ]},
+            {"description": "After you set the active cell, if the active cell is not visible, you can use the <b>showCell</b>, <b>showRow</b>, and <b>showColumn</b> methods to make the active cell visible."},
+            {"code": [
+                "var verticalPosition = GcSpread.Sheets.VerticalPosition.top;",
+                "var horizontalPosition = GcSpread.Sheets.HorizontalPosition.left;",
+                "sheet.showCell(20, 3, verticalPosition, horizontalPosition);",
+                "// up code and down code work out the same result.",
+                "sheet.showColumn(3, horizontalPosition);",
+                "sheet.showRow(20, verticalPosition);"
+            ]}
+        ]
+    ]
+}

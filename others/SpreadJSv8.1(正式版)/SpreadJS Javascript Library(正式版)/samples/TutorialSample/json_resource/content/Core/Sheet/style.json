@@ -1,0 +1,52 @@
+{
+    "title": "Style",
+    "segments": [
+        [
+            {"description": "SpreadJS provides a Style class that includes many properties, such as foreColor, backColor, and so on."},
+            {"description":"1. You can create a style and set some properties for it using code such as the following:"},
+            {"code":[
+                "var style = GcSpread.Sheets.Style();",
+                "style.backColor = 'red';",
+                "style.foreColor = 'green';"
+            ]}
+        ],
+        [
+            {"description":"2. Then you can set the style to a cell, row, or column:"},
+            {"code":[
+                "//set style to cell.",
+                "sheet.setStyle(5, 5, style, GcSpread.Sheets.SheetArea.viewport);",
+                " ",
+                "//set style to row.",
+                "sheet.setStyle(5, -1, style, GcSpread.Sheets.SheetArea.viewport);",
+                " ",
+                "//set style to column.",
+                "sheet.setStyle(-1, 5, style, GcSpread.Sheets.SheetArea.viewport);"
+            ]},
+            {"description": "The style in each of the different levels has a different precedence, as follows: cell > row > column."}
+        ],
+        [
+            {"description":"3. SpreadJS allows you to set a name for a style, and add this named style to the sheet's named styles collection. This makes the style more convenient to use and manage."},
+            {"description":"You can set a name for a style and add this style to the named style collection of the sheet or the Spread component."},
+            {"code":[
+                "var style = new GcSpread.Sheets.Style();",
+                "style.name = 'style1';",
+                "style.backColor = 'red';",
+                " ",
+                "//add to sheet's named style collection.",
+                "sheet.addNamedStyle(style);",
+                "//add to spread's named style collection.",
+                "spread.addNamedStyle(style)"
+            ]},
+            {"description":"After the named style has been added to the named styles collection, you can get the style by its name:"},
+            {"code":[
+                "sheet.getNamedStyle('style1');",
+                "spread.getNamedStyle('style1')"
+            ]},
+            {"description":"If a named style will not be used, you can remove it from the named styles collection:"},
+            {"code":[
+                "sheet.removeNamedStyle('style1');",
+                "spread.removeNamedStyle('style1')"
+            ]}
+        ]
+    ]
+}

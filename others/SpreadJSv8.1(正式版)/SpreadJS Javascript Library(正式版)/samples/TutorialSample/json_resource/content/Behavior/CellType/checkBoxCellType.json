@@ -1,0 +1,42 @@
+{
+    "title": "Check Box Cell Type",
+    "segments": [
+        [
+            {"description": "1. The <b>CheckBoxCellType</b> represents a check box cell."}
+        ],
+        [
+            {"description": "2. To create a check box cell, follow this example:"},
+            {"code": [
+                "var c = new GcSpread.Sheets.CheckBoxCellType();",
+                "sheet.setCellType(3, 2, c, GcSpread.Sheets.SheetArea.viewport);"
+            ]}
+        ],
+        [
+            {"description": "3. The <b>CheckBoxCellType</b> can support a three-state check box. You can use the <b>isThreeState</b> method to get and set whether the check box supports three states. For example:"},
+            {"code": [
+                "c.isThreeState(true);",
+                "var state = c.isThreeState();"
+            ]},
+            {"description": "The three states are true, false, or indeterminate. Every state has its own text; you can use the <b>textTrue</b>, <b>textFalse</b>, and <b>textIndeterminate</b> methods to get and set these states' text. For example:"},
+            {"code": [
+                "c.isThreeState(true);",
+                "c.textTrue('Check state');",
+                "c.textFalse('UnCheck state');",
+                "c.textIndeterminate('Indeterminate state');"
+            ]}
+        ],
+        [
+            {"description": "4. You can use the <b>caption</b> method to get and set the caption of the check box cell. Use the <b>textAlign</b> method to get and set the text alignment relative to the check box. The setting is a <b>CheckBoxTextAlign</b> enum value."},
+            {"list": [
+                "top: Text is on top of the check box.",
+                "bottom: Text is below the check box.",
+                "left: Text is to the left of the check box.",
+                "right: Text is to the right of the check box."
+            ]},
+            {"code": [
+                "c.caption('Check Box');",
+                "c.textAlign(GcSpread.Sheets.CheckBoxTextAlign.left);"
+            ]}
+        ]
+    ]
+}

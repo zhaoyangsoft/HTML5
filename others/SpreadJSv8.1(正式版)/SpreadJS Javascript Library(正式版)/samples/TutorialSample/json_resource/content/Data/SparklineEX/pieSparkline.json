@@ -1,0 +1,22 @@
+{
+    "title": "Pie Sparkline",
+    "segments": [
+        [
+            {"description": "You can create a pie sparkline by using the PieSparkline function in a formula: <b>=PIESPARKLINE(percentage,color1?,color2?,.....)</b>."},
+			{"description": "The function has the following parameters:"},
+            {"description": "<b>percentage</b>"},
+            {"list": ["If the param is a cell (such as: A1), the percentage is the cell's value.",
+                      "If the param is a range (such as \"A1:B3\"), the percentage is the result of each cell's value divided by the sum of the range.",
+                      "If the param is a percent value (such as 30% or 0.3), the percentage is the value.",
+                      "If the parse value is invalid, it will be treated as 0."
+                     ]
+            },
+            {"description": "<b>color1?, color2? ...</b> (optional)"},
+            {"list": ["If the color parameter count is greater than or equal to the range count, values and colors have a one-to-to correspondence; redundant colors will be ignored.",
+                "If the color parameter count is less than the range count, the given colors are reused and makes linear gradient to ensure each sector has a different color.",
+                "If there is no color, uses \"darkgray\" as default."
+                ]
+            }
+        ]
+    ]
+}

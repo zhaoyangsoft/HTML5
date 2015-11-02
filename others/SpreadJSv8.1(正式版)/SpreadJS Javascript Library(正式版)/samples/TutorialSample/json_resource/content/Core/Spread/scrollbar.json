@@ -1,0 +1,44 @@
+{
+    "title": "Scroll Bar",
+    "segments": [
+        [
+            {"description": "1. The horizontal and vertical scroll bars in SpreadJS let you move the sheet to view portions of it."}
+        ],
+        [
+            {"description": "2. The scroll bar consists of arrow buttons, a scroll box, and a scroll box container. Spread's scroll bar allows operations such as pressing the arrow button, dragging the scroll box, and clicking the space between the scroll box and arrow button. These actions provide the following results:"},
+            {"list": ["Press the arrow button to scroll the sheet one row or column at a time.",
+                      "Drag the scroll box up and down (or left and right) to scroll the sheet up and down (or left and right).",
+                      "Click the space between the scroll box and the arrow button to scroll the sheet one page."]}
+        ],
+        [
+            {"description": "3. SpreadJS can display the scroll tooltip when you drag the scroll box. You can use the <b>showScrollTip</b> method to set the type of scroll tooltip to be displayed. The scroll tooltip displays the number for the top row or left column in the view when dragging the scroll box."},
+            {"code": [
+                "var spread = $('#ss').data('spread');",
+                "spread.showScrollTip(GcSpread.Sheets.ShowScrollTip.Horizontal);",
+                "spread.showScrollTip(GcSpread.Sheets.ShowScrollTip.Vertical);",
+                "spread.showScrollTip(GcSpread.Sheets.ShowScrollTip.Both);",
+                "spread.showScrollTip(GcSpread.Sheets.ShowScrollTip.None);"
+            ]}
+        ],
+        [
+            {"description": "4. You can use the <b>showVerticalScrollbar</b> and <b>showHorizontalScrollbar</b> methods to control whether to display the scroll bar."},
+            {"code": [
+                "var spread = $('#ss').data('spread');",
+                "spread.showVerticalScrollbar(false);",
+                "spread.showHorizontalScrollbar(false);"
+            ]}
+        ],
+        [
+            {"description": "5. You can set <b>scrollbarMaxAlign</b> and <b>scrollbarShowMax</b> to limit scroll range."},
+            {"list": [
+                 "scrollbarMaxAlign: Whether the scroll bar aligns with the last row or column of the active sheet.",
+                 "scrollbarShowMax: Whether the displayed scroll bars are based on the entire number of rows or columns of the active sheet."
+            ]},
+            {"code": [
+                "var spread = $('#ss').data('spread');",
+                "spread.scrollbarMaxAlign(true);",
+                "spread.scrollbarShowMax(true);"
+            ]}
+        ]
+    ]
+}

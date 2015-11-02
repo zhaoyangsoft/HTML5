@@ -1,0 +1,33 @@
+{
+    "title": "Async Function",
+    "segments": [
+        [
+            {"description": "SpreadJS provides <b>AsyncFunction</b> to support evaluating asynchronous values; it is used for scenarios in which the process could not get the calculated value immediately, such as server side calculation."}
+        ],
+        [
+            {"description": "1. Create a class through inheriting the <b>GcSpread.Sheets.Functions.AsyncFunction</b>."}
+        ],
+        [
+            {"description": "2. Provide a display string by using the <b>defaultValue</b> method."}
+        ],
+        [
+            {"description": "3. Provide the <b>evaluateAsync</b> method to evaluate, and set the result by using context.<b>SetAsyncResult</b>."},
+            {"code": [
+                 "var asum = function () {};",
+                 "asum.prototype = new GcSpread.Sheets.Calc.Functions.AsyncFunction('ASUM', 1, 255);",
+                 "asum.prototype.defaultValue = function () { return 'Loading...'; };",
+                 "asum.prototype.evaluateAsync = function (args, context) {",
+                 "  // do evaluate on server to get result ...",
+                 "  context.SetAsyncResult(result);",
+                 "};"
+             ]}
+        ],
+        [
+            {"description": "4. Use the <b>addCustomFunction</b> method to add the defined async function, then use it in a formula such as by using the <b>setFormula</b> method" },
+            {"code": [
+                 "sheet.addCustomFunction(new asum());",
+                 "sheet.setFormula(1, 1, 'ASUM(A1,B1)');"
+             ]}
+        ]
+    ]
+}

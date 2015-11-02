@@ -1,0 +1,44 @@
+{
+    "title": "Sheet Actions",
+    "segments": [
+        [
+            {"description": "1. SpreadJS supports many keyboard actions, such as pressing the left arrow key to navigate to the left, pressing the Delete key to clear values, and so on. The key actions use the key map to link the key and the action."}
+        ],
+        [
+            {"description": "2. You can add your own key by using the <b>addKeyMap</b> method to link the keydown event to an action, as shown in the following code:"},
+            {"code": [
+                "var spread = $('#ss').data('spread');",
+                "var sheet = spread.getActiveSheet();",
+                "sheet.addKeyMap('W'.charCodeAt(0), false, false, false, false, ",
+                "   GcSpread.Sheets.SpreadActions.navigationUp);",
+                "sheet.addKeyMap('A'.charCodeAt(0), false, false, false, false, ",
+                "   GcSpread.Sheets.SpreadActions.navigationLeft);",
+                "sheet.addKeyMap('S'.charCodeAt(0), false, false, false, false, ",
+                "   GcSpread.Sheets.SpreadActions.navigationDown);",
+                "sheet.addKeyMap('D'.charCodeAt(0), false, false, false, false, ",
+                "   GcSpread.Sheets.SpreadActions.navigationRight);"
+            ]},
+            {"description": "Then press the W, A, S, and D keys to navigate, similar to the up, left, down, and right arrow keys."}
+        ],
+        [
+            {"description": "3. Also, you can remove the key map by using the <b>removeKeyMap</b> method. For example, in the following code, it removes the map for the W key, and pressing it no longer moves up."},
+            {"code": [
+                "sheet.removeKeyMap('W'.charCodeAt(0), false, false, false, false);"
+            ]}
+        ],
+        [
+            {"description": "4. SpreadJS supports many <b>undo</b> and <b>redo</b> actions, such as <b>ColumnResizeUndoAction</b>, <b>DragDropUndoAction</b>, and so on. You can use the Ctrl+z and Ctrl+y keys to undo or redo these actions.(Also you can add a key map to undo or redo actions.)"},
+            {"description": "   You can use the <b>doCommand</b> method in the sheet or the Spread component to perform the action, as shown in the following code:"},
+            {"code": [
+                "var spread = $('#ss').data('spread');",
+                "var sheet = spread.getActiveSheet();",
+                "sheet.setText(0, 0, 'test1');",
+                "sheet.setText(0, 1, 'test2');",
+                "var range = new GcSpread.Sheets.Range(0, 0, 2, 2);",
+                "var action = new GcSpread.Sheets.UndoRedo.ClearValueUndoAction(sheet, [range]);",
+                "sheet.doCommand(action); //sheet",
+                "spread.doCommand(action);// spread"
+            ]}
+        ]
+    ]
+}

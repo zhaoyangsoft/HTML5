@@ -1,0 +1,40 @@
+{
+    "title": "Initialize Sheet",
+    "segments": [
+        [
+            {"description": "1. Similar to other libraries, Sheet requires the following included files:"},
+            {"list": ["gcspread.sheets.8.40.20151.0.css", "jquery-1.8.2.min.js", "gcspread.sheets.all.8.40.20151.0.min.js"]}
+        ],
+        [
+            {"description": "2. Create a sheet using the following code (the parameter is the sheet's name)."},
+            {"code": [
+                "var sheet = new GcSpread.Sheets.Sheet('NewSheet');"
+            ]}
+        ],
+        [
+            {"description": "3. Add it at the specified position of an existing Spread component."},
+            {"code": [
+                "spread.addSheet(0, sheet);"
+            ]}
+        ],
+        [
+            {"description": "4. If you want to remove an existing sheet from the Spread component, use the following code. This example code removes the first sheet in the Spread."},
+            {"code": [
+                "spread.removeSheet(0);"
+            ]}
+        ],
+        [
+            {"description": "5. If you want to remove all the sheets in the Spread component, use the convenient <b>clearSheets</b> method."},
+            {"code": [
+                "spread.clearSheets();"
+            ]}
+        ],
+        [
+            {"description": "6. If you want to customize the sheet's name, use the <b>getName</b> and <b>setName</b> methods to get and set the sheet's name."},
+            {"code": [
+                "var sheetName = sheet.getName();",
+            	"sheet.setName('sheet1');"
+            ]}
+        ]
+    ]
+}

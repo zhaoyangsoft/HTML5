@@ -1,0 +1,57 @@
+{
+    "title": "Custom Filters",
+    "segments": [
+        [
+            {"description": "1. After you set the row filter, you can customize it."}
+        ],
+        [
+            {"description": "2. You can use the <b>filterButtonVisible</b> method to get or set whether the filter buttons are displayed. For example:"},
+            {"code": [
+                "var range = new GcSpread.Sheets.Range(-1, 0, -1, 2);",
+                "var rowFilter = new GcSpread.Sheets.HideRowFilter(range);",
+                "sheet.rowFilter(rowFilter);",
+                "rowFilter.filterButtonVisible(false);"
+            ]}
+        ],
+        [
+            {"description": "3. If you want to know whether any row is filtered, use the <b>isFiltered</b> method. Also you can use the <b>isRowFilteredOut</b> method to determine whether the specified row is filtered out, and use the <b>isColumnFiltered</b> method to determine whether the specified column is filtered. For example:"},
+            {"code": [
+                "sheet.setValue(0,0,1);",
+                "sheet.setValue(1,0,2);",
+                "sheet.setValue(2,0,3);",
+                "var range = new GcSpread.Sheets.Range(-1, -1, -1, -1);",
+                "sheet.rowFilter(new GcSpread.Sheets.HideRowFilter(range));",
+                "var compareType = GcSpread.Sheets.TextCompareType.EqualsTo;",
+                "var condition = new GcSpread.Sheets.TextCondition(compareType, '3');",
+                "var rowfilter = sheet.rowFilter();",
+                "rowfilter.addFilterItem(0, condition);",
+                "rowfilter.filter(0);",
+                "rowfilter.isFiltered(); // true",
+                "rowfilter.isColumnFiltered(0); // true",
+                "rowfilter.isRowFilteredOut(2); // false"
+            ]}
+        ],
+        [
+            {"description": "4. You can use <b>getFilterItems</b> to get the filters (Conditions Array) for the specified column. Also you can use <b>getFilteredItems</b> to get all filtered conditions. For example:"},
+            {"code": [
+                "rowfilter.getFilterItems(0);",
+                "rowfilter.getFilteredItems();"
+            ]}
+        ],
+        [
+            {"description": "5. The filtered row can be sorted. Use <b>sortColumn</b> to sort the specified column in the specified order, and use <b>getSortState</b> to get the current sort state. For example:"},
+            {"code": [
+                "rowfilter.SortColumns(0, true); // sort as ascending.",
+                "rowfilter.getSortState() === GcSpread.Sheets.SortState.Ascending; // true"
+            ]}
+        ],
+        [
+            {"description": "6. If you don't want the filters, you can remove some filters or clear all filters. For example:"},
+            {"code": [
+                "rowfilter.removeFilterItems(0);",
+                "rowfilter.unfilter(0);",
+                "rowfilter.reset();"
+            ]}
+        ]
+    ]
+}

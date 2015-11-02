@@ -1,0 +1,17 @@
+{
+    "title": "What If Analysis Template",
+    "segments": [
+        [
+            {"description": "The What-If Model will allow a team the ability to model the potential financial impact of a variety of initiatives upon a company's financial statements."}
+        ],
+        [
+            {"description": "SpreadJS loads data from saved file with <b>fromJSON</b>."},
+            {"code": [
+                "var sd = JSON.parse(data);",
+                "spread.isPaintSuspended(true);",
+                "spread.fromJSON(sd[0]);",
+                "spread.isPaintSuspended(false);"
+            ]}
+        ]
+    ]
+}

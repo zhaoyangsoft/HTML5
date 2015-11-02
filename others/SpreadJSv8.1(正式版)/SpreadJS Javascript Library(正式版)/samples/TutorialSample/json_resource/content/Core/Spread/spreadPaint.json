@@ -1,0 +1,26 @@
+{
+    "title": "Spread Paint",
+    "segments": [
+        [
+            {"description": "1. After you change the spread, the component needs to deal with these changes, and then update."}
+        ],
+        [
+            {"description": "2. You can also use <b>repaint</b> to repaint the spread."},
+            {"code": [
+                "var spread = $('#ss').data('spread');",
+                "spread.repaint();"
+            ]}
+        ],
+        [
+            {"description": "3. Most of the time, after you change the spread, the component automatically refreshes. If you make a lot of changes at once, and do not want the spread to repaint many times, then you can set <b>isPaintSuspend</b> with true to stop the repaint while making changes. After you are finished making changes you can set <b>isPaintSuspend</b> with false to notice spread repiant. For example:"},
+            {"code": [
+                "var spread = $('#ss').data('spread');",
+                "spread.isPaintSuspended(true);",
+                "spread.addSheet(0);",
+                "spread.fromJSON(json); // json data",
+                "spread.isPaintSuspended(false);"
+            ]}
+        ]
+
+    ]
+}

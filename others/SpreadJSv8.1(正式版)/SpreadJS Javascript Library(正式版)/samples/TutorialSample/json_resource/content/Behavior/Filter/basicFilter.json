@@ -1,0 +1,34 @@
+{
+    "title": "Basic Filter",
+    "segments": [
+        [
+            {"description": "1. Filtered data displays only the rows that meet criteria that you specify and hides rows that you do not want displayed."}
+        ],
+        [
+            {"description": "2. To set the filter for a sheet, first create a row filter, then use the <b>rowFilter</b> method to set the row filter. There are some built-in filters. For example:"},
+            {"list": [
+                "addAverageFilter: The average filter.",
+                "addBackgroundFilter: The background filter.",
+                "addDateFilter: The date filter.",
+                "addForegroundFilter: The foreground filter.",
+                "addNumberFilter: The number filter.",
+                "addTextFilter: The text filter.",
+                "addTop10Filter: The top 10 filter."
+            ]},
+            {"code": [
+                "var range = new GcSpread.Sheets.Range(-1, 0, -1, 2);",
+                "var rowFilter = new GcSpread.Sheets.HideRowFilter(range);",
+                "sheet.rowFilter(rowFilter);",
+                "rowFilter.setShowFilterButton(false);",
+                "rowFilter.addTextFilter(1, GcSpread.Sheets.TextCompareType.Contains, '*e*'); ",
+                "rowFilter.filter(1);"
+            ]},
+            {"description": "You can also create a condition and use the <b>addFilterItem</b> method to add a specified filter to the row filter. For example:"},
+            {"code": [
+                "var customValueType = GcSpread.Sheets.CustomValueType.Empty;",
+                "var formulaCondition = new GcSpread.Sheets.FormulaCondition(customValueType, null);",
+                "rowFilter.filter(1);"
+            ]}
+        ]
+    ]
+}

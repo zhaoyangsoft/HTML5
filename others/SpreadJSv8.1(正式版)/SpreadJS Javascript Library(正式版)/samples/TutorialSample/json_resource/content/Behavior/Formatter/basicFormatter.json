@@ -1,0 +1,36 @@
+{
+    "title": "Basic Formatter",
+    "segments": [
+        [
+            {"description": "1. In SpreadJS, you can customize the format of each cell so that the data is displayed however you like."}
+        ],
+        [
+            {"description": "2. To set the formatter for a cell use the <b>setFormatter</b> method to set a formatter string to a cell, and use the <b>getFormatter</b> method to get the cell formatter. Also you can get the cell, column, or row by using the formatter method to get and set the formatter for the cell. For example:"},
+            {"code": [
+                "sheet.setValue(9, 6, new Date(2013,3,1));",
+                "sheet.setFormatter(9, 6, 'd-mmm;@');",
+                "//or",
+                "sheet.getCell(9, 6).formatter('d-mmm;@');"
+            ]}
+        ],
+        [
+            {"description": "3. You can set a general format for a cell. Create a <b>GeneralFormatter</b> and set it to the cell. For example:"},
+            {"code": [
+                "var generalFormat = new GcSpread.Sheets.GeneralFormatter(",
+				"            '[Red]+0.00;[Green]-0.00;[Yellow]0;[Blue]@');",
+                "var cell = sheet.getCell(0, 0);",
+                "cell.formatter(generalFormat);"
+            ]},
+            {"description": "You can customize the general format, including the format mode. The format mode is defined by the <b>FormatMode</b> enum."},
+            {"list": [
+                "CustomMode: Indicates whether to format the value with the Excel-compatible format string.",
+                "StandardDateTimeMode: Indicates whether to format the value with the standard date-time format.",
+                "StandardNumericMode: Indicates whether to format the value with the standard numeric format."
+            ]},
+            {"code": [
+                "generalFormat.FormatMode(",
+				"    GcSpread.Sheets.FormatMode.StandardDateTimeMode );"
+            ]}
+        ]
+    ]
+}

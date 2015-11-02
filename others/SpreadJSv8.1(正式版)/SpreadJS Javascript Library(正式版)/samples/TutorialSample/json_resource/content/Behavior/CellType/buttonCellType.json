@@ -1,0 +1,37 @@
+{
+    "title": "Button Cell Type",
+    "segments": [
+        [
+            {"description": "1. The <b>ButtonCellType</b> represents a button cell."}
+        ],
+        [
+            {"description": "2. To create a button cell, follow this example:"},
+            {"code": [
+                "var b1 = new GcSpread.Sheets.ButtonCellType();",
+                "sheet.setCellType(3, 2, b1, GcSpread.Sheets.SheetArea.viewport);"
+            ]}
+        ],
+        [
+            {"description": "3. You can customize your ButtonCellType using the many provided APIs. If you want to control the button's position in the cell, use the following methods."},
+            {"list": [
+                "marginTop: Gets or sets the button's top margin in pixels relative to the cell.",
+                "marginRight: Gets or sets the button's right margin in pixels relative to the cell.",
+                "marginBottom: Gets or sets the button's bottom margin in pixels relative to the cell.",
+                "marginLeft: Gets or sets the button's left margin in pixels relative to the cell."
+            ]},
+            {"code": [
+                "b1.marginLeft(15);",
+                "b1.marginTop(7);",
+                "b1.marginRight(15);",
+                "b1.marginBottom(7);"
+            ]}
+        ],
+        [
+            {"description": "4. You can use the <b>text</b> method to get and set the button's content. Use the <b>buttonBackColor</b> method to get and set the button's background color. For example:"},
+            {"code": [
+                "b1.text('Margin');",
+                "b1.buttonBackColor('red');"
+            ]}
+        ]
+    ]
+}

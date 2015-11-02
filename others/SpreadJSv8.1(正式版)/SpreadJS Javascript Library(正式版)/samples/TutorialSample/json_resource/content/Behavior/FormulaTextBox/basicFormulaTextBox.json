@@ -1,0 +1,37 @@
+{
+    "title": "Basic Formula Text Box",
+    "segments": [
+        [
+            {"description": "1. When you input a formula, you might forget the available function names. SpreadJS provides a formula list that displays the function description when you are inputting a formula. When the formula list is displayed, press the Tab key, and then the formula name will auto complete."}
+        ],
+        [
+            {"description": "2. If you enter a range in a formula, the range indicator is displayed. You can mouse click and select a range."}
+        ],
+        [
+            {"description": "3. Sometimes you might add a custom function to the sheet or Spread. After you add it, if you want to show the function description in the formula list, you can use the <b>addCustomFunctionDescription</b> method. For example:"},
+            {"code": [
+                "var fn2 = $.ce.createFunction('squareFunction', function (x) {",
+                "   return x * x;",
+                "}, { minArg: 0, maxArg: 1 });",
+                "spread.addCustomFunction(fn2);",
+                "var desc = {",
+                "   name: 'squareFunction',",
+                "   description: 'Returns x * x',",
+                "   parameters: [",
+                "      { name: 'x'}",
+                "   ]",
+                "};",
+                "spread.addCustomFunctionDescription(desc);"
+            ]},
+            {"description": "Also you can use <b>getCustomFunctionDescription</b> to get the custom function description."}
+        ],
+        [
+            {"description": "4. If you remove a custom function, you need to remove the function description, as shown in the following example:"},
+            {"code": [
+                "spread.removeCustomFunctionDescription('squareFunction');",
+				"// clear all custom function descriptions.",
+                "spread.clearCustomFunctionDescriptions();"
+            ]}
+        ]
+    ]
+}

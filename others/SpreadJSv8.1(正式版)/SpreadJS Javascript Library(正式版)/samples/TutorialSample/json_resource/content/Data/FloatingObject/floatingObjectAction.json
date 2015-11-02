@@ -1,0 +1,29 @@
+{
+    "title": "Floating Object Actions",
+    "segments": [
+        [
+            {"description": "1. Floating objects support a variety of actions, including drag drop, resize, move, copy, paste, and so on."}
+        ],
+        [
+            {"description": "2. The following keys provide actions for working with the floating object:"},
+            {"list": [
+                "Esc: If you select multiple floating objects, and then press Esc, all the floating objects will be deselected.",
+                "Delete: Select multiple floating objects, then press Delete, and the selected floating objects will be deleted.",
+                "Tab: Select a floating object, then press Tab to navigate to the next floating object and select it.",
+                "Shift+Tab: Select a floating object, then press Shift+Tab to navigate to the previous floating object and select it.",
+                "Ctrl+X: Select multiple floating objects, then press Ctrl+X, and the selected floating objects will be cut to the Clipboard.",
+                "Ctrl+C: Select multiple floating objects, then press Ctrl+C, and the selected floating object will be copied to the Clipboard.",
+                "Ctrl+V: Select a cell, then press Ctrl+V to paste from the Clipboard.",
+                "Ctrl+A: Select a floating object, then press Ctrl+A to select all the floating objects.",
+                "Up: Select some floating objects, then press the Up arrow to move the selected floating objects up.",
+                "Down: Select some floating objects, then press the Down arrow to move the selected floating objects down.",
+                "Left: Select some floating objects, then press the Left arrow to move the selected floating objects to the left.",
+                "Right: Select some floating objects, then press the Right arrow to move the selected floating objects to the right."
+            ]}
+        ],
+        [
+            {"description": "3. You can also interact with the floating object using mouse actions. When you select a floating object, a position indicator and eight resize indicators are displayed. You can drag the resize indicator to resize the floating object. Also you can drag the floating object and drop it in another position."},
+            {"description": "4. You can drag to copy and paste by pressing the Ctrl key and dragging the floating object with the mouse. After you release the mouse the dragged floating objects will be copied and pasted."}
+        ]
+    ]
+}

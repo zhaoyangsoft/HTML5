@@ -1,0 +1,36 @@
+{
+    "title": "Custom Item Serialize",
+    "segments": [
+        [
+            {"description": "SpreadJS supports serialization of these custom items: custom cell type, function, formatter, sparklineEx, tag, and row filter."}
+        ],
+        [
+            {"description": "The corresponding type should provide a <b>typeName</b> field in its <b>toJSON</b>, which tells the type's name related to window. When deserialized, use <b>getTypeFromString</b> to get the type's name and create an instance, then invoke <b>fromJSON</b>."}
+        ],
+        [
+            {"description": "The following rules can help you serialize and deserialize custom items correctly:"},
+            {"list": [
+                "Set the full type string to the typeName field (include namespace if present).",
+                "If a custom type has a circular dependency or you want to reduce JSON size, or you have other advanced requirements, the custom type also needs to override the <b>toJSON</b> and <b>fromJSON</b> method.",
+                "If a custom type is in a closure, in other words, you don't want to put the custom type on a window object, you need to override the <b>getTypeFromString</b> method for parsing the type string."
+            ]},
+            {"description": "For example:"},
+            {"code": [
+                 "var mynamespace = {};",
+                "(function () {",
+                "   function MyFunction() {",
+                "       GcSpread.Sheets.Calc.Functions.Function.apply(this, [\"MyFunction\", 0, 0]);",
+                "       this.typeName = \"mynamespace.MyFunction\";",
+                "   }",
+                "   MyFunction.prototype = new GcSpread.Sheets.Calc.Functions.Function();",
+                "   MyFunction.prototype.evaluate = function (args) {",
+                "       var now = new Date();",
+                "       return now.getFullYear() + \"/\" + (now.getMonth() + 1) + \"/\" + now.getDate();",
+                "   };",
+                "   mynamespace.MyFunction = MyFunction;",
+                "})();"
+             ]}
+        ]
+
+    ]
+}

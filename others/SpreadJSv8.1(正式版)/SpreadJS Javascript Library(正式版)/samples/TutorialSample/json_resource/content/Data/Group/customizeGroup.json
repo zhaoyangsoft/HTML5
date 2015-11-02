@@ -1,0 +1,35 @@
+{
+    "title": "Custom Group",
+    "segments": [
+        [
+            {"description": "1. SpreadJS provides some APIs for you to customize the group, including getting and setting the range group's direction, expanding the group, displaying or hiding the range group, and so on."}
+        ],
+        [
+            {"description": "2. You can use the <b>showRowRangeGroup</b> or <b>showColumnRangeGroup</b> method to get and set whether to display the range group. For example:"},
+            {"code": [
+                "var spread = $('#ss').data('spread');",
+                "var sheet = spread.getActiveSheet();",
+                "sheet.showRowRangeGroup(false); // hide the row range group",
+                "sheet.showColumnRangeGroup(true); // show the column range group"
+            ]}
+        ],
+        [
+            {"description": "3. If you want to expand or collapse the outline (range group) of the rows or columns, use the <b>expandGroup</b> or <b>expand</b> method (expands all outlines of the specified level). Or you can click the summary button (+, -) to expand or collapse the outline. For example:"},
+            {"code": [
+                "var spread = $('#ss').data('spread');",
+                "var sheet = spread.getActiveSheet();",
+                "sheet.rowRangeGroup.expand(1, false);",
+                "sheet.colRangeGroup.expand(-1, false);"
+            ]}
+        ],
+        [
+            {"description": "4. If you want to get or set the range group's direction (the summary button's position), use the <b>getDirection</b> or <b>setDirection</b> method. For example:"},
+            {"code": [
+                "var spread = $('#ss').data('spread');",
+                "var sheet = spread.getActiveSheet();",
+                "var direction = GcSpread.Sheets.RangeGroupDirection.Forward;",
+                "sheet.rowRangeGroup.setDirection(direction);"
+            ]}
+        ]
+    ]
+}

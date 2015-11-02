@@ -1,0 +1,46 @@
+{
+    "title": "Basic Conditional Format",
+    "segments": [
+        [
+            {"description": "1. If you have a sheet with thousands of rows of data, it can be extremely difficult to see patterns and trends just from examining the raw information. Similar to sparklines, conditional formatting provides another way to visualize data and make sheets easier to understand."}
+        ],
+        [
+            {"description": "2. To add conditional format in SpreadJS, first use the <b>getConditionalFormats</b> method to get the conditional format for the sheet. Then you can create a conditional rule and use the <b>addRule</b> method to add it. Also you can use the specified rule's add method, like <b>addSpecificTextRule</b>, <b>addCellValueRule</b>, and so on. For example:"},
+            {"code": [
+                "var cvRule = new GcSpread.Sheets.CellValueRule();",
+                "cvRule.ranges = [new GcSpread.Sheets.Range(3, 3, 3, 3)];",
+                "cvRule.operator = GcSpread.Sheets.ComparisonOperator.GreaterThan;",
+                "cvRule.value1 = 100;",
+                "var style = new GcSpread.Sheets.Style();",
+                "style.backColor = '#CCFFCC';",
+                "cvRule.style = style;",
+                "sheet.getConditionalFormats().addRule(cvRule);",
+                "// Or",
+                "var cfs = sheet.getConditionalFormats();",
+                "var operator = GcSpread.Sheets.ComparisonOperator.GreaterThan;",
+                "var ranges = [new GcSpread.Sheets.Range(3, 3, 3, 3)];",
+                "cfs.addCellValueRule(operator, 100, 0, style, ranges);"
+            ]}
+        ],
+        [
+            {"description": "3. After you add some rules to the sheet, you can use the <b>getRule</b> method to return the rule using the rule index or get all the conditional rules. For example:"},
+            {"code": [
+                "var cfs = sheet.getConditionalFormats();",
+                "//  The new added is at the end.",
+                "var cvRule = cfs.getRule(1);",
+				"",
+				"// Or get all the conditional rules.",
+                "var rules = cfs.getRules();"
+            ]}
+        ],
+        [
+            {"description": "4. If you want to remove the conditional rule, use the <b>removeRule</b>, <b>removeRuleByRange</b>, or <b>clearRule</b> method. For example:"},
+            {"code": [
+                "var cfs = sheet.getConditionalFormats();",
+                "cfs.removeRule(cvRule)",
+                "cfs.removeRuleByRange(3, 3, 3, 3);",
+                "cfs.clearRule(); //removes all rules"
+            ]}
+        ]
+    ]
+}

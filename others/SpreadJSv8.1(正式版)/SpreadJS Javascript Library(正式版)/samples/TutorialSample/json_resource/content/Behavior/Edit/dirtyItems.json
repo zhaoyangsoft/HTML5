@@ -1,0 +1,40 @@
+{
+    "title": "Dirty Items",
+    "segments": [
+        [
+            {"description": "1. The dirty items can help you get changed data. Dirty items may be inserted rows, deleted rows, updated rows (row with updated cell), or updated cells."}
+        ],
+        [
+            {"description": "2. The dirty concept is defined as:"},
+            {"list": [
+                 "In general, only the changing of one cell's value causes it to be dirty.",
+                 "If the cell is dirty, the current row is also dirty.",
+                 "If one row is inserted and a value is set in a cell, the row is considered an inserted row, not a dirty row. The cell is not considered a dirty cell.",
+                 "An item will not be considered dirty when loading binding data, but it will become dirty after changing the value of binding data by spreadSheet.",
+                 "Items will keep their dirty status even after undo actions."
+            ]}
+        ],
+        [
+            {"description": "3. You can get all dirty rows by calling the <b>getDirtyRows</b> method in the sheet. If there is existing binding data, users will get the <b>row</b>, <b>item</b>, and <b>originalItem</b> from dirty rows; otherwise only the <b>row</b> with the value."}
+        ],
+        [
+            {"description": "4. You can get all dirty cells by calling the <b>getDirtyCells</b> method. Provide operational arguments in the following order if a specified range is given."},
+            {"list": [
+                "row: The row index of the top-left cell in the range.",
+                "col: The column index of the top-left cell in the range.",
+                "rowCount: Total row count of the range.",
+                "colCount: Total column count of the range."
+            ]},
+            {"description": "Each dirty cell provides the information: <b>row</b>, <b>col</b>, <b>oldValue</b>, <b>newValue</b>."}
+        ],
+        [
+            {"description": "5. You can get all deleted rows by calling the <b>getDeleteRows</b> method in the sheet. If there is existing binding data, users will get the <b>row</b> and <b>originalItem</b> from dirty rows; otherwise only the <b>row</b> with the value."}
+        ],
+        [
+            {"description": "6. You can get all inserted rows by calling the <b>getInsertRows</b> method in the sheet. Each inserted row provides information of the <b>row</b> and <b>item</b> (data)."}
+        ],
+        [
+            {"description": "7. Dirty, inserted, and deleted status can be cleared by <b>clearPendingChanges</b>. They will be auto cleared after calling <b>setRowCount</b>, <b>setColumnCount</b>, <b>fromJSON</b>, or <b>setDataSource</b>."}
+        ]
+    ]
+}

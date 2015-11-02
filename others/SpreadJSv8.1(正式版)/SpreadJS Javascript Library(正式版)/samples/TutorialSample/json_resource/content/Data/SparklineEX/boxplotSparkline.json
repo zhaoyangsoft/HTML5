@@ -1,0 +1,26 @@
+{
+    "title": "BoxPlot Sparkline",
+    "segments": [
+        [
+            {"description": "You can create a boxplot sparkline by using the BoxPlotSparkline function in a formula: <b>=BOXPLOTSPARKLINE(points, boxPlotClass?, showAverage?, scaleStart?, scaleEnd?, acceptableStart?, acceptableEnd?, colorScheme?, style?, vertical?)</b>."},
+			{"description": "The function has the following parameters:"},
+            {"description": "<b>points</b>: Reference that represents the range of cells containing all values to be described, such as \"A1:A4\". "},
+            {"description": "<b>boxPlotClass</b>: (optional) The class of the boxPlot. One of the following:"},
+            {"list": [
+                 "5ns (default)", "7ns", "tukey", "bowley", "sigma3"
+            ]},
+            {"description": "<b>showAverage</b>: (optional) Boolean that represents whether to display the average or not; default value is false."},
+            {"description": "<b>scaleStart</b>: (optional) Number or reference that represents the minimum boundary of the sparkline, such as 1 or \"A6\"; default value is the minimum of all values."},
+            {"description": "<b>scaleEnd</b>: (optional) Number or reference that represents the maximum boundary of the sparkline, such as 8 or \"A7\"; default value is the maximum of all values."},
+            {"description": "<b>acceptableStart</b>: (optional) Number or reference that represents the start of the acceptable line, such as 3 or \"A8\"; default value is null." },
+            {"description": "<b>acceptableEnd</b>: (optional) Number or reference that represents the end of the acceptable line, such as 5 or \"A9\"; default value is null."},
+            {"description": "<b>colorScheme</b>: (optional) String that represents the color of the sparkline's box; default value is \"#D2D2D2\"."},
+            {"description": "<b>style</b>: (optional) Number or reference that represents the style of the boxPlot sparkline. One of the following: "},
+            {"list": [
+                 "0: (default) Classical style - the whisker is line and outlier is circle.",
+                 "1: Neo style - the whisker is rectangle and outlier is line."
+            ]},
+            {"description": "<b>vertical</b>: (optional) Boolean that represents whether to display the sparkline vertically or not; default value is false."}
+        ]
+    ]
+}

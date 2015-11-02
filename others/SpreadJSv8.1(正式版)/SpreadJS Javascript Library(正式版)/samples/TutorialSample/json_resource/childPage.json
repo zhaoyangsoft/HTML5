@@ -1,0 +1,15 @@
+{
+    "featureStep": "step ",
+    "featureStepOf": " of ",
+    "codeEditorHeaderText": "Code",
+    "codeEditorButtonText": "Run",
+    "PreviewHeaderText": "Result",
+    "codeBranches": {
+        "codeJS": "Javascript",
+        "codeBody": "HTML",
+        "codeCss": "CSS",
+        "codeResource": "Resources"
+    },
+    "CodeDownloadButtonText": "Download",
+    "footerText": "© 2015 GrapeCity, Inc. All Rights Reserved. All product and company names herein may be trademarks of their respective owners."
+}

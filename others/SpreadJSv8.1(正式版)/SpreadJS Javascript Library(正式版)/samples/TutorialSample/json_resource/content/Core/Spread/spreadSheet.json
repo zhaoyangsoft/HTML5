@@ -1,0 +1,48 @@
+{
+    "title": "Spreadsheet",
+    "segments": [
+        [
+            {"description": "SpreadJS consists of sheets, a tab strip, scrollbars, and so on. The core part is sheet. You can customize the sheet."}
+        ],
+        [
+            {"description": "1. If you want to add more sheets to place more data, then set the index parameter at which to add an empty sheet, or set two parameters where the second parameter is the sheet to add. For example:"},
+            {"code": [
+                "   var spread = $('#ss').data('spread');",
+                "   spread.addSheet(spread.getSheetCount());",
+                "   var sheet = new GcSpread.Sheets.Sheet('New Sheet');",
+                "   spread.addSheet(0, sheet);"
+            ]}
+        ],
+        [
+            {"description": "2. You can customize the sheet count. Use <b>getSheetCount</b> and <b>setSheetCount</b> to get and set the sheet count. For example:"},
+            {"code": [
+                "   spread.setSheetCount(4);",
+                "   var sheetCount = spread.getSheetCount();"
+            ]}
+        ],
+        [
+            {"description": "3. After adding sheets to spread, you can get a sheet by <b>getSheet</b> or <b>getSheetFromName</b>. The sheet name is the same as the sheet tab name. For example:"},
+            {"code": [
+                "   var sheet = spread.getSheet(0);",
+                "   var sheet1 = spread.getSheetFromName('Sheet1');"
+            ]}
+        ],
+        [
+            {"description": "4. If you do not need some of the sheets, use <b>removeSheet</b> and <b>clearSheets</b>. For example:"},
+            {"code": [
+                "   spread.removeSheet(0);",
+                "   spread.clearSheets();"
+            ]}
+        ],
+        [
+            {"description": "5. The active sheet is what you are working on. You can get the active sheet with <b>getActiveSheet</b> and then customize settings. You can also get and set the active sheet index with <b>getActiveSheetIndex</b> and <b>setActiveSheetIndex</b>. For example:"},
+            {"code": [
+                "   var spread = $('#ss').data('spread');",
+                "   var sheet = spread.getActiveSheet();",
+                "   // customize sheet",
+                "   spread.setActiveSheetIndex(1); // change the active sheet.",
+                "   var activeSheetIndex = spread.getActiveSheetIndex();"
+            ]}
+        ]
+    ]
+}

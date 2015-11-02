@@ -1,0 +1,253 @@
+﻿<!doctype html>
+<html>
+<head>
+    <title>SpreadJS - Customize Group</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <link href="../../../external/spreadjs/css/gcspread.sheets.8.40.20151.0.css" rel="stylesheet" type="text/css" />
+
+    <script src="../../../external/external/jquery-1.8.2.min.js" type="text/javascript"></script>
+
+    <script type="text/javascript" src="../../../external/spreadjs/gcspread.sheets.all.8.40.20151.0.min.js"></script>
+
+    <style type="text/css">
+    /*css_begin*/
+        label {
+            display:inline-block;
+            width: 210px;
+        }
+
+        input[type="button"] {
+            width: 100px;
+            margin-right: 20px;
+        }
+    /*css_end*/
+    </style>
+
+    <script id="scriptInit" type="text/javascript">
+        /*code_begin*/
+        var spreadNS = GcSpread.Sheets;
+        $(document).ready(function () {
+            var spread = new GcSpread.Sheets.Spread(document.getElementById("ss"));
+            initSpread(spread);
+        });
+
+        function initSpread(spread) {
+            var sheet = spread.getSheet(0);
+            sheet.isPaintSuspended(true);
+            // set row range group
+            sheet.rowRangeGroup.group(1, 15);
+            sheet.rowRangeGroup.group(1, 4);
+            sheet.rowRangeGroup.group(6, 4);
+            sheet.rowRangeGroup.group(11, 4);
+
+            sheet.colRangeGroup.group(1, 5);
+            sheet.colRangeGroup.group(1, 2);
+
+            sheet.isPaintSuspended(false);
+
+            $("#btnGroup").click(function () {
+                var sheet = spread.getActiveSheet();
+                try {
+                    var selections = sheet.getSelections();
+                    if (selections && selections.length > 0) {
+                        var cr = selections[0];
+                        if (cr.col == -1 && cr.row == -1) { // sheet selection
+                        }
+                        else if (cr.col == -1) {// row selection
+                            sheet.rowRangeGroup.group(cr.row, cr.rowCount);
+                            sheet.invalidateLayout();
+                            sheet.repaint();
+                        }
+                        else if (cr.row == -1) {// column selection
+                            sheet.colRangeGroup.group(cr.col, cr.colCount);
+                            sheet.invalidateLayout();
+                            sheet.repaint();
+                        }
+                        else {// cell range selection
+                            alert("Please select row or column for group");
+                        }
+                    }
+                } catch (ex) {
+                    alert(ex.message);
+                }
+            });
+
+            $("#btnUngroup").click(function () {
+                var sheet = spread.getActiveSheet();
+
+                try {
+                    var selections = sheet.getSelections();
+                    if (selections && selections.length > 0) {
+                        var cr = selections[0];
+                        if (cr.col == -1 && cr.row == -1) { // sheet selection
+                        }
+                        else if (cr.col == -1) {// row selection
+                            sheet.rowRangeGroup.ungroupRange(cr.row, cr.rowCount);
+                            sheet.invalidateLayout();
+                            sheet.repaint();
+                        }
+                        else if (cr.row == -1) {// column selection
+                            sheet.colRangeGroup.ungroupRange(cr.col, cr.colCount);
+                            sheet.invalidateLayout();
+                            sheet.repaint();
+                        }
+                        else {// cell range selection
+                            alert("Please select row or column for group");
+                        }
+                    }
+                } catch (ex) {
+                    alert(ex.message);
+                }
+            });
+
+            $("#btnShowDetail").click(function () {
+                var sheet = spread.getActiveSheet();
+
+                try {
+                    var selections = sheet.getSelections();
+                    if (selections && selections.length > 0) {
+                        var cr = selections[0];
+                        if (cr.col == -1 && cr.row == -1) { // sheet selection
+                        }
+                        else if (cr.col == -1) {// row selection
+                            for (var i = 0; i < cr.rowCount; i++) {
+                                var rgi = sheet.rowRangeGroup.find(i + cr.row, 0);
+                                if (rgi != null) {
+                                    sheet.rowRangeGroup.expandGroup(rgi, true);
+                                }
+                            }
+
+                            sheet.invalidateLayout();
+                            sheet.repaint();
+                        }
+                        else if (cr.row == -1) {// column selection
+                            for (var i = 0; i < cr.colCount; i++) {
+                                var rgi = sheet.colRangeGroup.find(i + cr.col, 0);
+                                if (rgi != null) {
+                                    sheet.colRangeGroup.expandGroup(rgi, true);
+                                }
+                            }
+
+                            sheet.invalidateLayout();
+                            sheet.repaint();
+                        }
+                        else {// cell range selection
+                            alert("Please select row or column for group");
+                        }
+                    }
+                } catch (ex) {
+                    alert(ex.message);
+                }
+            });
+
+            $("#btnHideDetail").click(function () {
+                var sheet = spread.getActiveSheet();
+
+                try {
+                    var selections = sheet.getSelections();
+                    if (selections && selections.length > 0) {
+                        var cr = selections[0];
+                        if (cr.col == -1 && cr.row == -1) { // sheet selection
+                        }
+                        else if (cr.col == -1) {// row selection
+                            for (var i = 0; i < cr.rowCount; i++) {
+                                var rgi = sheet.rowRangeGroup.find(i + cr.row, 0);
+                                if (rgi != null) {
+                                    sheet.rowRangeGroup.expandGroup(rgi, false);
+                                }
+                            }
+
+                            sheet.invalidateLayout();
+                            sheet.repaint();
+                        }
+                        else if (cr.row == -1) {// column selection
+                            for (var i = 0; i < cr.colCount; i++) {
+                                var rgi = sheet.colRangeGroup.find(i + cr.col, 0);
+                                if (rgi != null) {
+                                    sheet.colRangeGroup.expandGroup(rgi, false);
+                                }
+                            }
+
+                            sheet.invalidateLayout();
+                            sheet.repaint();
+                        }
+                        else {// cell range selection
+                            alert("Please select row or column for group");
+                        }
+                    }
+                } catch (ex) {
+                    alert(ex.message);
+                }
+            });
+
+            $("#row_summary").click(function () {
+                var sheet = spread.getActiveSheet();
+
+                var checked = $(this).prop("checked");
+                if (checked) {
+                    sheet.rowRangeGroup.setDirection(spreadNS.RangeGroupDirection.Forward);
+                } else {
+                    sheet.rowRangeGroup.setDirection(spreadNS.RangeGroupDirection.Backward);
+                }
+
+                sheet.invalidateLayout();
+                sheet.repaint();
+            });
+
+            $("#col_summary").click(function () {
+                var sheet = spread.getActiveSheet();
+
+                var checked = $(this).prop("checked");
+                if (checked) {
+                    sheet.colRangeGroup.direction = spreadNS.RangeGroupDirection.Forward;
+                } else {
+                    sheet.colRangeGroup.direction = spreadNS.RangeGroupDirection.Backward;
+                }
+                sheet.invalidateLayout();
+                sheet.repaint();
+            });
+
+            $("#rowGroup_visibility").click(function () {
+                var sheet = spread.getActiveSheet();
+                
+                sheet.showRowRangeGroup($(this).prop("checked"));
+            });
+
+            $("#colGroup_visibility").click(function () {
+                var sheet = spread.getActiveSheet();
+
+                sheet.showColumnRangeGroup($(this).prop("checked"));
+            });
+        };
+        /*code_end*/
+    </script>
+
+</head>
+<body>
+    <div class="sample-turtorial">
+        <div id="ss" style="width: 100%; height: 400px; border: 1px solid gray;"></div>
+        <div class="demo-options">
+            <div class="option-row">
+                <input type="button" value="Group" id="btnGroup" />
+                <input type="button" value="Ungroup" id="btnUngroup" />
+                <input type="button" value="Show Detail" id="btnShowDetail" />
+                <input type="button" value="Hide Detail" id="btnHideDetail" />
+            </div>
+            <div class="option-row">
+                <input type="checkbox" id="row_summary" checked />
+                <label for="row_summary">Summary Rows Below Details</label>
+                <input type="checkbox" id="col_summary" checked />
+                <label for="col_summary">Summary Columns Right Detail</label>
+            </div>
+            <div class="option-row">
+                <input type="checkbox" id="rowGroup_visibility" checked />
+                <label for="rowGroup_visibility">Show Row Range Group</label>
+                <input type="checkbox" id="colGroup_visibility" checked />
+                <label for="colGroup_visibility">Show Column Range Group</label>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

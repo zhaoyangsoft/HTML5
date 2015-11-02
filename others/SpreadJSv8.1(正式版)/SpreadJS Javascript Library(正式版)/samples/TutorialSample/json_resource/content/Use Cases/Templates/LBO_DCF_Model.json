@@ -1,0 +1,20 @@
+{
+    "title": "LBO DCF Model",
+    "segments": [
+        [
+            {"description": "A comprehensive LBO model of business acquisition with DCF Analysis, IRR, WACC, CAPM, Ratio Analysis, and so on."}
+        ],
+		[
+            {"description": "10-Year Projections of Financial Statements, Cash Flows, and so on."}
+        ],
+        [
+            {"description": "SpreadJS loads data from saved file with <b>fromJSON</b>."},
+            {"code": [
+                "var sd = JSON.parse(data);",
+                "spread.isPaintSuspended(true);",
+                "spread.fromJSON(sd[0]);",
+                "spread.isPaintSuspended(false);"
+            ]}
+        ]
+    ]
+}

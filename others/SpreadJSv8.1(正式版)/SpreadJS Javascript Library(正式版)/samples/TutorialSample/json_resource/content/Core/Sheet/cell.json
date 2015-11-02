@@ -1,0 +1,38 @@
+{
+    "title": "Cells",
+    "segments": [
+        [
+            {"description": "In SpreadJS, each sheet area consists of multiple cells. You can return information about many aspects of the cells, including information about specific cells."}
+        ],
+        [
+            {"description": "1. For example, you can get an instance of a cell by specifying its row index and column index."},
+            {"code":[
+                "sheet.getCell(1, 1, GcSpread.Sheets.SheetArea.viewport);"
+            ]},
+            {"description": "You also can get a series of cells in a range of the sheet area."},
+            {"code":[
+                "sheet.getCells(1, 1, 10, 10, GcSpread.Sheets.SheetArea.viewport);"
+            ]}
+        ],
+        [
+            {"description":"2. If you want to get a cell's position, width, or height, use the <b>getCellRect</b> method. This method returns the rectangle of the cell."},
+            {"code":[
+                "sheet.getCellRect(1, 1, GcSpread.Sheets.SheetArea.viewport);"
+            ]}
+        ],        
+        [
+            {"description":"3. The sheet provides a <b>referenceStyle</b> property. It sets the ReferenceStyle enum, which provides two settings:"},
+            {"list":["A1","R1C1"]},
+            {"description":"The property sets the style of cell formulas and its default value is ReferenceStyle.A1. The appearance is the same as Excel. Use the following code to change the setting:"},
+            {"code":[
+                "sheet.referenceStyle(GcSpread.Sheets.ReferenceStyle.R1C1);"
+            ]}
+        ],        
+        [
+            {"description":"4. The sheet has an <b>allowCellOverflow</b> property; its default value is false. When this property's value has been set to true, the cell's data will overflow into adjacent empty cells. Use the following code to change the property's value:"},
+            {"code":[
+                "sheet.allowCellOverflow(true);"
+            ]}
+        ]
+    ]
+}

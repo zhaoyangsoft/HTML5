@@ -1,0 +1,53 @@
+{
+    "title": "Navigation Actions",
+    "segments": [
+        [
+            {"description": "1. SpreadJS supports navigation actions defined in <b>SpreadActions</b>."},
+            {"list":  [
+                 "moveToNextCell: Moves to next cell (default action of Tab).",
+                 "moveToPreviousCell: Moves to previous cell (default action of Shift + Tab).",
+                 "selectNextControl: Selects spread.nextControl specified element or auto detected one if not set.",
+                 "selectPreviousControl: Selects spread.previousControl specified element or auto detected one if not set.",
+                 "moveToNextCellThenControl: Moves to next cell if the active cell is the last visible cell, then selects next control.",
+                 "moveToPreviousCellThenControl: Moves to previous cell if the active cell is the first visible cell, then selects previous control."
+            ]}
+        ],
+        [
+            {"description": "2. Set the selected control by using the <b>nextControl</b> and <b>previousControl</b> methods. For example:"},
+            {"code" : [ 
+                 "// set next & previous control",
+                 "spread.nextControl(document.getElementById('myNextControl'));",
+                 "spread.previousControl(document.getElementById('myPreviousControl'));",
+                 "",
+                 "// set to undefined without specify one by let auto detect",
+                 "spread.nextControl(undefined);"
+            ]}
+        ],
+        [
+            {"description": "3. Use the <b>addKeyMap</b> method to set navigation keys and the corresponding actions. For example:"},
+            {"code": [
+                "// set Tab to select next control",
+                 "sheet.addKeyMap(GcSpread.Sheets.Key.tab, false, false, false, false,",
+                 "      GcSpread.Sheets.SpreadActions.selectNextControl);",
+                "// set Shift + Tab to select previous control",
+                 "sheet.addKeyMap(GcSpread.Sheets.Key.tab, false, true, false, false,",
+                 "      GcSpread.Sheets.SpreadActions.selectPreviousControl);"
+            ]},
+            {"description": "The arguments of <b>addKeyMap</b> in order are:"},
+            {"list":[
+                 "keyCode: The unicode for the key.",
+                 "ctrl: True if the action uses the Ctrl key; otherwise, false.",
+                 "shift: True if the action uses the Shift key; otherwise, false.",
+                 "alt: True if the action uses the Alt key; otherwise, false.",
+                 "meta: True if the action uses the Command key on the Macintosh or the Windows key on Microsoft Windows; otherwise, false.",
+                 "action: The action defined in SpreadActions to add."
+            ]}
+        ],
+        [
+            {"description": "4. Use the <b>hideSelection</b> method to hide the selection when Spread loses the focus. For example:"},
+            {"code": [
+                "spread.hideSelection(true);"
+            ]}
+        ]
+    ]
+}

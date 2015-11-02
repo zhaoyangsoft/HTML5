@@ -1,0 +1,29 @@
+{
+    "title": "Array Formula Introduction",
+    "segments": [
+        [
+            {"description": "Formulas may include functions that operate on arrays. An array formula is a formula that can perform multiple calculations on one or more of the items in an array."}
+        ],
+        [
+            {"description": "Array formulas are often referred to as CSE (Ctrl+Shift+Enter) formulas because instead of just pressing Enter, you press Ctrl+Shift+Enter to complete the formula."}
+        ],
+        [
+            {"description": "SpreadJS supports array constants in formulas. Use curly brackets ({ }) to enclose the array elements. Use a comma to separate elements within a row. Use a semicolon to separate rows within the array. Individual elements can be number values, text values, logical values, or error values. For example:"},
+            {"code": [
+                "={1, 2, 3} * {4; 5; 6}",
+                "/* Returns an array as following:",
+                "   [[4,  8, 12],",
+                "    [5, 10, 15],",
+                "    [6, 12, 18]]",
+                "*/"
+            ]}
+        ],
+        [
+            {"description": "You can use the <b>setArrayFormula</b> method to set an array formula, similar to the <b>setFormula</b> method. The formula text box shows the array formula surrounded by curly brackets ({ })."},
+            {"code": [
+                "// set array formula use range",
+                "sheet.setArrayFormula(6, 4, 4, 3, '=A1:A4*A1:C1');"
+            ]}
+        ]
+    ]
+}

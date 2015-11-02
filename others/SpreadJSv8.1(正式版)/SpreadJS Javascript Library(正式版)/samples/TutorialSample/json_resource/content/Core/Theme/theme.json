@@ -1,0 +1,25 @@
+{
+    "title": "Document Theme",
+    "segments": [
+        [
+            {"description": "1. SpreadJS supports themes that let you define the overall style, including setting fonts and colors."}
+        ],
+        [
+            {"description": "2. SpreadJS provides some built-in themes. You can use the <b>currentTheme</b> method to get and set the current theme for the sheet, for example:"},
+            {"code": [
+                "var spread = $('#ss').data('spread');",
+                "var sheet = spread.getActiveSheet();",
+                "sheet.currentTheme(GcSpread.Sheets.SpreadThemes.Civic);"
+            ]}
+        ],
+        [
+            {"description": "3. You can use the theme colors or standard colors to set cells' <b>foreColor</b> or <b>backColor</b> methods, as in this example"},
+            {"code": [
+                "var spread = $('#ss').data('spread');",
+                "var sheet = spread.getActiveSheet();",
+                "sheet.getCell(1,1).foreColor('Accent 1 50');",
+                "sheet.getCell(1,1).backColor('Background 2 80');"
+            ]}
+        ]
+    ]
+}

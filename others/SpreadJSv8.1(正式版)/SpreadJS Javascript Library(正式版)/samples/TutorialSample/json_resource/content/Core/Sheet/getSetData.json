@@ -1,0 +1,40 @@
+{
+    "title": "Get Set Data",
+    "segments": [
+        [
+            {"description": "SpreadJS offers many methods through the sheet to work with the cell's data."}
+        ],
+        [
+            {"description": "1. You can get or set a value for a specified cell."},
+            {"code":[
+            	"sheet.setValue(7,7,'2014');",
+                "sheet.getValue(7,7);"
+            ]},
+            {"description": "To get a series of values or set values to a range of cells, you can use code similar to the following:"},
+            {"code":[
+                "sheet.setArray(7, 7, [['value1','value2','value3','value4'], ['value5','value6','value7','value8']]);",
+                "sheet.getArray(7, 7, 2, 4);"
+            ]}
+        ],
+        [
+            {"description": "2. You can also get or set text to a specified cell. This is similar to getting or setting a value to a cell."},
+            {"code":[
+                "sheet.setText(7, 7, '01/01/2014');",
+                "sheet.getText(7, 7);"
+            ]}
+        ],
+        [
+            {"description": "3. If you want to delete some data, you can use the following method to clear the data from the specified range."},
+            {"code":[
+                "sheet.clear(0, 0, 10, 10, GcSpread.Sheets.SheetArea.viewport, GcSpread.Sheets.StorageType.Data);"
+            ]}
+        ],
+        [
+            {"description": "4. SpreadJS also supports copying or moving a series of data from one range to another range."},
+            {"code":[
+                "sheet.copyTo(0, 0, 14, 14, 7, 7, GcSpread.Sheets.CopyToOption.All);",
+                "sheet.moveTo(0, 0, 14, 14, 7, 7, GcSpread.Sheets.CopyToOption.All);"
+            ]}
+        ]
+    ]
+}

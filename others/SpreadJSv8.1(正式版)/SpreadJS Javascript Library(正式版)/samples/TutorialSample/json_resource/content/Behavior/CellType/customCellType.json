@@ -1,0 +1,33 @@
+{
+    "title": "Custom Cell Type",
+    "segments": [
+        [
+            {"description": "1. Sometimes you want to create your own custom cellType. You can draw when the cell is in display mode, customize the editor when the cell is in editing mode, and handle mouse and keyboard interaction by the cell type itself."}
+        ],
+        [
+            {"description": "2. You can customize the cell type by inheriting <b>CustomCellType</b>, and implementing the required methods, such as <b>paint</b>, <b>createEditorElement</b>, <b>getEditorValue</b>, and so on. After that you can use your custom cellType. For example:"},
+            {"code": [
+                "function MyCellType() {",
+                "}",
+                "MyCellType.prototype = new GcSpread.Sheets.CustomCellType();",
+                "MyCellType.prototype.paint = function (ctx, value, x, y, w, h, style, options) {",
+                "  //Paints a cell on the canvas. ",
+				"};",
+                "MyCellType.prototype.createEditorElement = function() {",
+                "   //Creates a DOM element then returns it. ",
+				"};",
+                "MyCellType.prototype.getEditorValue = function(editorContext) {",
+                "   //Gets the editor's value. ",
+				"};",
+                "MyCellType.prototype.setEditorValue = function(editorContext, value) {",
+                "   //Sets the editor's value. ",
+				"};",
+                "MyCellType.prototype.activateEditor = function(editorContext, cellStyle, cellRect) {",
+                "   //Activates the editor, including setting properties or attributes for the editor and binding events for the editor. ",
+				"};",
+                "//... the other methods implements",
+                "sheet.getColumn(1).cellType(new MyCellType());"
+            ]}
+        ]
+    ]
+}

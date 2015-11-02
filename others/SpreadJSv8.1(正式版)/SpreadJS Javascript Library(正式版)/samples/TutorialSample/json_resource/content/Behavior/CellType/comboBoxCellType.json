@@ -1,0 +1,47 @@
+{
+    "title": "Combo Box Cell Type",
+    "segments": [
+        [
+            {"description": "1. The <b>ComboBoxCellType</b> represents a combo box cell."}
+        ],
+        [
+            {"description": "2. To create a combo box cell, follow this example:"},
+            {"code": [
+                "var combo = new GcSpread.Sheets.ComboBoxCellType();",
+                "sheet.setCellType(3, 2, combo, GcSpread.Sheets.SheetArea.viewport);"
+            ]}
+        ],
+        [
+            {"description": "3. You can use the <b>editorValueType</b> method to get and set the value that is written to the underlying data model. The editor value type is an <b>EditorValueType</b> enum."},
+            {"list": [
+                "Text: Writes to the model the text value of the selected item.",
+                "Index: Writes to the model the index of the selected item.",
+                "Value: Writes to the model the corresponding data value of the selected item."
+            ]},
+            {"code": [
+                "combo.editorValueType(GcSpread.Sheets.EditorValueType.Text);"
+            ]}
+        ],
+        [
+            {"description": "4. The different <b>editorValueType</b> settings create different types of editor values. The combo box's value depends on items for the drop-down list in the combo box. You can use the <b>items</b> method to get and set the items. For example:"},
+            {"code": [
+                "combo.items([",
+				" { text: 'Oranges', value: '11k' },",
+				" { text: 'Apples', value: '15k' },",
+				" { text: 'Grape', value: '100k' }]);"
+            ]}
+        ],
+        [
+            {"description": "5. Use the <b>editable</b> method to set whether the user can type in the combo box editor. The default value is false; only selection is allowed. For example:"},
+            {"code": [
+                "editableCombo.editable(true);"
+            ]}
+        ],
+        [
+            {"description": "6. You can use the <b>itemHeight</b> method to set the height of each item in the drop-down list. For example:"},
+            {"code": [
+                "combo.itemHeight(24);"
+            ]}
+        ]
+    ]
+}

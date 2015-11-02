@@ -1,0 +1,21 @@
+{
+    "title": "Cell-Level Binding",
+    "segments": [
+        [
+            {"description": "1. You can bind the data source to a cell. SpreadJS supports cell-level binding."}
+        ],
+        [
+            {"description": "2. You can create a cell binding source, and then use the <b>setBindingPath</b> method to set the binding path for cell-level binding in a specified cell in the specified sheet area. Then set the data source for the sheet. For example:"},
+            {"code": [
+                "var person = { name: 'Wang feng', age: 25, sex: 'male', address: { postcode: '710075' } };",
+                "var source = new GcSpread.Sheets.CellBindingSource(person);",
+                "sheet.setBindingPath(0, 0, 'name');",
+                "sheet.setBindingPath(1, 1, 'age');",
+                "sheet.setBindingPath(3, 3, 'sex');",
+                "sheet.setBindingPath(4, 4, 'address.postcode');",
+                "sheet.setDataSource(source);"
+            ]},
+            {"description": "You can use <b>getBindingPath</b> to get the binding path of cell-level binding from the specified cell in the specified sheet area."}
+        ]
+    ]
+}

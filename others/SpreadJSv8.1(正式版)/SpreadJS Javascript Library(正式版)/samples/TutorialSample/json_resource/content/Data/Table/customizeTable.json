@@ -1,0 +1,36 @@
+{
+    "title": "Custom Table",
+    "segments": [
+        [
+            {"description": "1. After you have added some tables, you might want to get the table to customize it, move the table to another range, resize it, or remove it."}
+        ],
+        [
+            {"description": "2. To get a table, use the <b>findTable, findTableByName</b>, or <b>getTables</b> method. For example:"},
+            {"code": [
+                "var spread = $('#ss').data('spread');",
+                "var sheet = spread.getActiveSheet();",
+                "var table = sheet.addTable('table1', 0, 0, 4, 4, tableStyle);",
+                "table === sheet.findTable(0,0); // true",
+                "table === sheet.findTableByName('table1');",
+				"// get all the tables in this sheet.",
+                "var tables = sheet.getTables();"
+            ]}
+        ],
+        [
+            {"description": "3. If you want to change the table location or change the table size, you can use the <b>moveTable</b> or <b>moveTableByName</b> method to change the location, and the <b>resizeTable</b> or <b>resizeTableByName</b> method to resize it. For example:"},
+            {"code": [
+                "sheet.moveTable(table, 1, 1);",
+                "sheet.moveTableByName('table1', 0, 0);",
+                "sheet.resizeTable(table, 5, 5);",
+                "sheet.resizeTableByName('table1', 3, 3);"
+            ]}
+        ],
+        [
+            {"description": "4. If you don't need the table, you can remove it by using the <b>removeTable</b> or <b>removeTableByName</b> method. For example:"},
+            {"code": [
+                "sheet.removeTable(table);",
+                "sheet.removeTableByName('table1');"
+            ]}
+        ]
+    ]
+}

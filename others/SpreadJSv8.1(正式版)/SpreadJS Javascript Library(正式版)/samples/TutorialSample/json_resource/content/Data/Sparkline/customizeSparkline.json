@@ -1,0 +1,54 @@
+{
+    "title": "Custom Sparkline",
+    "segments": [
+        [
+            {"description": "1. After you create sparklines, you can use the provided APIs to customize the sparklines, including setting the sparkline group, changing the sparkline type, setting the sparkline data, setting the date axis data, and so on."}
+        ],
+        [
+            {"description": "2. You can group the sparklines, after which these sparklines share some common settings. Use the <b>groupSparkline</b> and <b>ungroupSparkline</b> methods to group and ungroup the sparklines. For example:"},
+            {"code": [
+                "var spread = $('#ss').data('spread');",
+                "var sheet = spread.getActiveSheet();",
+                "var es = sheet.getSparkline(11, 0);",
+                "var esg = sheet.groupSparkline([es]);",
+                "esg.sparklineType = GcSpread.Sheets.SparklineType.column;",
+                "sheet.ungroupSparkline(esg);"
+            ]}
+        ],
+        [
+            {"description": "3. You can change the type of the sparkline by using the <b>sparklineType</b> method. For example:"},
+            {"code": [
+                "var sparkline = sheet.getSparkline(11, 0);",
+                "sparkline.sparklineType(GcSpread.Sheets.SparklineType.column);"
+            ]}
+        ],
+        [
+            {"description": "4. Also you can get and set the data and dataAxisData methods. Use the <b>data</b> method to get and set the data object. Use the <b>dataOrientation</b> method to get and set the data orientation. Use the <b>dateAxisData</b> method to get and set the date axis data object. Use the <b>dateAxisOrientation</b> method to get and set the date axis orientation. Use the <b>displayDateAxis</b> method to get and set whether to display the date axis. For example:"},
+            {"code": [
+                "var sparkline = sheet.getSparkline(11, 0);",
+                "sparkline.data(new GcSpread.Sheets.Range(1, 0, 8, 1));",
+                "sparkline.dataOrientation(GcSpread.Sheets.DataOrientation.Vertical);",
+                "sparkline.dateAxisData(new GcSpread.Sheets.Range(1, 2, 8, 1));",
+                "sparkline.dateAxisOrientation(GcSpread.Sheets.DataOrientation.Vertical);",
+                "sparkline.displayDateAxis(true);"
+            ]}
+        ],
+        [
+            {"description": "5. There are many sparkline settings. You can use the <b>setting</b> method to get and set the sparkline settings. In the next step, you will see more details for the settings. For example:"},
+            {"code": [
+                "var sparkline = sheet.getSparkline(11, 0);",
+                "var setting  = new GcSpread.Sheets.SparklineSetting();",
+                "setting.showHigh(true);",
+                "sparkline.setting(setting);"
+            ]}
+        ],
+        [
+            {"description": "6. There is an event for sparklines. It occurs when the sparkline has changed. For example:"},
+            {"code": [
+                "sheet.bind(GcSpread.Sheets.Events.SparklineChanged, function() {",
+                "   //event handler ",
+                "});"
+            ]}
+        ]
+    ]
+}

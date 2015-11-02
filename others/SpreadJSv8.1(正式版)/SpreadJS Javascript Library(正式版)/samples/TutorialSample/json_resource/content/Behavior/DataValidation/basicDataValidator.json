@@ -1,0 +1,43 @@
+{
+    "title": "Basic Data Validator",
+    "segments": [
+        [
+            {"description": "1. Data validation is a feature that you can use to define restrictions on what data can or should be entered in a cell. You can configure data validation to prevent users from entering data that is not valid."}
+        ],
+        [
+            {"description": "2. To add a data validator to a sheet, create a validator and then add it to the sheet. For example:"},
+            {"code": [
+                "var dv1 = new GcSpread.Sheets.DefaultDataValidator",
+				"            .createListValidator('Fruit,Vegetable,Food');",
+                "dv1.inputTitle = 'Please choose a category:';",
+                "dv1.inputMessage = 'Fruit Vegetable Food';",
+                "sheet.setDataValidator(1,1, dv1);"
+            ]},
+            {"description": "You can create six kinds of validators, as follows."},
+            {"list": [
+                "createNumberValidator: Creates a validator based on numbers.",
+                "createDateValidator: Creates a validator based on the data.",
+                "createTextLengthValidator: Creates a validator based on text length.",
+                "createFormulaValidator: Creates a validator based on a formula.",
+                "createFormulaListValidator: Creates a validator based on a formula list.",
+                "createListValidator: Creates a validator based on a list."
+            ]}
+        ],
+        [
+            {"description": "3. After you set a validator to a cell, you can use the <b>getDataValidator</b> method to get the cell data validator. And you can use the <b>isValid</b> method to determine whether the cell value is valid. For example:"},
+            {"code": [
+                "sheet.isValid(1, 1, 'Fruit'); // true",
+                "var validList = sheet.getDataValidator(1, 1);",
+                "validList.isValid(sheet, 1, 1, 'Fruit')",
+				"// clear the data validator",
+                "sheet.setDataValidator(1, 1, null);"
+            ]}
+        ],
+        [
+            {"description": "4. You can use the <b>highlightInvalidData</b> method to get and set whether to highlight invalid data. If you set it to true, then if your value is not valid there will be a red circle on the cell."},
+            {"code": [
+                "spread.highlightInvalidData(true);"
+            ]}
+        ]
+    ]
+}

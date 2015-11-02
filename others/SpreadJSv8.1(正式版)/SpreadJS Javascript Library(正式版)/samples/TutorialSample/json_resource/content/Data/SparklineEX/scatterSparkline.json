@@ -1,0 +1,27 @@
+{
+    "title": "Scatter Sparkline",
+    "segments": [
+        [
+            {"description": "You can create a scatter sparkline by using the ScatterSparkline function in a formula: <b>=SCATTERSPARKLINE(points1, points2?, minX?, maxX?, minY?, maxY?, hLine?, vLine?, xMinZone?, xMaxZone?, yMinZone?, yMaxZone?, tags?, drawSymbol?, drawLines?, color1?, color2?, dash?)</b>."},
+			{"description": "The function has the following parameters:"},
+            {"description": "<b>points1</b>: The first series of <i>x</i>,<i>y</i> data. It is a range, such as \"H1:I3\". If the row count is greater than or equal to the column count, get data from the first two columns; the first column contains <i>x</i> values, and the second column contains <i>y</i> values. Otherwise, get data from the first two rows; the first row contains <i>x</i> values, and the second row contains <i>y</i> values."},
+            {"description": "<b>points2</b>: (optional) The second series of <i>x</i>,<i>y</i> data. It is a range, such as \"H4:I6\". If the row count is greater than or equal to the column count, get data from the first two columns; the first column contains <i>x</i> values, and the second column contains <i>y</i> values. Otherwise, get data from the first two rows; the first row contains <i>x</i> values, and the second row contains <i>y</i> values."},
+            {"description": "<b>minX</b>: (optional) <i>x</i> minimum limit of both series; each series has its own value if it is omitted."},
+            {"description": "<b>maxX</b>: (optional) <i>x</i> maximum limit of both series; each series has its own value if it is omitted."},
+            {"description": "<b>minY</b>: (optional) <i>y</i> minimum limit of both series; each series has its own value if it is omitted."},
+            {"description": "<b>maxY</b>: (optional) <i>y</i> maximum limit of both series; each series has its own value if it is omitted."},
+            {"description": "<b>hLine</b>: (optional) The position of the horizontal axis; there is no line if it is omitted."},
+            {"description": "<b>vLine</b>: (optional) The position of the vertical axis; there is no line if it is omitted."},
+            {"description": "<b>xMinZone</b>: (optional) <i>x</i> minimum value of the gray zone; there is no gray zone if any of these four zone params are omitted."},
+            {"description": "<b>xMaxZone</b>: (optional) <i>x</i> maximum value of the gray zone; there is no gray zone if any of these four zone params are omitted."},
+            {"description": "<b>yMinZone</b>: (optional) <i>y</i> minimum value of the gray zone; there is no gray zone if any of these four zone params are omitted."},
+            {"description": "<b>yMaxZone</b>: (optional) <i>y</i> maximum value of the gray zone; there is no gray zone if any of these four zone params are omitted."},
+            {"description": "<b>tags</b>: (optional) If it is true, mark the point where the <i>y</i> value is the maximum of the first series as \"#0000FF\", and mark the point where the <i>y</i> value is the minimum of the first series as \"#CB0000\". The default value is false."},
+            {"description": "<b>drawSymbol</b>: (optional) If it is true, draw each point as a symbol. The symbol of the first series is a circle, and the symbol of the second series is a square. The default value is true."},
+            {"description": "<b>drawLines</b>: (optional) If it is true, connect each point with a line by sequence in each series. The default value is false."},
+            {"description": "<b>color1</b>: (optional) Color string of the first series of points; the default value is \"#969696\"."},
+            {"description": "<b>color2</b>: (optional) Color string of the second series of points; the default value is \"#CB0000\"."},
+            {"description": "<b>dash</b>: (optional) If it is true, the line is a dashed line; otherwise, the line is a full line. The default value is false."}
+        ]
+    ]
+}

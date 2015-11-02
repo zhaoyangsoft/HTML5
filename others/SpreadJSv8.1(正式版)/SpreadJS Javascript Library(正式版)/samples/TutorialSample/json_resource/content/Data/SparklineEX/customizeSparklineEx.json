@@ -1,0 +1,39 @@
+{
+    "title": "Custom SparklineEx",
+    "segments": [
+        [
+            {"description": "1. You can customize sparklines."}
+        ],
+        [
+            {"description": "2. On type <b>SparklineEx</b>, expose two methods that help you to customize your own sparkline:"},
+            {"list": ["createFunction: The function of SparklineEx. The sparkline formula will be defined by the function and it provides the data and settings for Sparkline.",
+                      "paint: Renders the Sparkline with the data and settings from the sparkline formula."]
+            }
+        ],
+        [
+            {"description": "3. After creating a customized sparkline type, you can use the <b>addSparklineEx</b> method to add your custom sparkline to Spread. For example:"},
+            {"code": [
+                "function CustomSparkline(){",
+                "   GcSpread.Sheets.SparklineEx.call(this);",
+                "}",
+                "CustomSparkline.prototype = new GcSpread.Sheets.SparklineEx();",
+                "CustomSparkline.prototype.createFunction = function(){",
+                "   var func = new GcSpread.Sheets.Calc.Functions.Function('CUSTOMSPARKLINE',1,255);",
+                "   func.evaluate = function(args){};",
+                "   func.acceptsReference = function(argIndex){};",
+                "   //...",
+                "   return func;",
+                "}",
+                "CustomSparkline.prototype.paint = function(context,value,x,y,width,height){",
+                "   //context - The canvas's 2d context.",
+                "   //value - The value evaluated by the custom function.",
+                "   //paint sparkline.",
+				"};",
+                "$(function(){",
+                "   var spread = new GcSpread.Sheets.Spread(document.getElementById('ss'));",
+                "   spread.addSparklineEx(new CustomSparkline());",
+                "});"
+            ]}
+        ]
+    ]
+}

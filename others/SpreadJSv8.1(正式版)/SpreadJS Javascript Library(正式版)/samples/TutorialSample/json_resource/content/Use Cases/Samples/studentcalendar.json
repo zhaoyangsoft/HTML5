@@ -1,0 +1,17 @@
+{
+    "title": "Student Calendar",
+    "segments": [
+        [
+            {"description": "A calendar for students that shows the course schedule, and records information about assignments."}
+        ],
+        [
+            {"description": "SpreadJS loads data from saved file with <b>fromJSON</b>."},
+            {"code": [
+                "var sd = JSON.parse(data);",
+                "spread.isPaintSuspended(true);",
+                "spread.fromJSON(sd[0]);",
+                "spread.isPaintSuspended(false);"
+            ]}
+        ]
+    ]
+}

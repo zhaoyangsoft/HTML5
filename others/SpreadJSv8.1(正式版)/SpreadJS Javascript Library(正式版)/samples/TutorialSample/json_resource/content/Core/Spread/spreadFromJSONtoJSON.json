@@ -1,0 +1,23 @@
+{
+    "title": "Spread fromJSON / toJSON",
+    "segments": [
+        [
+            {"description": "1. SpreadJS suppoerts the JSON serialization and deserialization. You can save the spread to JSON and open the JSON to initialize the spread."}
+        ],
+        [
+            {"description": "2. You can use the <b>JSON.stringify</b> to serialize the JSON object which comes from spread's <b>toJSON</b>. For example:"},
+            {"code": [
+                "var spread1 = $('#ss').data('spread');",
+                "var jsonString = JSON.stringify(spread1.toJSON()); "
+            ]}
+        ],
+        [
+            {"description": "3. Then use <b>JSON.parse</b> to deserialize the JSON string, and use <b>fromJSON</b> to initialize the spread object. Then you will have a new spread that is the same as <b>spread1</b>. For example:"},
+            {"code": [
+                "var spread2 = $('#ss1').data('spread'); ",
+                "spread2.fromJSON(JSON.parse(jsonStr));"
+            ]}
+        ]
+
+    ]
+}

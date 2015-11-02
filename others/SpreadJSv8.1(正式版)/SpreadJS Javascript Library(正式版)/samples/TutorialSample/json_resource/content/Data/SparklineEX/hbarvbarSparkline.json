@@ -1,0 +1,13 @@
+{
+    "title": "HBar / VBar Sparkline",
+    "segments": [
+        [
+            {"description": "You can create a hbar / vbar sparkline by using the HBarSparkline or VBarSparkline function in a formula: <b>=HBARSPARKLINE(value, colorScheme?)</b> or <b>=VBARSPARKLINE(value, colorScheme?)</b>."},
+			{"description": "The functions have the following parameters:"},
+            {"description": "<b>value</b>: Number or reference that represents the length of the bar, such as 0.3 or \"A1\". If value is greater than 100% or smaller than -100%, an arrow is displayed."},
+            {"description": "<b>colorScheme</b>: (optional) String that represents the color of the bar; default value is \"gray\". "},
+            {"description": "HBarSparkline: Positive values, sparkline starts at left of cell; negative values, sparkline starts at right of cell."},
+            {"description": "VBarSparkline: Positive values, sparkline starts at bottom of cell; negative values, sparkline starts at top of cell."}
+        ]
+    ]
+}

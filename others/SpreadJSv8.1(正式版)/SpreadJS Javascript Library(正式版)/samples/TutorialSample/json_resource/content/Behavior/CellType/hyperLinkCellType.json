@@ -1,0 +1,29 @@
+{
+    "title": "Hyperlink Cell Type",
+    "segments": [
+        [
+            {"description": "1. The <b>HyperLinkCellType</b> represents the hyperlink cell."}
+        ],
+        [
+            {"description": "2. To create a hyperlink cell, follow this example:"},
+            {"code": [
+                "var h = new GcSpread.Sheets.HyperLinkCellType();",
+                "sheet.setCellType(3, 2, h, GcSpread.Sheets.SheetArea.viewport);"
+            ]}
+        ],
+        [
+            {"description": "3. You can use the <b>text</b> method to get and set the text string for the hyperlink. Also you can set the tooltip that appears when the mouse pointer is over the hyperlink. For example:"},
+            {"code": [
+                "h.text('SpreadJS Site');",
+                "h.linkToolTip('This is the link to SpreadJS site');"
+            ]}
+        ],
+        [
+            {"description": "4. Before and after you click the hyperlink, if the hyperlink's color is different you can easily distinguish the visited links. For example:"},
+            {"code": [
+                "h.linkColor('red');",
+                "h.visitedLinkColor('blue');"
+            ]}
+        ]
+    ]
+}

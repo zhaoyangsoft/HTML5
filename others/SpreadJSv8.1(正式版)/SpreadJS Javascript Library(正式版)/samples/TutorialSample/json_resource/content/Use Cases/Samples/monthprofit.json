@@ -1,0 +1,17 @@
+{
+    "title": "Cost of Goods Sold",
+    "segments": [
+        [
+            {"description": "COST OF GOODS SOLD (also called Cost of Sales or COGS): COGS are those expenses directly related to producing or buying your products or services."}
+        ],
+        [
+            {"description": "SpreadJS loads data from saved file with <b>fromJSON</b>."},
+            {"code": [
+                "var sd = JSON.parse(data);",
+                "spread.isPaintSuspended(true);",
+                "spread.fromJSON(sd[0]);",
+                "spread.isPaintSuspended(false);"
+            ]}
+        ]
+    ]
+}

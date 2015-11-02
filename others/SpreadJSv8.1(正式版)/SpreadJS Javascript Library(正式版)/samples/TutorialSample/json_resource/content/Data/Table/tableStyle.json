@@ -1,0 +1,41 @@
+{
+    "title": "Table Style",
+    "segments": [
+        [
+            {"description": "1. SpreadJS provides many APIs for working with tables. By using these APIs, you can manage and analyse the groupings of the related data more easily."}
+        ],
+        [
+            {"description": "2. You can control whether to show the table's header or footer, whether to display an alternating row style or column style, and whether to highlight the first column or the last column. For example:"},
+            {"code": [
+                "var spread = $('#ss').data('spread');",
+                "var sheet = spread.getActiveSheet();",
+                "var table = sheet.addTable('table1', 0, 0, 4, 4, tableStyle);",
+                "'table1' === table.name(); //true",
+                "0 === table.headerIndex(); //true",
+                "3 === table.footerIndex(); //true",
+                "table.showHeader(true); //whether to display a header",
+                "table.showFooter(true); //whether to display a footer",
+                "table.bandRows(true); //whether to display an alternating row style",
+                "table.bandColumns(true); //whether to display an alternating column style",
+                "table.highlightFirstColumn(true); //whether to highlight the first column",
+                "table.highlightLastColumn(true); //whether to highlight the last column",
+                "var columnName = table.getColumnName(0); //get the header text width the specified table index.",
+                "table.setColumnName(1, 'column2'); //set the table header text.",
+                "table.setColumnFormula(0, '=SUM(A1:A4)'); //Set the table footer formula with the specified index",
+                "'SUM(B2:B5)' === table.getColumnFormula(0); //Gets the table footer formula with the specified index."
+            ]}
+        ],
+        [
+            {"description": "3. SpreadJS supports some built-in table styles or you can customize the table style. For example:"},
+            {"code": [
+                "table.style(GcSpread.Sheets.TableStyles.dark1());",
+                "var border = new GcSpread.Sheets.LineBorder();",
+                "var styleInfo = new GcSpread.Sheets.TableStyleInfo('red', 'black', '10px arial', border, border, border, border, border, border);",
+                "var tableStyle = new GcSpread.Sheets.TableStyle();",
+                "tableStyle.name('tableStyle1');",
+                "tableStyle.headerRowStyle(styleInfo)",
+                "table.style(tableStyle);"
+            ]}
+        ]
+    ]
+}

@@ -1,0 +1,28 @@
+{
+    "title": "Custom Functions",
+    "segments": [
+        [
+            {"description": "1. In SpreadJS, you can create your own function and add it to sheet."}
+        ],
+        [
+            {"description": "2. You can create your own function through inheriting the <b>GcSpread.Sheets.Calc.Functions.Function</b>, as shown in the following code:"},
+            {"code": [
+                "function FactorialFunction() {",
+                "   this.name = 'FACTORIAL';",
+                "   this.maxArgs = 1;",
+                "   this.minArgs = 1;",
+                "}",
+                "FactorialFunction.prototype = new GcSpread.Sheets.Calc.Functions.Function();",
+                "FactorialFunction.prototype.evaluate = function (args) {",
+                "   // your own evaluate content",
+                "var factorial = new FactorialFunction();",
+                "sheet.addCustomFunction(factorial);"
+            ]},
+            {"description": "3. After you have added your own function, if you want to remove it or clear all custom functions, use the <b>removeCustomFunction</b> or <b>clearCustomFunctions</b> method."},
+            {"code": [
+                "sheet.removeCustomFunction('FACTORIAL');",
+                "sheet.clearCustomFunctions();"
+            ]}
+        ]
+    ]
+}

@@ -1,0 +1,815 @@
+[
+    {
+        "category": {"title": "Core", "folder": "Core"},
+        "featureList": [
+            {
+                "feature": "Spread",
+                "featureResourceFolder": "Spread",
+                "featureDescription": "Spread contains one or more sheets that you can use to organize various kinds of related information.",
+                "featureDetails": [
+                    {
+                        "name":"Initialize Spread",
+                        "resource": "initializeSpread",
+						"tags": ["Create", "New", "sheetCount"]
+                    },
+                    {
+                        "name":"Spreadsheet",
+                        "resource": "spreadSheet",
+						"tags": ["addSheet", "getSheetCount", "setSheetCount", "getSheet", "getSheetFromName", "removeSheet", "clearSheets", "getActiveSheet", "getActiveSheetIndex", "setActiveSheetIndex", "Appearance"]
+                    },
+                    {
+                        "name":"Tab Strip",
+                        "resource": "tabStrip",
+						"tags": ["tabStripVisible", "newTabVisible", "tabEditable", "allowSheetReorder", "sheetTabColor", "getTabStripRatio", "setTabStripRatio", "startSheetIndex", "Appearance"]
+                    },
+                    {
+                        "name":"Scroll Bar",
+                        "resource": "scrollbar",
+						"tags": ["showScrollTip", "showHorizontalScrollbar", "showVerticalScrollbar", "scrollbarMaxAlign", "scrollbarShowMax", "Appearance", "arrow", "buttons", "box", "drag", "click", "tooltip"]
+                    },
+                    {
+                        "name":"Spread Background",
+                        "resource": "spreadBackground",
+						"tags": ["backgroundImage", "backgroundImageLayout", "grayAreaBackColor", "backColor", "Appearance"]
+                    },
+                    {
+                        "name":"Spread Paint",
+                        "resource": "spreadPaint",
+						"tags": ["isPaintSuspended", "repaint", "invalidateLayout", "refresh"]
+                    },
+                    {
+                        "name":"Spread Events",
+                        "resource": "spreadEvents",
+						"tags": ["bind", "unbind", "unbindAll", "suspendEvent", "resumeEvent", "trigger"]
+                    },
+                    {
+                        "name":"Spread fromJSON / toJSON",
+                        "resource": "spreadFromJSONtoJSON",
+						"tags": ["toJSON", "fromJSON", "serialization", "deserialization", "serialize", "deserialize"]
+                    },
+					{
+                        "name":"Data Source Serialize",
+                        "resource": "dataSourceSerialize",
+						"tags": ["toJSON", "fromJSON", "includeBindingSource"]
+                    },
+					{
+                        "name":"Custom Item Serialize",
+                        "resource": "customItemSerialize",
+						"tags": ["toJSON", "fromJSON", "typeName", "getTypeFromString", "celltype", "function", "formatter", "sparklineEx", "tag", "rowfilter", "serialize", "deserialize", "namespace"]
+                    }
+                ],
+                "imageUrl": "images/star.png",
+				"icon": "icon-c1multiplesheets"
+            },
+            {
+                "feature": "Sheet",
+                "featureResourceFolder": "Sheet",
+                "featureDescription": "A sheet is a collection of cells where you keep and manipulate the data.Each spread contains several sheets.",
+                "featureDetails": [
+                    {
+                        "name":"Initialize Sheet",
+                        "resource":"initSheet",
+						"tags": ["addSheet", "getSheetCount", "removeSheet", "clearSheets", "getName", "setName", "New", "position"]
+                    },
+                    {
+                        "name":"Sheet Appearance",
+                        "resource":"sheetAppearance",
+						"tags": ["setBorder", "visible", "zoom", "LineStyle", "LineBorder", "SheetArea", "Range", "hide", "borderline", "gridline", "scale"]
+                    },
+                    {
+                        "name":"Sheet Header",
+                        "resource":"sheetHeader",
+						"tags": ["SheetArea", "colHeader", "rowHeader", "corner", "viewport", "setRowHeaderVisible", "setColumnHeaderVisible", "setRowHeaderAutoTextIndex", "getRowHeaderAutoTextIndex", "setColumnHeaderAutoTextIndex", "getColumnHeaderAutoTextIndex", "setRowHeaderAutoText", "setColumnHeaderAutoText", "Appearance"]
+                    },
+                    {
+                        "name":"Rows and Columns",
+                        "resource":"rowAndColumn",
+						"tags": ["addRows", "addColumns", "deleteRows", "deleteColumns", "setRowCount", "setColumnCount", "resizeable", "setRowVisible", "setColumnVisible", "autoFitRow", "autoFitColumn", "getCell", "getCells", "setRowHeight", "getRowHeight", "setColumnWidth", "getColumnWidth"]
+                    },
+                    {
+                        "name":"Cells",
+                        "resource":"cell",
+						"tags": ["getCell", "getCells", "getCellRect", "referenceStyle", "allowCellOverflow", "row", "column", "style", "Appearance"]
+                    },
+					{
+                        "name":"Cell Span",
+                        "resource":"cellSpan",
+						"tags": ["addSpan", "removeSpan", "Appearance", "merge"]
+                    },
+                    {
+                        "name":"FrozenLine and Viewport",
+                        "resource":"frozenLineAndViewport",
+						"tags": ["setFrozenCount", "setFrozenRowCount", "setFrozenColumnCount", "setFrozenTrailingRowCount", "setFrozenTrailingColumnCount", "frozenlineColor", "Viewport", "getViewportWidth", "getViewportHeight", "getViewportTopRow", "getViewportBottomRow", "getViewportLeftColumn", "getViewportRightColumn", "Appearance"]
+                    },
+                    {
+                        "name":"Get Set Data",
+                        "resource":"getSetData",
+						"tags": ["getValue", "setValue", "getArray", "setArray", "getText", "setText", "clear", "copyTo", "moveTo"]
+                    },
+                    {
+                        "name":"Formula",
+                        "resource":"formula",
+						"tags": ["setFormula", "setArrayFormula", "hasFormula", "addCustomName", "calc"]
+                    },
+                    {
+                        "name":"Style",
+                        "resource":"style",
+						"tags": ["Style", "setStyle", "addNamedStyle", "getNamedStyle", "removeNamedStyle", "Appearance", "foreColor", "backColor"]
+                    },
+                    {
+                        "name":"Selection",
+                        "resource":"selection",
+						"tags": ["selectionBackColor", "selectionBorderColor", "selectionPolicy", "selectionUnit", "addSelection", "setSelection", "getSelections", "clearSelection", "setActiveCell", "getActiveRowIndex", "getActiveColumnIndex", "showCell", "showColumn", "showRow", "click", "drag", "range", "multiple", "visible", "Appearance", "Behavior"]
+                    },
+                    {
+                        "name":"Sheet Actions",
+                        "resource":"sheetActions",
+						"tags": ["addKeyMap", "SpreadActions", "removeKeyMap", "undo", "redo", "doCommand", "ColumnResizeUndoAction", "DragDropUndoAction", "Behavior"]
+                    },
+                    {
+                        "name":"Change Value By Actions",
+                        "resource":"changeValueByActions",
+						"tags": ["cutCopyIndicatorVisible", "cutCopyIndicatorBorderColor", "setIsProtected", "getIsProtected", "showDragDropTip", "canUserDragDrop", "drag", "fill", "drop", "paste"]
+                    },
+                    {
+                        "name":"Sheet Events",
+                        "resource":"sheetEvents",
+						"tags": ["Events", "bind", "unbind", "unbindAll", "suspendEvent", "resumeEvent", "trigger"]
+                    },
+                    {
+                        "name":"Sheet Paint",
+                        "resource":"sheetPaint",
+						"tags": ["repaint", "isPaintSuspended", "invalidateLayout", "refersh", "redraw"]
+                    }
+                ],
+                "imageUrl": "images/star.png",
+				"icon": "icon-c1spread"
+            },
+            {
+                "feature": "Document Theme",
+                "featureResourceFolder": "Theme",
+                "featureDescription": "SpreadJS supports document theme like Excel.",
+                "featureDetails": [
+                    {
+                        "name":"Document Theme",
+                        "resource":"theme",
+						"tags": ["currentTheme", "SpreadThemes", "themeFont", "foreColor", "backColor", "Appearance"]
+                    }
+                ],
+                "imageUrl": "images/star.png",
+				"icon": "icon-c1themes"
+            },
+            {
+                "feature": "Theme",
+                "featureResourceFolder": "Theme",
+                "featureDescription": "SpreadJS provides its own theme and also support external themes.",
+                "featureDetails": [
+                    {
+                        "name":"Theme",
+                        "resource":"themesupport",
+						"tags": ["Theme", "default", "jQuery UI", "Bootstrap", "Wijmo", "Appearance"]
+                    }
+                ],
+                "imageUrl": "images/star.png",
+				"icon": "icon-c1skin"
+            }
+        ]
+    },
+    {
+        "category": {"title": "Calc", "folder": "Calc"},
+        "featureList": [
+            {
+                "feature": "Functions",
+                "featureResourceFolder": "Functions",
+                "featureDescription": "Spread has many useful functions for helping you to create data easily.",
+                "featureDetails": [
+                    {
+                        "name":"Basic Functions",
+                        "resource":"basicFunctions",
+						"tags": ["setFormula", "SUM", "MAX", "calc"]
+                    },
+					{
+                        "name":"Indirect Function",
+                        "resource":"indirect",
+						"tags": ["INDIRECT", "calc", "reference", "formula"]
+                    },
+					{
+                        "name":"Excel 2010 Functions",
+                        "resource":"excel2010Functions",
+						"tags": ["Excel 2010", "CEILING.PRECISE", "COVARIANCE.S", "FLOOR.PRECISE", "PERCENTILE.EXC", 
+							"QUARTILE.EXC", "RANK.AVG", "MODE.MULT", "ISO.CEILING", "BETA.DIST", "GAMMALN.PRECISE", 
+							"ERF.PRECISE", "ERFC.PRECISE", "PERCENTRANK.EXC","HYPGEOM.DIST", "LOGNORM.DIST",
+							"NEGBINOM.DIST", "NORM.S.DIST", "T.DIST", "F.DIST", "CHISQ.DIST", "F.INV", "T.INV",
+							"CHISQ.INV", "CONFIDENCE.T", "NETWORKDAYS.INTL", "WORKDAY.INTL", "calc"]
+                    },
+					{
+                        "name":"Function Wildcards",
+                        "resource":"functionWildcard",
+						"tags": ["wildcard", "calc", "AVERAGEIF", "AVERAGEIFS", "COUNTIF", "COUNTIFS", "SUMIF", "SUMIFS", 
+								"MATCH", "SEARCH", "VLOOKUP", "HLOOKUP", "DAVERAGE", 
+								"DGET", "DMAX", "DMIN", "DPRODUCT", "DSTDEV", "DSTDEVP", "DSUM", "DVAR", "DVARP"]
+                    },
+                    {
+                        "name":"Custom Functions",
+                        "resource":"customFunctions",
+						"tags": ["Function", "addCustomFunction", "removeCustomFunction", "clearCustomFunctions", "calc"]
+                    },
+					{
+                        "name":"Async Function",
+                        "resource":"asyncFunction",
+						"tags": ["AsyncFunction", "defaultValue", "evaluateAsync", "SetAsyncResult", "addCustomFunction", "setFormula", "calc"]
+                    }
+                ],
+                "imageUrl": "images/star.png",
+				"icon": "icon-c1controllayer"
+            },
+			{
+                "feature": "Array Formula",
+                "featureResourceFolder": "ArrayFormula",
+                "featureDescription": "Using array formula to make your worksheet more powerful and simplify it at the same time.",
+                "featureDetails": [
+                    {
+                        "name":"Array Formula Introduction",
+                        "resource":"basicArrayFormula",
+						"tags": ["setArrayFormula", "setFormula", "ArrayFormula", "CSE", "calc"]
+                    },
+                    {
+                        "name":"Array Formula Usage",
+                        "resource":"useArrayFormula",
+						"tags": ["setArrayFormula", "setFormula", "ArrayFormula", "calc", "search", "statistics"]
+                    }
+                ],
+                "imageUrl": "images/star.png",
+				"icon": "icon-c1formulas"
+            }
+        ]
+    },
+    {
+        "category": {"title": "Data", "folder": "Data"},
+        "featureList": [
+            {
+                "feature": "Binding",
+                "featureResourceFolder": "Binding",
+                "featureDescription": "SpreadJS support binding some source data to sheet.",
+                "featureDetails": [
+                    {
+                        "name":"Sheet-Level Binding",
+                        "resource":"sheetLevelBinding",
+						"tags": ["setDataSource", "getDataSource", "autoGenerateColumns", "getDataItem", "bindColumn", "bindColumns"]
+                    },
+                    {
+                        "name":"Cell-Level Binding",
+                        "resource":"cellLevelBinding",
+						"tags": ["CellBindingSource", "setBindingPath", "setDataSource", "getBindingPath"]
+                    },
+					{
+                        "name":"Table Binding",
+                        "resource":"tableBinding",
+						"tags": ["CellBindingSource", "bindingPath", "setDataSource", "TableColumnInfo", "bindColumns"]
+                    }
+                ],
+                "imageUrl": "images/star.png",
+				"icon": "icon-c1databinding"
+            },
+            {
+                "feature": "Table",
+                "featureResourceFolder": "Table",
+                "featureDescription": "Table makes managing and analyzing a group of related easier.",
+                "featureDetails": [
+                    {
+                        "name":"Basic Table",
+                        "resource":"basicTable",
+						"tags": ["addTable", "addTableByDataSource", "init"]
+                    },
+                    {
+                        "name":"Custom Table",
+                        "resource":"customizeTable",
+						"tags": ["findTable", "findTableByName", "getTables", "moveTable", "moveTableByName", "resizeTable", "resizeTableByName", "removeTable", "removeTableByName", "Appearance"]
+                    },
+                    {
+                        "name":"Table Style",
+                        "resource":"tableStyle",
+						"tags": ["showHeader", "showFooter", "bandRows", "bandColumns", "highlightFirstColumn", "highlightLastColumn", "setColumnFormula", "setColumnName", "getColumnName", "getColumnFormula", "TableStyle", "headerRowStyle", "Appearance"]
+                    }
+                ],
+                "imageUrl": "images/star.png",
+				"icon": "icon-c1table"
+            },
+            {
+                "feature": "Sparkline",
+                "featureResourceFolder": "Sparkline",
+                "featureDescription": "A sparkline is a tiny chart in a sheet cell that provides a visual representation of data.",
+                "featureDetails": [
+                    {
+                        "name":"Basic Sparkline",
+                        "resource":"basicSparkline",
+						"tags": ["setSparkline", "getSparkline", "SparklineType", "removeSparkline", "line", "column", "winloss", "Appearance"]
+                    },
+                    {
+                        "name":"Custom Sparkline",
+                        "resource":"customizeSparkline",
+						"tags": ["groupSparkline", "ungroupSparkline", "sparklineType", "data", "dataOrientation", "dateAxisData", "dateAxisOrientation", "displayDateAxis", "setting", "SparklineSetting", "SparklineChanged", "Appearance"]
+                    },
+                    {
+                        "name":"Sparkline Setting",
+                        "resource":"sparklineSetting",
+						"tags": ["showFirst", "showHigh", "showLast", "showLow", "showNegative", "showMarkers", "axisColor", "firstMarkerColor", "highMarkerColor", "lastMarkerCollor", "lowMarkerColor", "markersColor", "negativeColor", "seriesColor", "displayEmptyCellsAs", "Appearance"]
+                    }
+                ],
+                "imageUrl": "images/star.png",
+				"icon": "icon-c1sparkline"
+            },
+            {
+                "feature": "SparklineEX",
+                "featureResourceFolder": "SparklineEX",
+                "featureDescription": "SpreadJS provide some in-cell sparklines, which are created by inputting the indicate sparkline formula",
+                "featureDetails": [
+					{
+                        "name":"Cascade Sparkline",
+                        "resource":"cascadeSparkline",
+						"tags": ["CascadeSparkline", "pointsRange", "pointIndex", "lablesRange", "minimum", "maximum", "colorPositive", "colorNegative", "vertical", "horizontal"]
+                    },
+					{
+                        "name":"BoxPlot Sparkline",
+                        "resource":"boxplotSparkline",
+						"tags": ["BoxPlotSparkline", "points", "boxPlotClass", "showAverage", "scaleStart", "scaleEnd", "acceptableStart", "acceptableEnd", "colorScheme", "style", "vertical", "horizontal"]
+                    },
+					{
+                        "name":"Bullet Sparkline",
+                        "resource":"bulletSparkline",
+						"tags": ["BulletPlotSparkline", "measure", "target", "maxi", "good", "bad", "forecast", "tickunit", "colorScheme", "vertical", "horizontal"]
+                    },
+					{
+                        "name":"HBar / VBar Sparkline",
+                        "resource":"hbarvbarSparkline",
+						"tags": ["HBarSparkline", "VBarSparkline", "value", "colorScheme", "vertical", "horizontal"]
+                    },
+					{
+                        "name":"Pareto Sparkline",
+                        "resource":"paretoSparkline",
+						"tags": ["ParetoSparkline", "points", "pointIndex", "colorRange", "target", "target2", "highlightPosition", "label", "vertical", "horizontal"]
+                    },
+                    {
+                        "name":"Pie Sparkline",
+                        "resource":"pieSparkline",
+						"tags": ["PieSparkline", "Percentage", "Color"]
+                    },
+                    {
+                        "name":"Area Sparkline",
+                        "resource":"areaSparkline",
+						"tags": ["AreaSparkline", "points", "min", "max", "line1", "line2", "colorPositive", "colorNegative"]
+                    },
+                    {
+                        "name":"Scatter Sparkline",
+                        "resource":"scatterSparkline",
+						"tags": ["ScatterSparkline", "points1", "points2", "minX", "maxX", "minY", "maxY", "hLine", "vLine", "xMinZone", "xMaxZone", "yMinZone", "yMaxZone", "tags", "drawSymbol", "drawLines", "color1", "color2", "dash"]
+                    },
+					{
+                        "name":"Spread Sparkline",
+                        "resource":"spreadSparkline",
+						"tags": ["SpreadSparkline", "points", "showAverage", "scaleStart", "scaleEnd", "style", "colorScheme", "vertical", "horizontal"]
+                    },
+					{
+                        "name":"Stacked Sparkline",
+                        "resource":"stackedSparkline",
+						"tags": ["StackedSparkline", "points", "colorRange", "labelRange", "maximum", "targetRed", "targetGreen", "targetBlue", "tragetYellow", "color", "highlightPosition", "vertical", "textOrientation", "textSize", "horizontal"]
+                    },
+					{
+                        "name":"Vari Sparkline",
+                        "resource":"variSparkline",
+						"tags": ["VariSparkline", "variance", "reference", "mini", "maxi", "mark", "tickunit", "legend", "colorPositive", "colorNegative", "vertical", "horizontal"]
+                    },
+                    {
+                        "name":"Compatible Sparkline",
+                        "resource":"compatibleSparkline",
+						"tags": ["LineSparkline", "ColumnSparkline", "WinlossSparkline", "SparklineSetting", "data", "dataOrientation", "dateAxisData", "dateAxisOrientation", "setting"]
+                    },
+                    {
+                        "name":"Custom SparklineEx",
+                        "resource":"customizeSparklineEx",
+						"tags": ["SparklineEx", "createFunction", "paint", "addSparklineEx"]
+                    }
+                ],
+                "imageUrl": "images/star.png",
+				"icon": "icon-c1sparkline"
+            },
+            {
+                "feature": "Floating Object",
+                "featureResourceFolder": "FloatingObject",
+                "featureDescription": "Floating object is a element float on the top of the cells.",
+                "featureDetails": [
+                    {
+                        "name":"Basic Floating Object",
+                        "resource":"basicFloatingObject",
+						"tags": ["CustomFloatingObject", "Picture", "addFloatingObject", "findFloatingObject", "getFloatingObjects", "removeFloatingObject", "addPicture", "findPicture", "getPictures", "removePicture", "setFloatingObjectZIndex", "Appearance"]
+                    },
+                    {
+                        "name":"Custom Floating Object",
+                        "resource":"customizeFloatingObject",
+						"tags": ["position", "width", "height", "startRow", "startColumn", "startRowOffset", "startColumnOffset", "endRow", "endColumn", "endRowOffset", "endColumnOffset", "dynamicMove", "dynamicSize", "isLocked", "setFloatingObjectZIndex", "isVisible", "isSelected", "Appearance"]
+                    },
+                    {
+                        "name":"Picture",
+                        "resource":"picture",
+						"tags": ["src", "pictureStretch", "ImageLayout", "getOriginalWidth", "getOriginalHeight", "borderStyle", "borderWidth", "borderColor", "borderRadius", "backColor", "Appearance"]
+                    },
+                    {
+                        "name":"Floating Object Actions",
+                        "resource":"floatingObjectAction",
+						"tags": ["select", "delete", "drag", "drop", "move", "resize", "copy", "paste", "cut"]
+                    },
+                    {
+                        "name":"Floating Object Events",
+                        "resource":"floatingObjectEvent",
+						"tags": ["FloatingObjectSelectionChanged", "FloatingObjectChanged", "PictureSelectionChanged", "PictureChanged", "CustomFloatingObjectLoaded"]
+                    }
+                ],
+                "imageUrl": "images/star.png",
+				"icon": "icon-c1popup"
+            },
+			{
+                "feature": "Culture",
+                "featureResourceFolder": "Culture",
+                "featureDescription": "CultureInfo class supports custom culture string.",
+                "featureDetails": [
+                    {
+                        "name":"Culture",
+                        "resource":"customculture",
+						"tags": ["CultureInfo", "addCultureInfo", "Culture"]
+                    }
+                ],
+                "imageUrl": "images/star.png",
+				"icon": "icon-behance"
+            },
+			{
+                "feature": "Group",
+                "featureResourceFolder": "Group",
+                "featureDescription": "Create an outline of rows or columns to group and summarize a list of data.",
+                "featureDetails": [
+                    {
+                        "name":"Basic Group",
+                        "resource":"basicGroup",
+						"tags": ["group", "rowRangeGroup", "colRangeGroup", "ungroup", "ungroupRange", "summary", "outline", "detail", "Appearance"]
+                    },
+                    {
+                        "name":"Custom Group",
+                        "resource":"customizeGroup",
+						"tags": ["showRowRangeGroup", "showColumnRangeGroup", "expand", "expandGroup", "collapse", "setDirection", "getDirection", "rowRangeGroup", "colRangeGroup", "group", "ungroupRange", "direction", "outline", "detail", "Appearance"]
+                    }
+                ],
+                "imageUrl": "images/star.png",
+				"icon": "icon-c1rangegroup"
+            },
+            {
+                "feature": "Comment",
+                "featureResourceFolder": "Comment",
+                "featureDescription": "Use comments can help you to make a sheet easier to understand by providing additional context.",
+                "featureDetails": [
+                    {
+                        "name":"Basic Comment",
+                        "resource":"basicComment",
+						"tags": ["setComment", "getComment", "getComments"]
+                    },
+                    {
+                        "name":"Custom Comment",
+                        "resource":"customizeComment",
+						"tags": ["setComment", "getComment", "text", "border", "position", "size", "location", "width", "height", "dynamicMove", "dynamicSize", "font", "color", "autoSize", "padding", "zIndex", "locked", "lockText", "setIsProtected", "commentState", "horizontalAlign", "textDecoration", "showShadow", "opacity", "Appearance"]
+                    },
+                    {
+                        "name":"Comment Actions",
+                        "resource":"commentActions",
+						"tags": ["select", "delete", "drag", "drop", "move", "resize", "copy", "paste", "cut"]
+                    },
+                    {
+                        "name":"Comment Events",
+                        "resource":"commentEvent",
+						"tags": ["CommentChanged"]
+                    }
+                ],
+                "imageUrl": "images/star.png",
+				"icon": "icon-comment"
+            },
+			{
+                "feature": "Tag",
+                "featureResourceFolder": "Tag",
+                "featureDescription": "Tag is used for storing user data.",
+                "featureDetails": [
+                    {
+                        "name":"Basic Usage",
+                        "resource":"tagBasic",
+						"tags": ["tag", "setTag", "getTag", "clear", "CellChanged", "RowChanged", "ColumnChanged", "StorageType", "data"]
+                    },
+					{
+                        "name":"Action Support",
+                        "resource":"tagAction",
+						"tags": ["Tag", "Cut", "Paste", "Copy", "Drag", "Fill", "Drop", "undo", "redo", "defaultDragFillType"]
+                    },
+					{
+                        "name":"Search Tag",
+                        "resource":"tagSearch",
+						"tags": ["Tag", "search", "SearchCondition", "ZOrder", "NOrder", "SearchFoundFlags", "searchTarget", "findRowIndex", "findColumnIndex"]
+                    }
+                ],
+                "imageUrl": "images/star.png",
+				"icon": "icon-tags"
+            }
+        ]
+    },
+    {
+        "category": {"title": "Behavior", "folder": "Behavior"},
+        "featureList": [
+            {
+                "feature": "Cell Type",
+                "featureResourceFolder": "CellType",
+                "featureDescription": "Use cell types to define how cells look and behave.",
+                "featureDetails": [
+                    {
+                        "name":"Basic Cell Type",
+                        "resource":"basicCellType",
+						"tags": ["setCellType", "cellType", "getCellType", "allowEditorReservedLocations", "ButtonClicked", "Appearance"]
+                    },
+                    {
+                        "name":"Button Cell Type",
+                        "resource":"buttonCellType",
+						"tags": ["ButtonCellType", "margin", "text", "buttonBackColor", "Appearance"]
+                    },
+                    {
+                        "name":"Check Box Cell Type",
+                        "resource":"checkBoxCellType",
+						"tags": ["CheckBoxCellType", "isThreeState", "textTrue", "textIndeterminate", "textFalse", "caption", "textAlign", "Appearance"]
+                    },
+                    {
+                        "name":"Combo Box Cell Type",
+                        "resource":"comboBoxCellType",
+						"tags": ["ComboBoxCellType", "editorValueType", "items", "editable", "itemHeight", "Appearance"]
+                    },
+                    {
+                        "name":"Hyperlink Cell Type",
+                        "resource":"hyperLinkCellType",
+						"tags": ["HyperLinkCellType", "text", "linkTooltip", "linkColor", "visitedLinkColor", "Appearance"]
+                    },
+                    {
+                        "name":"Custom Cell Type",
+                        "resource":"customCellType",
+						"tags": ["CustomCellType", "paint", "createEditorElement", "updateEditor", "getEditorValue", "setEditorValue", "getHitInfo", "Appearance"]
+                    },
+					{
+					"name":"Custom Header Cell Type",
+                        "resource":"customHeaderCellType",
+						"tags": ["RowHeaderCellType", "ColumnHeaderCellType", "paint", "getHitInfo", "processMouseDown", "processMouseMove", "processMouseUp", "processMouseEnter", "processMouseLeave", "ButtonClicked", "Appearance"]
+					}
+                ],
+                "imageUrl": "images/star.png",
+				"icon": "icon-c1celltypes"
+            },
+            {
+                "feature": "Filter",
+                "featureResourceFolder": "Filter",
+                "featureDescription": "Filtered data display only the rows that meet criteria that you specify.",
+                "featureDetails": [
+                    {
+                        "name":"Basic Filter",
+                        "resource":"basicFilter",
+						"tags": ["rowFilter", "HideRowFilter", "addAverageFilter", "addBackgroundFilter", "addDateFilter", "addForegroundFilter", "addNumberFilter", "addTextFilter", "addTop10Filter", "addFilterItem", "removeFilterItems", "filter"]
+                    },
+					{
+                        "name":"Filter Button Visible",
+                        "resource":"filterButtonVisible",
+						"tags": ["filterButtonVisible", "HideRowFilter", "table"]
+                    },
+					{
+                        "name":"Filter Action",
+                        "resource":"filterAction",
+						"tags": ["RowFilterBase", "onFilter", "FilterActionType", "filterButtonVisible"]
+                    },
+                    {
+                        "name":"Custom Filters",
+                        "resource":"customizeFilter",
+						"tags": ["filterButtonVisible", "isFiltered", "isRowFilteredOut", "isColumnFiltered", "getFilterItems", "getFilteredItems", "sortColumn", "getSortState", "removeFilterItems", "unfilter", "reset"]
+                    }
+                ],
+                "imageUrl": "images/star.png",
+				"icon": "icon-c1filter"
+            },
+            {
+                "feature": "Formula Text Box",
+                "featureResourceFolder": "FormulaTextBox",
+                "featureDescription": "Show the function description when you input a formula.",
+                "featureDetails": [
+                    {
+                        "name":"Basic Formula Text Box",
+                        "resource":"basicFormulaTextBox",
+						"tags": ["FormulaTextBox", "createFunction", "addCustomFunction", "addCustomFunctionDescription", "getCustomFunctionDescription", "removeCustomFunctionDescription", "clearCustomFunctionDescriptions"]
+                    }
+                ],
+                "imageUrl": "images/star.png",
+				"icon": "icon-c1formulas"
+            },
+            {
+                "feature": "Search",
+                "featureResourceFolder": "Search",
+                "featureDescription": "Search for something, such as particular number or text string.",
+                "featureDetails": [
+                    {
+                        "name":"Basic Search",
+                        "resource":"basicSearch",
+						"tags": ["search", "SearchCondition", "searchFlags", "searchOrder", "searchTarget", "searchFoundFlag", "foundSheetIndex", "foundRowIndex", "foundColumnIndex", "foundString"]
+                    }
+                ],
+                "imageUrl": "images/star.png",
+				"icon": "icon-c1search"
+            },
+            {
+                "feature": "Conditional Format",
+                "featureResourceFolder": "ConditionalFormat",
+                "featureDescription": "Use a conditional format to help you visually explore and analyze data, identify patterns and trends.",
+                "featureDetails": [
+                    {
+                        "name":"Basic Conditional Format",
+                        "resource":"basicConditionalFormat",
+						"tags": ["getConditionalFormats", "addRule", "addCellValueRule", "addSpecificTextRule", "getRule", "removeRule", "removeRuleByRange", "clearRule", "Appearance"]
+                    },
+                    {
+                        "name":"Conditional Rules",
+                        "resource":"conditionalRules",
+						"tags": ["CellValueRule", "SpecificTextRule", "FormulaRule", "DateOccurringRule", "Top10Rule", "UniqueRule", "DuplicateRule", "AverageRule", "TwoScaleRule", "ThreeScaleRule", "DataBarRule", "IconSetRule", "Appearance"]
+                    }
+                ],
+                "imageUrl": "images/star.png",
+				"icon": "icon-c1formatter"
+            },
+
+            {
+                "feature": "Data Validation",
+                "featureResourceFolder": "DataValidation",
+                "featureDescription": "Use data validation to control the type of data or the values that users enter into a cell.",
+                "featureDetails": [
+                    {
+                        "name":"Basic Data Validator",
+                        "resource":"basicDataValidator",
+						"tags": ["DefaultDataValidator", "setDataValidator", "getDataValidator", "isValid", "highlightInvalidData", "createNumberValidator", "createDateValidator", "createTextLengthValidator", "createFormulaValidator", "createFormulaListValidator", "createListValidator", "validation"]
+                    },
+                    {
+                        "name":"Custom Data Validators",
+                        "resource":"customizeDataValidator",
+						"tags": ["getDataValidator", "ValidationError", "inputTitle", "inputMessage", "showInputMessage", "showErrorMessage", "inCellDropdown", "ignoreBlank", "errorStyle"]
+                    }
+                ],
+                "imageUrl": "images/star.png",
+				"icon": "icon-c1wizard"
+            },
+            {
+                "feature": "Fill",
+                "featureResourceFolder": "Fill",
+                "featureDescription": "Instead of entering data manually, you can use the auto fill to fill cells width data.",
+                "featureDetails": [
+                    {
+                        "name":"Basic Fill",
+                        "resource":"basicFill",
+						"tags": ["AutoFill", "DragFill", "CopyCells", "FillSeries", "FillFormattingOnly", "FillWithoutFormatting", "showDragFillTip"]
+                    },
+                    {
+                        "name":"Custom Fill",
+                        "resource":"customizeFill",
+						"tags": ["fillAuto", "fillAutoByDirection", "fillLinear", "fillGrowth", "fillDate"]
+                    }
+                ],
+                "imageUrl": "images/star.png",
+				"icon": "icon-c1dragfill"
+            },
+			{
+                "feature": "Edit",
+                "featureResourceFolder": "Edit",
+                "featureDescription": "Edit related items (nagivation action, dirty concept etc.)",
+                "featureDetails": [
+                    {
+                        "name":"Navigation Actions",
+                        "resource":"navActions",
+						"tags": ["SpreadActions", "nextControl", "previousControl", "addKeyMap", "hideSelection", "nextCell", "previousCell"]
+                    },
+					{
+                        "name":"Dirty Items",
+                        "resource":"dirtyItems",
+						"tags": ["getDirtyRows", "getDirtyCells", "getDeleteRows", "getInsertRows", "clearPendingChanges", "setRowCount", "setColumnCount", "fromJSON", "setDataSource"]
+                    }
+                ],
+                "imageUrl": "images/star.png",
+				"icon": "icon-edit"
+            },
+            {
+                "feature": "Formatter",
+                "featureResourceFolder": "Formatter",
+                "featureDescription": "Format cell value according to flexible pattern.",
+                "featureDetails": [
+                    {
+                        "name":"Basic Formatter",
+                        "resource":"basicFormatter",
+						"tags": ["setFormatter", "getFormatter", "formatter", "GeneralFormatter", "FormatMode", "custom", "standard", "datetime", "numeric", "Appearance"]
+                    },
+					{
+                        "name":"Custom Formatter",
+                        "resource":"customFormatter",
+						"tags": ["CustomFormatterBase", "Format", "Parse", "GeneralFormatter", "conditionalForeColor", "Appearance"]
+                    }
+                ],
+                "imageUrl": "images/star.png",
+				"icon": "icon-c1formatter"
+            },
+            {
+                "feature": "Touch",
+                "featureResourceFolder": "Touch",
+                "featureDescription": "SpreadJS support touch, and provide a touch menu bar.",
+                "featureDetails": [
+                    {
+                        "name":"Basic Touch",
+                        "resource":"basicTouch",
+						"tags": ["useTouchLayout"]
+                    },
+                    {
+                        "name":"Touch Tool Strip",
+                        "resource":"touchToolStrip",
+						"tags": ["touchToolStrip", "TouchToolStripItem", "text", "font", "foreColor", "getItem", "getItems", "imageAreaHeight", "itemHeight", "itemWidth", "separatorHeight"]
+                    }
+                ],
+                "imageUrl": "images/star.png",
+				"icon": "icon-c1touchtoolkit"
+            }
+        ]
+    },
+	{
+        "category": {"title":  "Use Cases", "folder": "Use Cases"},
+        "featureList": [
+		{
+                "feature": "Samples",
+                "featureResourceFolder": "Samples",
+                "featureDescription": "Here are some use case samples of SpreadJS.",
+                "featureDetails": [
+                    {
+                        "name":"Expense Budget",
+                        "resource":"expensebudget",
+						"tags": ["UseCase", "Sample", "addTable", "getConditionalFormats", "addRule", "setColumnFormula", "setColumnDataFormula"]
+                    },
+					{
+                        "name":"Cook Book",
+                        "resource":"cookbook",
+						"tags": ["UseCase", "Sample", "backgroundImage", "addSpan"],
+						"files": ["css/images/Titile_TL.png", "css/images/Titile_TR.png", "css/images/Food.png", "css/images/Minutes_top.png", "css/images/Minutes_bottom.png", "css/images/Calories.png", "css/images/Servings_top.png", "css/images/Servings_bottom.png"]
+                    },
+                    {
+                        "name":"1040 Tax Form",
+                        "resource":"taxform",
+						"tags": ["UseCase", "Sample", "fromJSON"],
+						"files": ["taxform_json.txt"]
+                    },
+					{
+                        "name":"Cost of Goods Sold",
+                        "resource":"monthprofit",
+						"tags": ["UseCase", "Sample", "fromJSON"],
+						"files": ["monthprofit_json.txt"]
+                    },
+					{
+                        "name":"Student Calendar",
+                        "resource":"studentcalendar",
+						"tags": ["UseCase", "Sample", "fromJSON"],
+						"files": ["studentcalendar_json.txt"]
+                    }
+                ],
+                "imageUrl": "images/star.png",
+				"icon": "icon-c1usecases"
+            },
+            {
+                "feature": "Templates",
+                "featureResourceFolder": "Templates",
+                "featureDescription": "Spread provide some template in json files...",
+                "featureDetails": [
+					{
+							"name":"Real Estate Investment Analysis",
+							"resource":"RealEstateInvestmentAnalysis",
+							"tags": ["UseCase", "Template", "fromJSON"],
+							"files": ["RealEstateInvestmentAnalysis_json.txt"]
+					},
+					{
+                        "name":"LBO DCF Model",
+                        "resource":"LBO_DCF_Model",
+						"tags": ["UseCase", "Template", "fromJSON"],
+						"files": ["LBO_DCF_Model_json.txt"]
+                    },
+                    {
+                        "name":"EVA Example",
+                        "resource":"eva",
+						"tags": ["UseCase", "Template", "fromJSON"],
+						"files": ["EVAExample_json.txt"]
+                    },
+                    {
+                        "name":"What If Analysis Template",
+                        "resource":"whatIfAnalysis",
+						"tags": ["UseCase", "Template", "fromJSON"],
+						"files": ["whatifanalysistemplate_json.txt"]
+                    }
+                ],
+                "imageUrl": "images/star.png",
+				"icon": "icon-c1datagrid"
+            }
+        ]
+    }
+]

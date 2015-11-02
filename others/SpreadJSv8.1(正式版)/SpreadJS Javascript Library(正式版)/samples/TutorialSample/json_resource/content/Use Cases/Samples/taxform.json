@@ -1,0 +1,17 @@
+{
+    "title": "1041 Tax Form",
+    "segments": [
+        [
+            {"description": "The Form 1040, U.S. Individual Income Tax Return, is the starting form for personal (individual) federal income tax returns filed with the IRS."}
+        ],
+        [
+            {"description": "SpreadJS loads data from saved file with <b>fromJSON</b>."},
+            {"code": [
+                "var sd = JSON.parse(data);",
+                "spread.isPaintSuspended(true);",
+                "spread.fromJSON(sd[0]);",
+                "spread.isPaintSuspended(false);"
+            ]}
+        ]
+    ]
+}

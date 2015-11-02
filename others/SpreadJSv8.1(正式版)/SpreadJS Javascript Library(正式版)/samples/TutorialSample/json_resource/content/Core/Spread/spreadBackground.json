@@ -1,0 +1,33 @@
+{
+    "title": "Spread Background",
+    "segments": [
+        [
+            {"description": "1. SpreadJS' background appearance can be customized."}
+        ],
+        [
+            {"description": "2. You can set the background color or background image for every sheet with <b>backColor</b> or <b>backgroundImage</b>. If you set both the backcolor and background image, the background image is displayed."},
+            {"code": [
+                "var spread = $('#ss').data('spread');",
+                "spread.backColor('red'); ",
+                "// The backColor will work if the backgroundImage not set.",
+                "spread.backgroundImage('images/back.PNG');"
+            ]},
+            {"description": " SpreadJS provides the ability to control the image layout with <b>backgroundImageLayout</b>. The image layout contains following types:"},
+            {"list": [
+                "Stretch: Indicates that the background image fills the area, even if the size of the area changes.",
+                "Center: Indicates that the background image displays in the center of the area.",
+                "Zoom: Indicates that the background image displays in the area while keeping its original aspect ratio.",
+                "None: Indicates that the background image displays in the upper left corner of the area with its original size."
+            ]},
+            {"code": [
+                "spread.backgroundImageLayout(GcSpread.Sheets.ImageLayout.Stretch); "
+            ]}
+        ],
+        [
+            {"description": "3. You can also set background color for the gray area which is behind the sheet with <b>grayAreaBackColor</b>."},
+            {"code": [
+                "spread.grayAreaBackColor('gray');"
+            ]}
+        ]
+    ]
+}

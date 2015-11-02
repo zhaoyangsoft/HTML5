@@ -1,0 +1,17 @@
+{
+    "title": "Pareto Sparkline",
+    "segments": [
+        [
+            {"description": "You can create a pareto sparkline by using the ParetoSparkline function in a formula: <b>=PARETOSPARKLINE(points, pointIndex, colorRange?, target?, target2?, highlightPosition?, label?, vertical?)</b>."},
+			{"description": "The function has the following parameters:"},
+            {"description": "<b>points</b>: Reference that represents the range of cells containing all values to be described, such as \"B2:B7\" "},
+            {"description": "<b>pointIndex</b>: Number or reference that represents the segment's index of the points, and the pointIndex >= 1 such as 1 or \"D2\". "},
+            {"description": "<b>colorRange</b>: (optional) Reference that represents the range of cells containing the color for the segment box, such as \"D2:D7\"; default value is null. "},
+            {"description": "<b>target</b>: (optional) Number or reference that represents the \"target\" line position, such as 0.5; default value is null."},
+            {"description": "<b>target2</b>: (optional) Number or reference that represents the \"target2\" line position, such as 0.5; default value is null."},
+            {"description": "<b>highlightPosition</b>: (optional) Number or reference that represents the rank of the segment to be colored in red, such as 3; default value is null." },
+            {"description": "<b>label</b>: (optional) Number that represents whether the segment's label is displayed as the cumulated percentage (label = 1) or the single percentage (label = 2) or none (label = 0), default value is none."},
+            {"description": "<b>vertical</b>: (optional) Boolean that represents whether the box's direction is vertical or not; default value is false."}
+        ]
+    ]
+}

@@ -1,0 +1,17 @@
+{
+    "title": "EVA Example",
+    "segments": [
+        [
+            {"description": "This example is intended as a simple template for calculating economic value added (EVA) from annual financial statement inputs provided by the user."}
+        ],
+        [
+            {"description": "SpreadJS loads data from saved file with <b>fromJSON</b>."},
+            {"code": [
+                "var sd = JSON.parse(data);",
+                "spread.isPaintSuspended(true);",
+                "spread.fromJSON(sd[0]);",
+                "spread.isPaintSuspended(false);"
+            ]}
+        ]
+    ]
+}

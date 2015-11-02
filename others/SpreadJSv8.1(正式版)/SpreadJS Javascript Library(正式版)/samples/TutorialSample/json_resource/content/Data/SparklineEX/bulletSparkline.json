@@ -1,0 +1,18 @@
+{
+    "title": "Bullet Sparkline",
+    "segments": [
+        [
+            {"description": "You can create a bullet sparkline by using the BulletSparkline function in a formula: <b>=BULLETSPARKLINE(measure, target, maxi, good?, bad?, forecast?, tickunit?, colorScheme?, vertical?)</b>."},
+			{"description": "The function has the following parameters:"},
+            {"description": "<b>measure</b>: Number or reference that represents the length of the measure bar, such as 5 or \"A1\". "},
+            {"description": "<b>target</b>: Number or reference that represents the location of the target line, such as 7 or \"A2\". "},
+            {"description": "<b>maxi</b>: Number or reference that represents the maximum value of the sparkline, such as 10 or \"A3\". "},
+            {"description": "<b>good</b>: (optional) Number or reference that represents the length of the good bar, such as 3 or \"A4\"; default value is 0."},
+            {"description": "<b>bad</b>: (optional) Number or reference that represents the length of the bad bar, such as 1 or \"A5\"; default value is 0."},
+            {"description": "<b>forecast</b>: (optional) Number or reference that represents the length of the forecast line, such as 8 or \"A6\"; default value is 0." },
+            {"description": "<b>tickunit</b>: (optional) Number or reference that represents the tick unit, such as 1 or \"A7\"; default value is 0."},
+            {"description": "<b>colorScheme</b>: (optional) String that represents the color scheme for generating a group of colors to display the sparkline; default value is \"#A0A0A0\"."},
+            {"description": "<b>vertical</b>: (optional) Boolean that represents whether to display the sparkline vertically or not; default value is false."}
+        ]
+    ]
+}

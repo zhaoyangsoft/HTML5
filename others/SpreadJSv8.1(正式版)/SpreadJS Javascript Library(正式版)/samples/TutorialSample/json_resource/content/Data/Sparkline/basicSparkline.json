@@ -1,0 +1,36 @@
+{
+    "title": "Basic Sparkline",
+    "segments": [
+        [
+            {"description": "1. A sparkline is a tiny chart in a sheet cell that provides a visual representation of data. Use sparklines to show trends in a series of values, such as seasonal increases or decreases, economic cycles, and so on."}
+        ],
+        [
+            {"description": "2. To create a sparkline, use the <b>setSparkline</b> method to set the sparkline for a cell. You can use the <b>getSparkline</b> method to get the sparkline. For example:"},
+            {"code": [
+                "var spread = $('#ss').data('spread');",
+                "var sheet = spread.getActiveSheet();",
+                "var data = new GcSpread.Sheets.Range(1, 0, 8, 1);",
+                "var dateAxis = new GcSpread.Sheets.Range(1, 2, 8, 1);",
+                "sheet.addSpan(11, 0, 4, 3);",
+                "sheet.setSparkline(11, 0, data",
+                "   , GcSpread.Sheets.DataOrientation.Vertical",
+                "   , GcSpread.Sheets.SparklineType.line",
+                "   , setting",
+                "   , dateAxis",
+                "   , GcSpread.Sheets.DataOrientation.Vertical",
+                ");",
+                "sheet.getSparkline(11, 0);"
+            ]},
+            {"description": "There are three types of sparklines. The enum <b>SparklineType</b> represents the sparkline type."},
+            {"list": ["line", "column", "winloss"]}
+        ],
+        [
+            {"description": "3. If you want to remove the sparkline, use the <b>removeSparkline</b> method to remove the sparkline for the specified cell. For example:"},
+            {"code": [
+                "var spread = $('#ss').data('spread');",
+                "var sheet = spread.getActiveSheet();",
+                "sheet.removeSparkline(11, 0);"
+            ]}
+        ]
+    ]
+}

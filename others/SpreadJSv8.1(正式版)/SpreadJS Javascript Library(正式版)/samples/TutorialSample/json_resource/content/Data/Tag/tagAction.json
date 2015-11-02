@@ -1,0 +1,11 @@
+{
+    "title": "Action Support",
+    "segments": [
+        [
+            {"description": "The following actions will affect tags as follows:"},
+            {"description": "If a cut and paste or drag and drop action occurs, tag data will move with the cell."},
+            {"description": "If a copy and paste or drag and fill action occurs, tag data will be copied. If the type of tag is a complex type, it will be cloned."},
+            {"description": "Tags actions can be undone or redone after they are complete."}
+        ]
+    ]
+}

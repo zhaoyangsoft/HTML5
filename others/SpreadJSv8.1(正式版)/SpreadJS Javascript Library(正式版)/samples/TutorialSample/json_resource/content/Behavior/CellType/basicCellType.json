@@ -1,0 +1,46 @@
+{
+    "title": "Basic Cell Type",
+    "segments": [
+        [
+            {"description": "1. SpreadJS provides cell types. It can support two-way binding (data changes in the view model are reflected in the view). Each cell type provides two modes: display mode and edit mode."}
+        ],
+        [
+            {"description": "2. To set the cell type, first create a cellType object, then use the <b>setCellType</b> method to set the cellType for the sheet, cell, column, or row. For example:"},
+            {"code": [
+                "var b1 = new GcSpread.Sheets.ButtonCellType();",
+                "b1.text('Margin Left');",
+                "b1.marginLeft(40);",
+                "sheet.setCellType(3, 2, b1, GcSpread.Sheets.SheetArea.viewport);",
+                "//or",
+                "sheet.getCell(3,2).cellType(b1);"
+            ]},
+            {"description": "Sometimes you can use the cellType with data binding by binding a cellType to a column. For example:"},
+            {"code": [
+                "var lines = ['Computers', 'Washers', 'Stoves'];",
+                "var lineCellType = new GcSpread.Sheets.ComboBoxCellType();",
+                "lineCellType.items(lines);",
+                "var columns = [",
+                "   {name: 'name', size: 100}",
+                "   {name: 'color', cellType: lineCellType, size: 80},",
+                "];",
+                "sheet.bindColumns(columns)",
+                "b1.marginLeft(40);"
+            ]},
+            {"description": "After you set the cell type you can use the <b>getCellType</b> method to get the cell type. If you want to remove the cell type, set the value to null or undefined."}
+        ],
+        [
+            {"description": "3. Sometimes you don't want the cellType response hit test in display mode. Use the <b>allowEditorReservedLocations</b> method to get and set whether cell editor reserved mouse locations are allowed. For example:"},
+            {"code": [
+                "sheet.allowEditorReservedLocations(false);"
+            ]}
+        ],
+        [
+            {"description": "4. SpreadJS provides an event (<b>ButtonClicked</b>) on the spreadsheet. The event occurs when you click a button, check box, or hyperlink in a cell. For example:"},
+            {"code": [
+                "spread.bind(GcSpread.Sheets.Events.ButtonClicked, function() {",
+                "   //do some thing...",
+                "});"
+            ]}
+        ]
+    ]
+}

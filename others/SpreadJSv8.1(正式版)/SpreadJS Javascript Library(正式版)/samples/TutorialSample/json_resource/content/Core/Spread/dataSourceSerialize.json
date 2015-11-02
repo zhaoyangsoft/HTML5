@@ -1,0 +1,15 @@
+{
+    "title": "Data Source Serialize",
+    "segments": [
+        [
+            {"description": "The data source of the sheet or table can be serialized to JSON if you call Spread.toJSON with an object that has the <b>includeBindingSource</b> property set to true."},
+            {"code": [
+                "sheet.setDataSource(dataSource);",
+                "var spread1 = $('#ss').data('spread');",
+                "var jsonString = JSON.stringify(",
+                "       spread1.toJSON( { includeBindingSource: true } )",
+                "); "
+            ]}
+        ]
+    ]
+}

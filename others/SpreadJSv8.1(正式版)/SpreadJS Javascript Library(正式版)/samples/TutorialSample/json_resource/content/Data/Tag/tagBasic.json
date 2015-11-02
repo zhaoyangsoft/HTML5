@@ -1,0 +1,37 @@
+{
+    "title": "Basic Usage",
+    "segments": [
+        [
+            {"description": "1. You can use tag to store private data. SpreadJS supports tags for cells, rows, columns, and sheets."},
+            {"description": "<b>Sheet.tag</b>(value?): get / set tag for the sheet."},
+            {"description": "<b>Sheet.getTag</b>(row, col, sheetArea?) / <b>Sheet.setTag</b>(row, col, tag, sheetArea?): get / set tag for:"},
+            {"list": [
+                 "sheet: when row is -1 and col is -1",
+                 "row: when col is -1 and row >= 0",
+                 "column: when row is -1 and col >= 0",
+                 "cell: when row >=0 and col >= 0"
+            ]},
+            {"description": "<b>Cell.tag</b>(value?): get / set tag for the cell."},
+            {"description": "<b>Row.tag</b>(value?): get / set tag for the row."},
+            {"description": "<b>Column.tag</b>(value?): get / set tag for the column."},
+            {"description": "2. When a tag is set, the following events will occur:"},
+            {"list": [
+                 "CellChanged event when Cell.tag(value)",
+                 "RowChanged event when Row.tag(value)",
+                 "ColumnChanged event when Column.tag(value)"
+            ]},
+            {"description": "3. You can clear the tag by setting the tag to null or undefined or by using <b>Sheet.clear</b>(row, column, rowCount, columnCount, sheetArea, StorageType.Tag). For example:"},
+            {"description": "For example"},
+            {"code": [
+                "sheet.tag('Sheet tag');",
+                "sheet.setTag(3, -1, 'Row tag');",
+                "sheet.getRow(5).tag('Row tag too');",
+                "sheet.getColumns(4, 6).tag('Column tag');",
+                "sheet.getCell(0, 0).tag('A1 tag');",
+                "sheet.getCells(6, 0, 9, 2).tag('Cells tag');",
+                "sheet.clear(6, 0, 9, 2, spreadNS.SheetArea.viewport,",
+                "       spreadNS.StorageType.Tag);"
+            ]}
+        ]
+    ]
+}

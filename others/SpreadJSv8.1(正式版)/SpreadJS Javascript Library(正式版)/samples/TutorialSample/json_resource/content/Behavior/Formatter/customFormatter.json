@@ -1,0 +1,50 @@
+{
+    "title": "Custom Formatter",
+    "segments": [
+        [
+            {"description": "You can use CustomFormatterBase to help create a custom formatter with specified rules to format and color cell text."}
+        ],
+        [
+            {"description": "1. Create a class base on <b>CustomFormatterBase</b>. For example:"},
+            {"code": [
+                "function CustomNumberFormat() {",
+                "}",
+				"CustomNumberFormat.prototype = new GcSpread.Sheets.CustomFormatterBase();"
+            ]}
+        ],
+        [
+            {"description": "2. Provide <b>Format</b>(obj, conditionalForeColor) to define the rule for format and color for cell text, where:"},
+            {"list": [
+                "obj: The raw cell value.",
+                "conditionalForeColor: Helps color text (optional); set its value to a color string to apply the rule."
+            ]},
+            {"description": "The <b>Format</b> method returns a formatted string. You can color text based on a value range at the same time. For example:"},
+            {"code": [
+                "CustomNumberFormat.prototype.Format = function (obj, conditionalForeColor) {", 
+                "   if (typeof obj === \"number\") { ",
+                "       return formatNumber(obj, conditionalForeColor); ",
+                "   }",
+                "   // ...",
+                "};",
+                "function formatNumber(value, conditionalForeColor) { ",
+                "   if (isFinite(value)) { ",
+                "       if (value >= 10) { ",
+                "           conditionalForeColor.value = \"green\"; ",
+                "       } else if (value > 0) { ",
+                "           conditionalForeColor.value = \"gold\"; ",
+                "       } else { ",
+                "           conditionalForeColor.value = \"blue\"; ",
+                "       }" ,
+                "   } else { ",
+                "       conditionalForeColor.value = \"red\"; ",
+                "   }",
+                "",
+                "   return value.toString(); ",
+                "}"
+            ]}
+        ],
+        [
+            {"description": "3. Provide <b>Parse</b>(str) to return a value parsed from the specified string."}
+        ]
+    ]
+}

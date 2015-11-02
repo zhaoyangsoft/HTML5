@@ -1,0 +1,49 @@
+{
+    "title": "Basic Floating Object",
+    "segments": [
+        [
+            {"description": "1. In SpreadJS, you can add a floating object to the sheet. The floating object is displayed on the top of the cells."}
+        ],
+        [
+            {"description": "2. There are two kinds of floating objects: CustomFloatingObject and Picture."},
+            {"list": [
+                "CustomFloatingObject: Exposes a content property so that the user could customize the HTMLElement content.",
+                "Picture: Exposes some basic picture properties that provide a basic Picture function similar to the Excel Picture feature."
+            ]}
+        ],
+        [
+            {"description": "3. To add a CustomFloatingObject to the sheet, you need to create a <b>CustomFloatingObject</b> object and use the <b>addFloatingObject</b> method to add it to the sheet. For example:"},
+            {"code": [
+                "var customFloatingObject = new GcSpread.Sheets.CustomFloatingObject('f1');",
+                "customFloatingObject.startRow(1);",
+                "customFloatingObject.startColumn(1);",
+                "customFloatingObject.endColumn(6);",
+                "customFloatingObject.endRow(6);",
+                "var div = document.createElement('div');",
+                "div.innerHTML = '<span>SpreadJS support CustomFloatingObject</span>' + ",
+                "'<div style='border: 1px dotted red; width: 80%; margin:auto;'>' + ",
+                "'<ul><li>I am list one.</li><li>I am list two.</li><li>I am list three.</li></ul></div>';",
+                "customFloatingObject.Content(div);",
+                "sheet.addFloatingObject(customFloatingObject);"
+            ]},
+            {"description": "After you add the custom floating object, you might want to work with it. Use the <b>findFloatingObject</b> method to get it by name, or use the <b>getFloatingObjects</b> method to get all the CustomFloatingObject objects. When you do not need it, you can use the <b>removeFloatingObject</b> method to remove it by name."}
+        ],
+        [
+            {"description": "4. If you want to add a Picture to the sheet, you can use the <b>addPicture</b> method to add a picture to sheet. For example:"},
+            {"code": [
+                "sheet.addPicture('f2', 'images/splogo.png', 7, 1, 16, 4);",
+                "var pic = sheet.findPicture('f2');",
+                "sheet.removePicture('f2');"
+
+            ]},
+            {"description": "After you add the picture, you might want to work with it. Use the <b>findPicture</b> method to get it by name or use the <b>getPictures</b> method to get all the Picture objects. When you do not need it, you can use the <b>removePicture</b> method to remove it by name."}
+        ],
+        [
+            {"description": "5. Both CustomFloatingObject and Picture are floating objects. They are floated on the top of cells, but if there is a floating object that is on top of another one, you might want to put the lower one on top of the upper one. Use the <b>setFloatingObjectZIndex</b> method to set the <i>z</i>-index of the floating object. For example"},
+            {"code": [
+                "sheet.setFloatingObjectZIndex('f1', 2000);",
+                "sheet.setFloatingObjectZIndex('f2', 2001);"
+            ]}
+        ]
+    ]
+}

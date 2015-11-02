@@ -1,0 +1,25 @@
+{
+    "title": "Basic Touch",
+    "segments": [
+        [
+            {"description": "1. SpreadJS supports touch."}
+        ],
+        [
+            {"description": "2. SpreadJS supports touch on the following platforms:"},
+            {"list": [
+                "Desktop: Windows--IE 9+, Chrome, Firefox, Opera",
+                "Tablet PC: iPad--Chrome, Safari; Android Pad--Chrome; Surface--IE 10+",
+                "Mobile: Android--Chrome; Windows Phone: IE 10+"
+            ]}
+        ],
+        [
+            {"description": "3. You can use the <b>useTouchLayout</b> method to get and set whether to use touch layout to present the Spread widget. In the touch layout, the control will be easier to touch."},
+            {"code": [
+                "spread.useTouchLayout(true);"
+            ]}
+        ],
+        [
+            {"description": "4. SpreadJS supports many features in touch mode, including scroll, zoom, selection, resize, drag fill, group, cellType, autoFit, filter, edit, tabStrip, and toolStrip."}
+        ]
+    ]
+}

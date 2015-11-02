@@ -1,0 +1,60 @@
+{
+    "title": "Sparkline Setting",
+    "segments": [
+        [
+            {"description": "1. After you create sparklines, you can control which value points are shown (such as high, low, first, last, or any negative values), change the type of the sparkline (Line, Column, or WinLoss), apply styles, and control whether to show the horizontal axis."}
+        ],
+        [
+            {"description": "2. You can highlight individual data markers (values) in a line sparkline by making some or all of the markers visible."},
+            {"list": ["showFirst: whether the first data point is formatted differently for each sparkline in this sparkline group",
+                "showHigh: whether the data points with the highest value are formatted differently for each sparkline in this sparkline group",
+                "showLast: whether the last data point is formatted differently for each sparkline in this sparkline group",
+                "showLow: whether the data points with the lowest value are formatted differently for each sparkline in this sparkline group",
+                "showNegative: whether the negative data points are formatted differently for each sparkline in this sparkline group",
+                "showMarkers: whether data markers are displayed for each sparkline in this sparkline group"
+            ]
+            }
+        ],
+        [
+            {"description": "3. You can change the style and format of sparklines using the following methods:"},
+            {"list": ["axisColor: the color of the axis",
+                "firstMarkerColor: the color of the first data point for each sparkline in this sparkline group",
+                "highMarkerColor: the color of the highest data point for each sparkline in this sparkline group",
+                "lastMarkerColor: the color of the last data point for each sparkline in this sparkline group",
+                "lowMarkerColor: the color of the lowest data point for each sparkline in this sparkline group",
+                "markersColor: the color of the data markers for each sparkline in this sparkline group",
+                "negativeColor: the color of the negative data points for each sparkline in this sparkline group",
+                "seriesColor: the color for each sparkline in this sparkline group"
+            ]
+            }
+        ],
+        [
+            {"description": "4. Sparklines offer additional settings. For example, sometimes there are some empty values in the data series in the chart; you can use the <b>displayEmptyCellsAs</b> method to control how to display the empty cells, as shown in the following example:"},
+            {"code": [
+                "var setting = new GcSpread.Sheets.SparklineSetting();",
+                "setting.displayEmptyCellsAs = GcSpread.Sheets.EmptyValueStyle.Gaps;",
+                "setting.rightToLeft = true;",
+                "setting.displayHidden = false;",
+                "setting.displayXAxis = false",
+                "setting.lineWeight = 2;",
+                "setting.manualMax = 3;",
+                "setting.manualMin = 1;",
+                "setting.markersColor('Magenta');",
+                "setting.maxAxisType = GcSpread.Sheets.SparklineAxisMinMax.custom;",
+                "setting.minAxisType = GcSpread.Sheets.SparklineAxisMinMax.individual;"
+            ]}
+        ],
+        [
+            {"description": "5. The following example illustrates how to apply these settings:"},
+            {"code": [
+                "var setting = new GcSpread.Sheets.SparklineSetting();",
+                "setting.showFirst(true);",
+                "setting.showHigh(true);",
+                "setting.displayXAxis = true;",
+                "setting.axisColor('Cyan');",
+                "var sparkline = sheet.getSparkline(11, 0);",
+                "sparkline.setting(setting);"
+            ]}
+        ]
+    ]
+}

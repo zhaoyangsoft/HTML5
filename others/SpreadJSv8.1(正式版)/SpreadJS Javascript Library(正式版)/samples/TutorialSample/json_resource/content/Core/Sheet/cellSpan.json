@@ -1,0 +1,28 @@
+{
+    "title": "Cell Span",
+    "segments": [
+        [
+            {"description": "Merging combines two or more cells to create a new, larger cell. This is a great way to create a label that spans several columns."}
+        ],
+        [
+            {"description": "1. Use the <b>addSpan</b> method to merge cells in a specified range to a new, larger cell, as shown in the following code."},
+            {"code":[
+                "// Merge cells and set label",
+                "sheet.addSpan(1, 4, 1, 7);",
+                "sheet.setValue(1, 4, \"Goods\");",
+                "// Merge cells across multi rows (3) and columns (4)",
+                "sheet.addSpan(20, 1, 3, 4);",
+                "sheet.getCell(20, 1).value(\"Demo\").hAlign(1).vAlign(1);"
+            ]}
+        ],
+        [
+            {"description":"2. Use the <b>removeSpan</b> method to remove the span that contains the specified cell."},
+            {"code":[
+                "sheet.removeSpan(20, 1);"
+            ]}
+        ],
+        [
+            {"description": "<b>Note:</b> Make sure the data you want to display in the merged cell is in the upper-left cell. All data in the other merged cells will be hidden until the span is removed."}
+        ]
+    ]
+}

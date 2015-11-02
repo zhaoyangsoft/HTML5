@@ -1,0 +1,16 @@
+{
+    "title": "Compatible Sparkline",
+    "segments": [
+        [
+            {"description": "You can create a line sparkline, column sparkline, or winloss sparkline by using the following functions in a formula: <b>=LINESPARKLINE(data, dataOrientation, dateAxisData?, dateAxisOrientation?, setting?), =COLUMNSPARKLINE(data, dataOrientation, dateAxisData?, dateAxisOrientation?, setting?), =WINLOSSSPARKLINE(data, dataOrientation, dateAxisData?, dateAxisOrientation?, setting?)</b>."},
+			{"description": "The functions have the following parameters:"},
+            {"description": "<b>data</b>: A range reference that represents sparkline data, such as \"A1:C3\"."},
+            {"description": "<b>dataOrientation</b>: A number that represents the sparkline data orientation. One of the following:"},
+			{"list": ["Vertical - 0", "Horizontal - 1"]},
+            {"description": "<b>dateAxisData</b>: (optional) A range reference that represents the sparkline date axis data, such as \"D1:F3\"."},
+            {"description": "<b>dateAxisOrientation</b>: (optional) A number that represents the sparkline date axis orientation. One of the following:"},
+			{"list": ["Vertical - 0", "Horizontal - 1"]},
+            {"description": "<b>setting</b>: (optional) A string with JSON format; each item keeps the same definition as GcSpread.Sheets.<b>SparklineSetting</b>."}
+        ]
+    ]
+}

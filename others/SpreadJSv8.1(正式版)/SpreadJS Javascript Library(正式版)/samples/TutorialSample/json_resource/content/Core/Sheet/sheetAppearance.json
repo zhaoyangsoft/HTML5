@@ -1,0 +1,31 @@
+{
+    "title": "Sheet Appearance",
+    "segments": [
+        [
+             {"description": "Spread provides several interfaces to change the sheet's appearance, including visible, LineBorder, and zoom."}
+        ],
+        [
+            {"description": "1. If you want to hide a sheet in the Spread component, you just need the following code:"},
+            {"code":[
+                "sheet.visible(false);"
+            ]}
+        ],
+        [
+            {"description":"2. Spread provides several types of line styles to help you customize the sheet's border line and grid lines, such as thin, dotted, double, and so on. For example, the following lines change the left and right border lines of the indicate range to the dotted line style."},
+            {"code":[
+                "var lineStyle = GcSpread.Sheets.LineStyle.dotted;",
+                "var lineBorder = new GcSpread.Sheets.LineBorder('red', lineStyle);",
+                "var range = new GcSpread.Sheets.Range(1, 1, 1, 1);",
+                "var sheetArea = GcSpread.Sheets.SheetArea.viewport",
+                "sheet.setBorder(range, lineBorder, { left: true, right: true}, sheetArea);"
+            ]}
+           
+        ],
+        [
+            {"description":"3. Use the <b>zoom</b> method to change the current sheet's scale."},
+            {"code":[
+                "sheet.zoom(3);"
+            ]}
+        ]
+    ]
+} 

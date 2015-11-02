@@ -1,0 +1,27 @@
+{
+    "title": "Basic Comment",
+    "segments": [
+        [
+            {"description": "1. In SpreadJS you can add notes to a sheet by using comments. Using comments can help you make a sheet easier to understand by providing additional context for the data it contains."}
+        ],
+        [
+            {"description": "2. To add a comment to a sheet, first create a comment and set some settings for it. Then you can use the <b>setComment</b> method to set a comment for the specified cell. For example:"},
+            {"code": [
+                "var comment = new GcSpread.Sheets.Comment();",
+                "comment.text('new comment!');",
+                "sheet.setComment(5, 5, comment);"
+            ]},
+            {"description": "Sometimes you want to remove the comment you added, as shown in the following example:"},
+            {"code": [
+                "sheet.setComment(5, 5, null);"
+            ]}
+        ],
+        [
+            {"description": "3. After you add a comment to a cell, you can use the <b>getComment</b> method to get the comment, or use the <b>getComments</b> method to get all the comments in the sheet."},
+            {"code": [
+                "var comment = sheet.getComment(5, 5);",
+                "var comments = sheet.getComments();"
+            ]}
+        ]
+    ]
+}

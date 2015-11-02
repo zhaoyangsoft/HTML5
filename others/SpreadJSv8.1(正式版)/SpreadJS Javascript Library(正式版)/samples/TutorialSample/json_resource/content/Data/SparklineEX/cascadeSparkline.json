@@ -1,0 +1,17 @@
+{
+    "title": "Cascade Sparkline",
+    "segments": [
+        [
+            {"description": "You can create a cascade sparkline by using the CascadeSparkline function in a formula: <b>=CASCADESPARKLINE(pointsRange, pointIndex, labelsRange?, minimum?, maximum?, colorPositive?, colorNegative?, vertical?)</b>."},
+			{"description": "The function has the following parameters:"},
+            {"description": "<b>pointsRange</b>: Reference that represents the range of cells containing all values to be described, such as \"B2:B8\". "},
+            {"description": "<b>pointIndex</b>: Number or reference that represents the point's index of the points, and the pointIndex >= 1 such as 1 or \"D2\". "},
+            {"description": "<b>labelsRange</b>: (optional) Reference that represents the range of cells containing all labels to be described, such as \"A2:A8\"; default value is no label."},
+            {"description": "<b>minimum</b>: (optional) Number or reference that represents the minimum values of the display area, such as -2000; default value is the minimum of the sum (the sum of points' value). "},
+            {"description": "<b>maximum</b>: (optional) Number or reference that represents the maximum values of the display area, such as 6000; default value is the maximum of the sum (the sum of points' value). "},
+            {"description": "<b>colorPositive</b>: (optional) String that represents the color of the first or last positive sparkline's box (this point's value is positive); default value is \"#8CBF64\". "},
+            {"description": "<b>colorNegative</b>: (optional) String that represents the color of the first or last negative sparkline's box (this point's value is negative); default value is \"#D6604D\". "},
+            {"description": "<b>vertical</b>: (optional) Boolean that represents whether the box's direction is vertical or horizontal; default value is false."}
+        ]
+    ]
+}

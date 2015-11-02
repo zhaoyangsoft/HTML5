@@ -1,0 +1,53 @@
+{
+    "title": "Rows and Columns",
+    "segments": [
+        [
+            {"description": "In SpreadJS, each sheet area has several rows and columns. SpreadJS provides methods for you to customize the rows and columns."}
+        ],
+        [
+            {"description": "1. Use the <b>setRowCount</b> and <b>setColumnCount</b> methods to change the number of rows or columns in each sheet area. In addition, you can use the <b>addRows</b>, <b>addColumns</b>, <b>deleteRows</b>, and <b>deleteColumns</b> methods to change the number of rows or columns in the viewport."},
+            {"description": "Each of the following lines could be used to change the row count of the sheet's viewport area."},
+            {"code":[
+                "sheet.setRowCount(20, GcSpread.Sheets.SheetArea.viewport);",
+                "sheet.addRows(5, 10);",
+                "sheet.deleteRows(20, 10);"
+            ]}
+        ],
+        [
+            {"description":"2. If a row or column's resizeable property is false, it cannot be resized by user operations, but you can change its height or width directly by using code."},
+            {"code": [
+                "sheet.setRowResizeable(1, false);",
+                "sheet.setColumnResizeable(1, true);",
+                " ",
+            	"sheet.setRowHeight(1, 20);",
+            	"sheet.setColumnWidth(1, 40);"
+            ]}
+        ],
+        [
+            {"description": "3. Use the <b>setRowVisible</b> and <b>setColumnVisible</b>  methods to specify whether a row or column is displayed."},
+            {"code": [
+            	"sheet.setRowVisible(1, false);",
+            	"sheet.setColumnVisible(1, true);"
+            ]}
+        ],
+        [
+            {"description": "4. In the sheet's viewport area, when a row or column is auto fit, its height or width will be determined by the content's length. Use the following code to set a row or column to auto fit:"},
+            {"code": [
+                "sheet.autoFitColumn(1);",
+                "sheet.autoFitRow(1)"
+            ]}
+        ],
+        [
+            {"description": "5. SpreadJS also provides many methods to get useful information about a sheet's row or column, as illustrated in these lines of code."},
+            {"code": [
+            	"var rowCount = sheet.getRowCount();",
+            	"var columnCount = sheet.getColumnCount();",
+            	"var cell = sheet.getCell(7, 7);",
+            	"var cells = sheet.getCells(2, 2, 7, 7);",
+            	"var rowHeight = sheet.getRowHeight(7);",
+            	"var columnWidth = sheet.getColumnWidth(7);",
+            	"..."
+            ]}
+        ]
+    ]
+}

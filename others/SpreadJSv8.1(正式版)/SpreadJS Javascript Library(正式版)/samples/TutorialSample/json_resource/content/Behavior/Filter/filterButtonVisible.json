@@ -1,0 +1,34 @@
+{
+    "title": "Filter Button Visible",
+    "segments": [
+        [
+            {"description": "Use the Filter or Table object's <b>filterButtonVisible</b> method to get or set whether the filter buttons are displayed."}
+        ],
+        [
+            {"description": "The filterButtonVisible method's get and set data depends on the following arguments:"},
+            {"list": [
+                "No arguments: Get whether filter buttons are displayed. True if one is visible; otherwise false.",
+                "1 argument: If it's a number, then use it as a column index that returns whether the corresponding column's filter button is displayed. If it's a boolean, set all filter buttons to the specified value.",
+                "2 arguments: The first argument is the column index and the second one is the value. Sets whether the corresponding column's filter button is displayed."
+            ]},
+            {"description": "Usage:"},
+            {"code": [
+                "// Hide all filter buttons",
+                "filter.filterButtonVisible(false);",
+                "// table.filterButtonVisible(false);",
+                "",
+                "// Show all filter buttons",
+                "filter.filterButtonVisible(true);",
+                "// table.filterButtonVisible(true);",
+                "",
+                "// Hide special column filter button",
+                "filter.filterButtonVisible(colIndex, false);",
+                "// table.filterButtonVisible(tableColumnIndex, false);",
+                "",
+                "// Get special column filter button visible",
+                "filter.filterButtonVisible(colIndex);",
+                "// table.filterButtonVisible(tableColumnIndex);"
+            ]}
+        ]
+    ]
+}

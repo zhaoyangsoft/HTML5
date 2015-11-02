@@ -1,0 +1,38 @@
+{
+    "title": "Tab Strip",
+    "segments": [
+        [
+            {"description": "1. The SpreadJS tab strip is similar to Excel. You can click the navigation buttons to move sheet tabs, click the sheet tab to change the active sheet, drag the sheet tab to reorder the sheets list, and drag the tab strip splitter to resize the tab strip width. Also you can customize the tab strip."}
+        ],
+        [
+            {"description": "2. You can control whether to show the tab strip by setting the <b>tabStripVisible</b>. Also if you do not want the new tab to show, set <b>newTabVisible</b> to false."},
+            {"code": [
+                "var spread = $('#ss').data('spread');",
+                "spread.tabStripVisible(false); ",
+                "//Also you can set tabStripVisible to true.",
+                "spread.newTabVisible(false); ",
+                "//Also you can set newTabVisible to true."
+            ]}
+        ],
+        [
+            {"description": "3. The sheets' name list is shown right behind the navigation button. You can double-click the sheet tab to rename the sheet. If you do not want the sheet name changed by double-clicking or editing the name, set the <b>tabEditable</b> method to false. You can set <b>allowSheetReorder</b> to control whether you can drag the sheet tab to reorder the sheet list."},
+            {"code": [
+                "spread.tabEditable(true);",
+                "spread.allowSheetReorder(true);"
+            ]},
+            {"description": "You can use the <b>sheetTabColor</b> method to customize the sheet tab's color."},
+            {"code": [
+                "var sheet = spread.getActiveSheet();",
+                "sheet.sheetTabColor('red');"
+            ]
+            }
+        ],
+        [
+            {"description": "4. You can drag the tab strip splitter to resize the tab strip's width. Also you can get and set the width proportion of the tab strip with <b>getTabStripRatio</b> and <b>setTabStripRatio</b>."},
+            {"code": [
+                "var ratio = spread.getTabStripRatio();",
+                "spread.setTabStripRatio(0.6);"
+            ]}
+        ]
+    ]
+}

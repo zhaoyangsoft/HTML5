@@ -1,0 +1,30 @@
+{
+    "title": "Floating Object Events",
+    "segments": [
+        [
+            {"description": "1. SpreadJS provides events for floating objects on the sheet to let you react to events that have happened."}
+        ],
+        [
+            {"description": "2. There are two kinds of events for CustomFloatingObject floating objects: <b>FloatingObjectSelectionChanged</b> (when the selection of the floating object has changed) and <b>FloatingObjectChanged</b> (when any floating object has changed)."},
+            {"code": [
+                "sheet.bind(GcSpread.Sheets.Events.FloatingObjectSelectionChanged, function(e, args) {",
+                "   // do something",
+                "});",
+                "sheet.bind(GcSpread.Sheets.Events.FloatingObjectChanged, function(e, args) {",
+                "   // do something",
+                "});"
+            ]}
+        ],
+        [
+            {"description": "3. There are also two kinds of events for Picture floating objects: <b>PictureSelectionChanged</b> (when the selections of the floating object have changed) and <b>PictureChanged</b> (when any picture has changed.)"},
+            {"code": [
+                "sheet.bind(GcSpread.Sheets.Events.PictureSelectionChanged, function(e, args) {",
+                "   // do something",
+                "});",
+                "sheet.bind(GcSpread.Sheets.Events.PictureChanged, function(e, args) {",
+                "   // do something",
+                "});"
+            ]}
+        ]
+    ]
+}

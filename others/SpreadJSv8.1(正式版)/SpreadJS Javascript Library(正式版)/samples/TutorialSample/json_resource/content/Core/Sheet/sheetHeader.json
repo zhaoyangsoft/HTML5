@@ -1,0 +1,33 @@
+{
+    "title": "Sheet Header",
+    "segments": [
+        [
+            {"description": "In SpreadJS, a sheet consists of four areas:"},
+            {"list":["corner","colHeader","rowHeader","viewport"]},
+            {"description":"Therefore, the sheet's header includes a row header and a column header, and both headers can have multiple rows / columns."}
+        ],
+        [
+            {"description": "1. In one of the header's rows or columns, each cell has automatic text (\"auto text\"), which indicates the index of the column or row. If you want to know which row or column displays the auto text, or display the auto text in a specific row or column, use code similar to the following:"},
+            {"code":[
+                "sheet.setRowHeaderAutoTextIndex(0);",
+                "sheet.getRowHeaderAutoTextIndex();",
+                " ",
+                "sheet.setColumnHeaderAutoTextIndex(0);",
+                "sheet.getColumnHeaderAutoTextIndex();"
+            ]}
+        ],
+        [
+            {"description":"2. Spread also provides three types of header auto text to choose from: blank, letters, and numbers."},
+            {"code":[
+                "sheet.setRowHeaderAutoText(GcSpread.Sheets.HeaderAutoText.letters);",
+                "sheet.setColumnHeaderAutoText(GcSpread.Sheets.HeaderAutoText.blank);"
+            ]}
+        ],
+        [
+            {"description": "You can choose to hide the row header or column header. The following code hides all the rows in the row header."},
+            {"code":[
+                "sheet.setRowHeaderVisible(false);"
+            ]}
+        ]
+    ]
+}

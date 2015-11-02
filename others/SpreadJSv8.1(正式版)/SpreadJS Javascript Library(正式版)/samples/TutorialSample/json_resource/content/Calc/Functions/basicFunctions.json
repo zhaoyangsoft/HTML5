@@ -1,0 +1,26 @@
+{
+    "title": "Basic Functions",
+    "segments": [
+        [
+            {"description": "1. In SpreadJS, you can create a formula that uses the contents of some cells and displays the results in another cell. You can also use various functions to calculate complex formulas easily."}
+        ],
+        [
+            {"description": "2. SpreadJS provides a large variety of functions: some basic functions that are commonly used such as <b>SUM</b>, and some advanced functions such as <b>MAX</b>, as shown and described in the following formula code."},
+            {"code": [
+				"//Returns the sum of the values contained in the range A1:C5.",
+                "=SUM(A1:C5)",
+                "//Returns the largest value in the range A1:C5.",
+                "=MAX(A1:C5)"
+            ]}
+        ],
+        [
+            {"description": "3. You can input the <b>=SUM(A1:C5)</b> into a cell directly. Alternatively, you can use the <b>setFormula</b> method to apply the formula."},
+            {"code": [
+                "var spread = $('#ss').data('spread');",
+                "var sheet = spread.getActiveSheet();",
+                "// set some values to C4:C7",
+                "sheet.setFormula(8, 2, '=MAX(C4:C7)');"
+            ]}
+        ]
+    ]
+}

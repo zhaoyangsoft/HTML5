@@ -1,0 +1,29 @@
+{
+    "title": "Custom Data Validators",
+    "segments": [
+        [
+            {"description": "1. You can customize the validator, such as the title, input message, error message, and so on. With these settings you will know what data can or should be entered in a cell, and when the data is valid you will get a message."}
+        ],
+        [
+            {"description": "2. When you use the validator object, you can set its properties. For example:"},
+            {"code": [
+                "var dv1 = sheet.getDataValidator(1, 1);",
+                "dv1.inputTitle = 'Please choose a category:';",
+                "dv1.inputMessage = 'Fruit Vegetable Food';",
+                "dv1.showInputMessage = true; //whether to display the input title and input message.",
+                "dv1.showErrorMessage = true; //whether to display an error message.",
+                "dv1.inCellDropdown = true; //whether to display a drop-down button.",
+                "dv1.ignoreBlank = false; //whether to ignore an empty value.",
+                "dv1.errorStyle = GcSpread.Sheets.ErrorStyle.Stop;"
+            ]}
+        ],
+        [
+            {"description": "3. When you input invalid data, the control will trigger the <b>ValidationError</b> event. For example:"},
+            {"code": [
+                "sheet.bind(GcSpread.Sheets.Events.ValidationError, function(e, args) {",
+                "   // do some thing.",
+                "});"
+            ]}
+        ]
+    ]
+}

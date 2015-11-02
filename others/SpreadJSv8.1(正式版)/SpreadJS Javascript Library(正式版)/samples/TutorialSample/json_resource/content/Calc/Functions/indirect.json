@@ -1,0 +1,14 @@
+{
+    "title": "INDIRECT Function",
+    "segments": [
+        [
+            {"description": "SpreadJS provides an INDIRECT function similar to Microsoft Excel."}
+        ],
+        [
+            {"description": "INDIRECT returns the reference specified by a text string. References are immediately evaluated to display their contents. Use <b>INDIRECT</b> when you want to change the reference to a cell within a formula without changing the formula itself."}
+        ],
+        [
+            {"description": "INDIRECT supports A1-style reference, R1C1-style reference, named reference, or a reference to a cell as a text string. For invalid cell references, INDIRECT returns the <b>#REF!</b> error value."}
+        ]
+    ]
+}

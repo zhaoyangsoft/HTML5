@@ -1,0 +1,19 @@
+{
+    "title": "Vari Sparkline",
+    "segments": [
+        [
+            {"description": "You can create a variance sparkline by using the VariSparkline function in a formula: <b>=VARISPARKLINE(variance, reference?, mini?, maxi?, mark?, tickunit?, legend?, colorPositive?, colorNegative?, vertical?)</b>."},
+			{"description": "The function has the following parameters:"},
+            {"description": "<b>variance</b>: Number or reference that represents the length of the bar, such as 2 or \"A1\". "},
+            {"description": "<b>reference</b>: (optional)  Number or reference that represents the location of the reference line, such as 0 or \"A2\"; default value is 0. "},
+            {"description": "<b>mini</b>: (optional) Number or reference that represents the minimum values of the sparkline, such as -5 or \"A3\"; default value  is -1. "},
+            {"description": "<b>maxi</b>: (optional) Number or reference that represents the maximum values of the sparkline, such as 5 or \"A4\"; default value is 1. "},
+            {"description": "<b>mark</b>: (optional) Number or reference that represents the position of the mark line, such as 3 or \"A5\"; default value is 0. "},
+            {"description": "<b>tickunit</b>: (optional) Number or reference that represents the tick unit, such as 1 or \"A6\"; default value is 0. "},
+            {"description": "<b>legend</b>: (optional) Boolean that represents whether to display the text or not; default value is false. "},
+            {"description": "<b>colorPositive</b>: (optional) String that represents the color scheme for when the variance is larger than the reference; default value is \"green\". "},
+            {"description": "<b>colorNegative</b>: (optional) String that represents the color scheme for when the variance is smaller than the reference; default value is \"red\". "},
+            {"description": "<b>vertical</b>: (optional) Boolean that represents whether the box's direction is vertical or horizontal; default value is false."}
+        ]
+    ]
+}

@@ -1,0 +1,16 @@
+{
+    "title": "Area Sparkline",
+    "segments": [
+        [
+            {"description": "You can create an area sparkline by using the AreaSparkline function in a formula: <b>=AREASPARKLINE(points, min?, max?, line1?, line2?, colorPositive?, colorNegative?)</b>."},
+			{"description": "The function has the following parameters:"},
+            {"description": "<b>points</b>: It is a range, such as \"D1:D6\". If  a cell value is not a valid number, it will be treated as 0." },
+            {"description": "<b>min</b>: (optional) A number that represents the minimum value of the sparkline. The minimum of min and the actual minimum value will take effect. The default value is the minimum value in the range."},
+            {"description": "<b>max</b>: (optional) A number that represents the maximum value of the sparkline. The maximum of max and the actual maximum value will take effect. The default value is the maximum value in the range."},
+            {"description": "<b>line1</b>: (optional) A number that represents a horizontal line's vertical position; the line does not exist in default."},
+            {"description": "<b>line2</b>: (optional) A number that represents another horizontal line's vertical position; the line does not exist in default."},
+            {"description": "<b>colorPositive</b>: (optional) A string that represents the color of the area in which the value is positive; default value is \"#787878\"."},
+            {"description": "<b>colorNegative</b>: (optional) A string that represents the color of the area in which the value is negative; default value is \"#CB0000\"."}
+        ]
+    ]
+}

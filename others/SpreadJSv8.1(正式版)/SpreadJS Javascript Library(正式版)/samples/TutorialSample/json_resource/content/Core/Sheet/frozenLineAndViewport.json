@@ -1,0 +1,38 @@
+{
+    "title": "FrozenLine and Viewport",
+    "segments": [
+        [
+            {"description": "As explained in step 3, the SpreadJS sheet consists of four areas: corner, rowHeader, colHeader, and viewport. The viewport is the bottom right area of the sheet."},
+            {"description": "The sheet's frozen rows and columns prevent rows and columns from scrolling in the sheet's viewport area using a frozen line divider. The frozen lines also divide the viewport into several row and column viewports."}
+        ],
+        [
+            {"description": "1. You can set at most four different frozen lines in a sheet. Doing so will divide the current viewport into three row viewports and three column viewports. The following code creates four frozen lines in a sheet:"},
+            {"code":[
+                "//set row frozenline and column frozenline.",
+                "sheet.setFrozenCount(3, 3);",
+                " ",
+                "sheet.setFrozenRowCount(3);",
+                "sheet.setFrozenColumnCount(3);",
+                "sheet.setFrozenTrailingRowCount(3);",
+                "sheet.setFrozenTrailingColumnCount(3);"
+            ]},
+            {"description":"You can customize the frozenLine's color, as shown in the following code:"},
+            {"code":[
+                "sheet.frozenlineColor('red');"
+            ]}
+        ],
+        [
+            {"description":"2. SpreadJS provides methods for you to get the information for each viewport, such as the width, height, topRow, and so on."},
+            {"description":"Supposing you have set a row frozen line and a column frozen line in a sheet. The original viewport has been divided into three row viewports, and the viewport indexes are 0, 1, and 2. You could then use the following code to get the information for the second viewport:"},
+            {"code":[
+                "sheet.getViewportWidth(1);",
+                "sheet.getViewportHeight(1);",
+                " ",
+                "sheet.getViewportTopRow(1);",
+                "sheet.getViewportBottomRow(1);",
+                "sheet.getViewportLeftColumn(1);",
+                "sheet.getViewportRightColumn(1)"
+            ]}
+        ]
+    ]
+}

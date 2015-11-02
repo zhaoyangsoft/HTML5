@@ -1,82 +1,90 @@
 <!doctype html>
 <html>
+
 <head>
-<title>Canvas图像处理demo</title>
-<meta charset='utf-8' />
-<script src="jQuery.js" type="text/javascript"></script>
-<style>
-h1 {
-	text-align: center;
-}
-
-.outer {
-	width: 800px;
-	margin: 0 auto;
-}
-
-img {
-	border: 0;
-	width: 200px;
-	height: 350px;
-	margin: 0;
-	padding: 0;
-}
-</style>
+    <title>Canvas图像处理demo</title>
+    <meta charset='utf-8' />
+    <script src="jQuery.js" type="text/javascript"></script>
+    <style>
+    h1 {
+        text-align: center;
+    }
+    
+    .outer {
+        width: 800px;
+        margin: 0 auto;
+    }
+    
+    img {
+        border: 0;
+        width: 200px;
+        height: 350px;
+        margin: 0;
+        padding: 0;
+    }
+    </style>
 </head>
 
 <body>
-	<h1>Canvas图像处理demo</h1>
-	<div class='outer'>
-		<img class='image' src='images/1.jpg' /> <img class='image'
-			src='images/2.jpg' /> <img class='image' src='images/3.jpg' /> <img
-			class='image' src='images/4.jpg' /> <img class='image'
-			src='images/5.jpg' />
-	</div>
-	<script>
-　　　　　/*等图片加载完成后再执行（若图片没有加载完成，则不能正常进行图片处理）*/
-        $(window).load(function(){
-　　　　　　　/*克隆一张原图，把当前图片变为灰度图*/
-            $('.image').each(function(){
-                $(this).css({"position":"absolute"}).wrap("<div class='img_wrapper' style='display: inline-block;position:relative;float:left;'></div>").clone().addClass('img_grayscale').css({"position":"absolute","z-index":"998","opacity":"0"}).insertBefore($(this));
-                $('.img_wrapper').css({'height':$(this).height(),'width':$(this).width()});
-                this.src=huidu(this.src);
+    <h1>Canvas图像处理demo</h1>
+    <div class='outer'>
+        <img class='image' src='images/1.jpg' /> <img class='image' src='images/2.jpg' /> <img class='image' src='images/3.jpg' /> <img class='image' src='images/4.jpg' /> <img class='image' src='images/5.jpg' />
+    </div>
+    <script>
+    /*等图片加载完成后再执行（若图片没有加载完成，则不能正常进行图片处理）*/
+    $(window).load(function() {　　　　　　　 /*克隆一张原图，把当前图片变为灰度图*/
+        $('.image').each(function() {
+            $(this).css({
+                "position": "absolute"
+            }).wrap("<div class='img_wrapper' style='display: inline-block;position:relative;float:left;'></div>").clone().addClass('img_grayscale').css({
+                "position": "absolute",
+                "z-index": "998",
+                "opacity": "0"
+            }).insertBefore($(this));
+            $('.img_wrapper').css({
+                'height': $(this).height(),
+                'width': $(this).width()
             });
-　　　　　　　/*通过控制彩色图片的透明度模拟上色效果*/
-            $('.img_wrapper').mouseover(function(){  
-                   $(this).find('img:first').stop().animate({opacity:1},100);  
-            })  
-            $('.img_wrapper').mouseout(function(){  
-                   $(this).find('img:first').stop().animate({opacity:0},100);  
-            });  
-            /*
-　　　　　　　　*function
-　　　　　　　　*函数名称：huidu
-　　　　　　　　*功能：把图片转换为灰度图
-　　　　　　　　*参数：src（原图的url）
-　　　　　　　　*返回值：（转换完成后的图片url）
-　　　　　　　　*/
-            function huidu(src){
-　　　　　　　　　/*创建一个canvas*/
-                var canvas=document.createElement('canvas');
-                var ctx=canvas.getContext('2d');
-                var img=new Image();
-                img.src=src;
-                canvas.height=img.height;
-                canvas.width=img.width;
-                ctx.drawImage(img,0,0);
-                var imgdata=ctx.getImageData(0,0,canvas.width,canvas.height);var data=imgdata.data;
-　　　　　　　　　/*灰度处理：求r，g，b的均值，并赋回给r，g，b*/
-                for(var i=0,n=data.length;i<n;i+=4){
-                    var average=(data[i]+data[i+1]+data[i+2])/3;
-                    data[i]=average;
-                    data[i+1]=average;
-                    data[i+2]=average;
-                }
-                ctx.putImageData(imgdata,0,0);
-　　　　　　　　　/*返回处理之后的src*/
-                return canvas.toDataURL();
-            }
+            this.src = huidu(this.src);
+        });　　　　　　　 /*通过控制彩色图片的透明度模拟上色效果*/
+        $('.img_wrapper').mouseover(function() {
+            $(this).find('img:first').stop().animate({
+                opacity: 1
+            }, 100);
+        })
+        $('.img_wrapper').mouseout(function() {
+            $(this).find('img:first').stop().animate({
+                opacity: 0
+            }, 100);
         });
+        /*
+         *function
+         *函数名称：huidu
+         *功能：把图片转换为灰度图
+         *参数：src（原图的url）
+         *返回值：（转换完成后的图片url）
+         */
+        function huidu(src) {　　　　　　　　　 /*创建一个canvas*/
+            var canvas = document.createElement('canvas');
+            var ctx = canvas.getContext('2d');
+            var img = new Image();
+            img.src = src;
+            canvas.height = img.height;
+            canvas.width = img.width;
+            ctx.drawImage(img, 0, 0);
+            var imgdata = ctx.getImageData(0, 0, canvas.width, canvas.height);
+            var data = imgdata.data;　　　　　　　　　 /*灰度处理：求r，g，b的均值，并赋回给r，g，b*/
+            for (var i = 0, n = data.length; i < n; i += 4) {
+                var average = (data[i] + data[i + 1] + data[i + 2]) / 3;
+                data[i] = average;
+                data[i + 1] = average;
+                data[i + 2] = average;
+            }
+            ctx.putImageData(imgdata, 0, 0);　　　　　　　　　 /*返回处理之后的src*/
+            return canvas.toDataURL();
+        }
+    });
     </script>
 </body>
+
 </html>

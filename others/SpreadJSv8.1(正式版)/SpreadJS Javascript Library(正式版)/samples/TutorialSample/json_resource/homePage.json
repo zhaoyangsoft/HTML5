@@ -1,0 +1,25 @@
+{
+    "headerText": "SpreadJS",
+    "contentHeaderText": "Features",
+    "contentHeaderSearchPlaceholder": "Search",
+    "footerText": "© 2015 GrapeCity, Inc. All Rights Reserved. All product and company names herein may be trademarks of their respective owners.",
+	"introductionText": "Walk through every facet of Spread using these step-by-step tutorials. Each includes clear instructions, code, and a tool to run and view your work.",
+    "newFeauresHeaderText": "New Features",
+    "newFeatures": [
+        {
+            "name":"TabStrip",
+            "resource": "tabStrip",
+            "imageUrl": "images/tabStrip.PNG"
+        },
+        {
+            "name":"Scrollbar",
+            "resource": "scrollbar",
+            "imageUrl": "images/scrollbar.png"
+        },
+        {
+            "name":"Spread Background",
+            "resource": "spreadBackground",
+            "imageUrl": "images/spreadBackground.PNG"
+        }
+    ]
+}

@@ -1,0 +1,11 @@
+{
+    "title": "Cook Book",
+    "segments": [
+        [
+            {"description": "People often share recipes and create collections of recipe cards. Spread can display a recipe collection."}
+        ],
+        [
+            {"description": "Use SpreadJS to share a recipe with an image and merge cells using <b>backgroundImage</b> and <b>addSpan</b>."}
+        ]
+    ]
+}

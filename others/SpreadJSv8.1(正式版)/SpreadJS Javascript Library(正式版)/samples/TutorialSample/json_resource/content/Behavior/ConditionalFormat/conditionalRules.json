@@ -1,0 +1,45 @@
+{
+    "title": "Conditional Rules",
+    "segments": [
+        [
+            {"description": "1. The conditional format contains many rules; each rule has its own features. By using these conditional rules, you can better format the data."}
+        ],
+        [
+            {"description": "2. SpreadJS provides the following built-in rules:"},
+            {"list": [
+                "CellValueRule: The cell value rule.",
+                "SpecificTextRule: The specific text rule.",
+                "FormulaRule: The formula rule.",
+                "DateOccurringRule: The date occurring rule.",
+                "Top10Rule: The top 10 rule.",
+                "UniqueRule: The unique rule.",
+                "DuplicateRule: The duplicate rule.",
+                "AverageRule: The average rule.",
+                "TwoScaleRule: The two scale rule.",
+                "ThreeScaleRule: The three scale rule.",
+                "DataBarRule: The data bar rule.",
+                "IconSetRule: The icon set rule."
+            ]}
+        ],
+        [
+            {"description": "3. You can customize the rule's condition when you create a specified rule or add a specified rule. For example:"},
+            {"code": [
+                "var cfs = sheet.getConditionalFormats();",
+                "var style = new GcSpread.Sheets.Style();",
+                "style.backColor = '#CCFFCC';",
+                "var operator = GcSpread.Sheets.ComparisonOperator.GreaterThan;",
+                "var ranges = [new GcSpread.Sheets.Range(3, 3, 3, 3)];",
+                "cfs.addCellValueRule(operator, 100, 0, style, ranges);",
+                "var cvRule = new GcSpread.Sheets.CellValueRule(operator, 100, 0, style);",
+                "sheet.getConditionalFormats().addRule(cvRule);"
+            ]},
+            {"description": "Sometimes you need to set some detailed settings for the rule. You can take the rule object and use the APIs of the rule to set features. For example:"},
+            {"code": [
+                "iconSetRule.ranges = [new GcSpread.Sheets.Range(0, 0, 5, 1)];",
+                "iconSetRule.iconSetType(GcSpread.Sheets.IconSetType.ThreeArrowsColored);",
+                "iconSetRule.reverseIconOrder(true);",
+                "iconSetRule.showIconOnly(true);"
+            ]}
+        ]
+    ]
+}

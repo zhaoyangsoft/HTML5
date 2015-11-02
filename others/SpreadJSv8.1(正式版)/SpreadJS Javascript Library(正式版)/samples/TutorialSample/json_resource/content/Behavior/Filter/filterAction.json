@@ -1,0 +1,36 @@
+{
+    "title": "Filter Action",
+    "segments": [
+        [
+            {"description": "The Filter object's <b>onFilter</b> method provides the ability to create a custom filter action."}
+        ],
+        [
+            {"description": "1. Create a new class extended from <b>RowFilterBase</b>. For example:"},
+            {"code": [
+                "function SelectionFilter(range) {",
+                "   GcSpread.Sheets.RowFilterBase.call(this, range);",
+                "}",
+                "SelectionFilter.prototype = new GcSpread.Sheets.RowFilterBase();"
+            ]}
+        ],
+        [
+            {"description": "2. The next step is to override the <b>onFilter</b>(args) to provide the custom filter action. The args.action is one of the following <b>FilterActionType</b> enums:"},
+            {"list": [
+                 "Filter",
+                 "Unfilter"
+            ]},
+            {"description": "Use it to check if the filter or unfilter action should be provided. For example:"},
+            {"code": [
+                "SelectionFilter.prototype.onFilter = function (args) {",
+                "   var sheet = args.sheet;",
+                "   if (args.action === GcSpread.Sheets.FilterActionType.Filter) {",
+                "       sheet.setValue(9, 1, \"Select the filtered items\");",
+                "   } else {",
+                "       sheet.setValue(9, 1, \"No filtered items\");",
+                "   }",
+                "};"
+            ]},
+            {"description": "You can use the <b>filterButtonVisble</b> method to control the display of the filter buttons."}
+        ]
+    ]
+}

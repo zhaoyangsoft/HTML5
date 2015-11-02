@@ -1,0 +1,21 @@
+{
+    "title": "Custom Culture",
+    "segments": [
+        [
+            {"description": "1. You can modify the culture string and create a custom culture using the <b>CultureInfo</b> class."},
+            {"code": [
+                 "var myCulture = new GcSpread.Sheets.CultureInfo();",
+                 "myCulture.currencySymbol = '&euro;'",
+                 "myCulture.numberDecimalSeparator = ',';",
+                 "// other settings ..."
+            ]}
+        ],
+        [
+            {"description": "2. Add the custom culture by using the <b>addCultureInfo</b> method along with a culture name. Use the culture by setting the <b>Culture</b> method with the corresponding name."},
+            {"code": [
+                "GcSpread.Sheets.addCultureInfo('de-DE', myCulture);",
+                "GcSpread.Sheets.Culture('de-DE');"
+            ]}
+        ]
+    ]
+}

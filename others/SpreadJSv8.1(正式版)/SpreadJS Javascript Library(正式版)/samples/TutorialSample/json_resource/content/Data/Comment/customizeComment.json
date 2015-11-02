@@ -1,0 +1,65 @@
+{
+    "title": "Custom Comment",
+    "segments": [
+        [
+            {"description": "1. You can customize the comment, such as format the comment text, set the comment's border, set the comment's position and size, and so on."}
+        ],
+        [
+            {"description": "2. Before you add the comment, you can set the text for the comment using the <b>text</b> method. The position and size of the comment can also be changed. For example:"},
+            {"code": [
+                "comment.text('new comment!');",
+                "comment.location(new GcSpread.Sheets.Point(62, 20));",
+                "comment.width(200);",
+                "comment.height(100);"
+            ]}
+        ],
+        [
+            {"description": "3. Sometimes you might need to resize the row's height or the column's width, and you don't want the position or size of the comment to change. To do this, use the <b>dynamicMove</b> and <b>dynamicSize</b> methods. For example:"},
+            {"code": [
+                "comment.dynamicMove(false);",
+                "comment.dynamicSize(false);"
+            ]},
+            {"description": "Note that if the comment's dynamicMove method is false and dynamicSize method is true, neither has an effect."}
+        ],
+        [
+            {"description": "4. After you edit the comment's text, you can format the content, such as font, textDecoration, and so on. For example:"},
+            {"code": [
+                "comment.fontFamily('sans-serif');",
+                "comment.fontStyle('italic');",
+                "comment.fontSize('10pt');",
+                "comment.foreColor('red');",
+                "comment.backColor('green');",
+                "comment.opacity(0.5);",
+                "comment.textDecoration(GcSpread.Sheets.TextDecorationType.Underline);",
+                "comment.horizontalAlign(GcSpread.Sheets.HorizontalAlign.left);",
+                "var padding1 = new GcSpread.Sheets.Padding(10, 20, 30, 40);",
+                "comment.padding(padding1);",
+                "comment.autoSize(true);"
+            ]}
+        ],
+        [
+            {"description": "5. You can add a border to the comment. The border is set as the DOM's border setting. For example:"},
+            {"code": [
+                "comment.borderStyle('dotted');",
+                "comment.borderWidth(5);",
+                "comment.borderColor('red');",
+                "..."
+            ]}
+        ],
+        [
+            {"description": "6. When one comment object overlaps another, you can change the order from top to bottom by <b>zIndex</b>."},
+            {"code": [
+                "comment1.zIndex(100);",
+                "comment2.zIndex(101);"
+            ]}
+        ],
+        [
+            {"description": "7. If you do not want the comment to change based on UI interaction, use the <b>lock</b> method to lock it. If you want to lock it, first lock the sheet. If you don't want the text to be changed, use the <b>lockText</b> method to lock the text."},
+            {"code": [
+                "sheet.setIsProtected(true);",
+                "comment.lock(true);",
+                "comment.lockText(true);"
+            ]}
+        ]
+    ]
+}

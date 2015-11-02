@@ -1,0 +1,36 @@
+{
+    "title": "Table Binding",
+    "segments": [
+        [
+            {"description": "1. Table binding is part of cell-level binding; it provides the data in a table."}
+        ],
+        [
+            {"description": "2. Use the <b>bindingPath</b> method to bind the table to a field with records, and then bind the table columns to the record's fields. For example:"},
+            {"code": [
+                "var data = { name: 'Jones',  region: 'East',",
+                "  sales: [",
+                "    { orderDate: '1/6/2013', item: 'Pencil', units: 95, cost: 1.99 },",
+                "    { orderDate: '4/1/2013', item: 'Binder', units: 60, cost: 4.99 },",
+                "    { orderDate: '6/8/2013', item: 'Pen Set', units: 16, cost: 15.99 }",
+                "   ]};",
+                "var tableColumns = [], ",
+				"    names = ['orderDate', 'item', 'units', 'cost'],",
+				"    labels = ['Order Date', 'Item', 'Units', 'Cost'];",
+                "var table = sheet.addTable('tableRecords', 10, 1, 4, 4);",
+                "table.autoGenerateColumns(false);",
+                "names.forEach(function (name, index) {",
+                "   var tableColumn = new GcSpread.Sheets.TableColumnInfo();",
+                "   tableColumn.name(labels[index]);",
+                "   tableColumn.dataField(name);",
+                "   tableColumns.push(tableColumn);",
+                "});",
+                "",
+                "table.bindColumns(tableColumns);",
+                "table.bindingPath('sales');",
+                "source = new GcSpread.Sheets.CellBindingSource(data);",
+                "sheet.setDataSource(source);"
+            ]},
+            {"description": "When you set a different data source, the table will automatically bind to corresponding records."}
+        ]
+    ]
+}

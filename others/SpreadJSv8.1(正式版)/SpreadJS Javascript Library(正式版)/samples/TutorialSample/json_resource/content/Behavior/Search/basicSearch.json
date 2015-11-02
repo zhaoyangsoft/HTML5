@@ -1,0 +1,46 @@
+{
+    "title": "Basic Search",
+    "segments": [
+        [
+            {"description": "1. In SpreadJS, you can search for something in your Spread, such as a particular number or text string."}
+        ],
+        [
+            {"description": "2. To search for your specified text string or number, use the <b>search</b> method to search the text in cells with the specified criteria, as shown in the following example:"},
+            {"code": [
+                "sheet.setText(6, 10, 'testSearch');",
+                "var searchCondition = new GcSpread.Sheets.SearchCondition();",
+                "searchCondition.searchString = 'testSearch';",
+                "var searchresult = sheet.search(searchCondition);"
+            ]}
+        ],
+        [
+            {"description": "3. If you want to customize the search condition, set the <b>SearchCondition</b>."},
+            {"code": [
+                "this.sheet.getCell(3, 3).text('Demo string for search');",
+                "var condition = new GcSpread.Sheets.SearchCondition();",
+                "condition.searchString = 'for';",
+                "condition.startSheetIndex = 0;",
+                "condition.endSheetIndex = 0;",
+                "condition.searchFlags = GcSpread.Sheets.SearchFlags.IgnoreCase | GcSpread.Sheets.SearchFlags.BlockRange;",
+                "condition.searchOrder = GcSpread.Sheets.SearchOrder.NOrder;",
+                "condition.searchTarget = GcSpread.Sheets.SearchFoundFlags.CellText;",
+                "condition.sheetArea = GcSpread.Sheets.SheetArea.viewport;",
+                "condition.rowStart = 0;",
+                "condition.columnStart = 0;",
+                "condition.rowEnd = 10;",
+                "condition.columnEnd = 10;",
+                "var result = this.spread.search(condition);"
+            ]}
+        ],
+        [
+            {"description": "4. After you search for something, you can get a search result. The search result is an object, which contains the following properties:"},
+            {"list": [
+                "searchFoundFlag: An enumeration that specifies what is matched.",
+                "foundSheetIndex: The index of the sheet in which a match is found.",
+                "foundRowIndex: The index of the row at which a match is found.",
+                "foundColumnIndex: The index of the column at which a match is found.",
+                "foundString: The found string."
+            ]}
+        ]
+    ]
+}

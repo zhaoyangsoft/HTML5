@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>test position </title>
+    <!-- https://developer.mozilla.org/zh-CN/docs/Web/CSS/position -->
+    <link rel="stylesheet" href="">
+    <style type="text/css">
+    .ele {
+        /*display: static;*/
+        background-color: pink;
+        min-width: 100px;
+        min-height: 100px;
+        margin: 10px;
+        float: left;
+    }
+    
+    .rel {
+        position: relative;
+        top: 300px;
+    }
+    
+    .rel2 {
+        position: relative;
+        left: 10px;
+        top: 10px;
+    }
+    
+    .fixed {
+        position: fixed;
+        /*   left: 50px;
+        top:100px;*/
+        border: 1px solid green;
+    }
+    
+    .ab {
+        position: absolute;
+        left: 10px;
+        top: 10px;
+    }
+    
+    .sticky {
+        position: sticky;
+        top: 10px;
+    }
+    ·
+    .container {
+        border: 1px solid #ccc;
+        height: 1000px;
+        width: 500px;
+    }
+    </style>
+</head>
+
+<body>
+    <div class='container'>
+        <!-- div 2 position:绝对定位  不留空白. 找到 position为relative 的父元素 做相对位置偏移【position:absolue】 -->
+        <div class="ele rel">
+            <!-- 类似于 position absolute 不留空白 ，找 relative 的父元素作为相对偏移位置，left top 结果值 是父容器内容加上自身的 偏移量.， 不同的是可以固定住 ,  -->
+            <div class="ele fixed">fixed</div>
+            1
+            <div class="ele ab">2 2 2 2 2 2 2 2 2 2 2 22 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 22 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 22 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 22 2 2 2 2 2 2 2 2 2 2
+            </div>
+        </div>
+        <div class="ele">3</div>
+        <!-- div 4 position:relative 的位置 会保留 空白区域 然后做相对位置偏移  [position:relative]-->
+        <div class="ele rel2">4</div>
+        <div class="ele">5</div>
+        <div class="ele sticky">6 sticky</div>
+    </div>
+</body>
+
+</html>

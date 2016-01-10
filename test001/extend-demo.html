@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>继承 测试..</title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <h1>继承测试..</h1>
+</body>
+<script type="text/javascript">
+// 定义Person构造器
+function Person(firstName) {
+    this.firstName = firstName;
+}
+
+// 在Person.prototype中加入方法
+Person.prototype.walk = function() {
+    console.log("I am walking!");
+};
+Person.prototype.sayHello = function() {
+    console.log("Hello, I'm " + this.firstName);
+};
+
+//不通过原型链 是不能被集成的.   写在原型链上的可以被子类(外包装)直接使用
+Person.aa = function() {
+    cosnole.log('single fun aa test');
+}
+
+// 定义Student构造器
+function Student(firstName, subject) {
+    // 调用父类构造器, 确保(使用Function#call)"this" 在调用过程中设置正确
+    Person.call(this, firstName);
+
+    // 初始化Student类特有属性
+    this.subject = subject;
+};
+
+//官方推荐
+Student.prototype = Object.create(Person.prototype);
+// Student.prototype = Person.prototype;
+
+
+// 设置"constructor" 属性指向Student
+Student.prototype.constructor = Student;
+
+// 更换"sayHello" 方法
+Student.prototype.sayHello = function() {
+    console.log("Hello, I'm " + this.firstName + ". I'm studying " + this.subject + ".");
+};
+
+// 加入"sayGoodBye" 方法
+Student.prototype.sayGoodBye = function() {
+    console.log("Goodbye!");
+};
+
+// 测试实例:
+var student1 = new Student("小明", "数学。。");
+student1.sayHello(); // "Hello, I'm Janet. I'm studying Applied Physics."
+student1.walk(); // "I am walking!"
+student1.sayGoodBye(); // "Goodbye!"
+student1.aa(); // "I am walking!"
+
+// Check that instanceof works correctly
+console.log(student1 instanceof Person); // true 
+console.log(student1 instanceof Student); // true
+</script>
+
+</html>

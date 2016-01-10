@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>原型链</title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+</body>
+<script type="text/javascript">
+var a1 = {
+    a: 1,
+    b: 2
+}
+var a0 = {
+    b: 3,
+    c: 4
+}
+// a1.prototype = a0;
+// console.log(a1.a);
+// console.log(a1.b);
+// console.log(a1.c);
+//注意 prototype 和 setPrototypeOf的区别
+Object.setPrototypeOf(a1, a0)
+console.log(a1.c);
+</script>
+
+</html>

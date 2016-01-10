@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <style>
+    .animated_0_5 {
+        -webkit-animation-duration: 0.5s;
+        animation-duration: 0.5s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+        z-index: 100;
+    }
+    
+    @-webkit-keyframes slideInRight {
+        0% {
+            opacity: 0;
+            -webkit-transform: translateX(100px);
+            transform: translateX(100px);
+        }
+        30% {
+            -webkit-transform: translateX(0);
+            transform: translateX(0);
+        }
+    }
+    
+    @keyframes slideInRight {
+        0% {
+            opacity: 0;
+            -webkit-transform: translateX(100px);
+            -ms-transform: translateX(100px);
+            transform: translateX(100px);
+        }
+        30% {
+            -webkit-transform: translateX(0);
+            -ms-transform: translateX(0);
+            transform: translateX(0);
+        }
+    }
+    
+    .slideInRight {
+        -webkit-animation-name: slideInRight;
+        animation-name: slideInRight;
+    }
+    
+    body {
+        background-color: #F8F4D9;
+    }
+    </style>
+</head>
+
+<body>
+<h1>Test Animate</h1>
+<hr>
+    <div style='width:300px;min-height:500px;;border:1px solid #ccc ;background-color:#333333'>
+        <div class="animated_0_5 slideInRight"> <h2>Text Demo..</h2></div>
+    </div>
+
+</body>
+
+</html>

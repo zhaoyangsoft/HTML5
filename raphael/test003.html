@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <script type="text/javascript" src="./raphael.js"></script>
+    <script type="text/javascript" src="./rg.js"></script>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <h1>Raphael 小李子 Drag</h1>
+    <div id="canvas_container"></div>
+</body>
+<script>
+var graph = new Rg({
+    container: document.getElementById("canvas_container"),
+    x: [1, 2, 3, 4, 5, 6, 7],
+    y: [1, 2, 3, 4],
+    snap: true
+});
+graph.render();
+</script>
+
+</html>

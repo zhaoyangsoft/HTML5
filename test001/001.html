@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>js OOP</title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <div>sdf</div>
+    <div>asd</div>
+    <div>sdf</div>
+    <div>sdf</div>
+</body>
+<script type="text/javascript">
+// var Cat = {　name: '',color: ''}
+
+// OOP  封装 集成  多态
+
+//step1 原始模式 对象
+var cat1 = {}; // 创建一个空对象
+　　　　
+cat1.name = "大毛"; // 按照原型对象的属性赋值
+　　　　
+cat1.color = "黄色";　　
+var cat2 = {};　　　　
+cat2.name = "二毛";　　　　
+cat2.color = "黑色";
+
+// ------  只做了创建对象 ， 1. 没有封装； 没有抽象, 2. 类和实例 没有毛关系.(cat1和cat2之间没有内在的联系，不能反映出它们是同一个原型对象的实例) , 
+
+//step2  
+
+function Cat(name, color) {　　　　
+    this.name = name;　　　　
+    this.color = color;　　　　
+    this.type = "猫科动物";　　　　
+    this.eat = function() {
+        alert("吃老鼠");
+    };　　
+}
+
+
+
+var cat1 = new Cat("大毛", "黄色");　　
+var cat2 = new Cat("二毛", "黑色");　　
+
+console.log(cat1.name); // 大毛
+console.log(cat1.color); // 黄色
+console.log(cat1.constructor == Cat); //true
+console.log(cat2.constructor == Cat); //true
+
+console.log(cat1 instanceof Cat); //true
+console.log(cat2 instanceof Cat); //true
+
+// 创建对象的方法有2 种，  构造函数 & Object.create
+
+   
+</script>
+
+</html>

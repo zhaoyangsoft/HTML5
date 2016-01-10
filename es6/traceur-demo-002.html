@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>traceur demo</title>
+    <link rel="stylesheet" href="">
+    <script src="http://google.github.io/traceur-compiler/bin/traceur.js" type="text/javascript"></script>
+    <!-- 将Traceur编译器用于网页 -->
+    <script src="http://google.github.io/traceur-compiler/src/bootstrap.js" type="text/javascript"></script>
+    <!-- 打开实验选项，否则有些特性可能编译不成功 -->
+    <script>
+    // traceur.options.experimental = true;
+
+
+    </script>
+
+    <script type="module">
+
+        function foo() {
+        let bar = `Hello
+            World`;
+        console.log(bar);
+    }
+
+    class Calc {
+        constructor(){
+            console.log('Calc constructor');
+        }
+        add(a, b){
+            return a + b;
+        }
+    }
+
+    // console.log(JSON.stringify(class))
+    var c = new Calc();
+    console.log(888)
+    console.log(c.add(4,5));
+</script>
+</head>
+
+<body>
+    test..
+</body>
+
+</html>

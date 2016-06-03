@@ -79,6 +79,20 @@
         // c.bezierCurveTo(20,100,200,100,200,20);
         c.lineWidth = 6;
         c.stroke();
+
+
+        /**
+         * context.bezierCurveTo(cp1x,cp1y,cp2x,cp2y,x,y);
+        参数值
+        参数  描述
+        cp1x    第一个贝塞尔控制点的 x 坐标
+        cp1y    第一个贝塞尔控制点的 y 坐标
+        cp2x    第二个贝塞尔控制点的 x 坐标
+        cp2y    第二个贝塞尔控制点的 y 坐标
+        x   结束点的 x 坐标
+        y   结束点的 y 坐标
+        //Demo : http://www.w3school.com.cn/tags/canvas_beziercurveto.asp 
+         */
     }
     //填充文本.
     function test4() {
@@ -139,7 +153,9 @@
         c.font = "24pt sans-serif";
         var text = "Sales Data from 2025";
         var metrics = c.measureText(text);
+        // ctx.measureText(txt).width  在画布上输出文本之前，检查字体的宽度：
         //后边两个是未知. 
+        c.fillText('width:' + metrics.width, 250 - metrics.width / 2, 450);
         c.fillText(text, 250 - metrics.width / 2, 400);
     }
     //跨浏览器的 animate.
